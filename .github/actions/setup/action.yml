@@ -1,0 +1,41 @@
+name: Setup
+description: 'Setup stuff'
+inputs:
+  encryption_key:
+    default: ""
+    description: "Encryption key for Gradle Configuration Cache"
+runs:
+  using: "composite"
+  steps:
+    - name: set up JDK 24
+      uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+      with:
+        distribution: 'zulu'
+        java-version: '24'
+    - name: Set up jemalloc
+      uses: kaeawc/setup-jemalloc@97ffdab77f76db0584b4d9cfb036fab6457d5526 # v0.0.3
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@017a9effdb900e5b5b2fddfb590a105619dca3c3 # v4
+      with:
+        cache-encryption-key: ${{ inputs.encryption_key }}
+
+# Stolen from here https://github.com/kaeawc/android-build/blob/a86b15e3cbc5d36339a97d09f46c7a22e276ff7f/.github/actions/gradle-task-run/action.yml#L140
+    - name: "Restore Android SDK Platform Tools"
+      id: cache-android-platform-tools
+      uses: actions/cache/restore@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+      with:
+        path: |
+          /usr/local/lib/android/sdk/platform-tools
+          /home/runner/.config/.android/cache
+        key: v2-${{ runner.os }}-android-platform-tools
+    - name: Setup Android SDK
+      if: steps.cache-android-platform-tools.outputs.cache-hit != 'true'
+      uses: android-actions/setup-android@9fc6c4e9069bf8d3d10b2204b1fb8f6ef7065407 # v3.2.2
+    - name: "Save Android SDK Platform Tools"
+      uses: actions/cache/save@0400d5f644dc74513175e3cd8d07132dd4860809 # v4
+      if: steps.cache-android-platform-tools.outputs.cache-hit != 'true'
+      with:
+        path: |
+          /usr/local/lib/android/sdk/platform-tools
+          /home/runner/.config/.android/cache
+        key: v2-${{ runner.os }}-android-platform-tools
