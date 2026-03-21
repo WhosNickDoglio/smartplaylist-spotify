@@ -9,6 +9,7 @@ import com.github.ajalt.clikt.core.subcommands
 import com.github.ajalt.clikt.parameters.options.versionOption
 import dev.whosnickdoglio.spotify.VERSION
 import dev.whosnickdoglio.spotify.cli.di.AppDependencyGraph
+import dev.whosnickdoglio.spotify.clikt.NoOpSuspendingCliktCommand
 import dev.whosnickdoglio.spotify.commands.RootSubcommand
 import dev.zacsweers.metro.Inject
 import dev.zacsweers.metro.createGraph
@@ -20,13 +21,11 @@ public suspend fun main(args: Array<String>) {
 
 @Inject
 internal class RootCommand(@RootSubcommand commands: Set<SuspendingCliktCommand>) :
-    SuspendingCliktCommand(name = "sps") {
+    NoOpSuspendingCliktCommand(name = "sps") {
     init {
         versionOption(VERSION)
         subcommands(commands.sortedBy { it.commandName })
     }
 
     override fun help(context: Context): String = "Spotify CLI for creating and managing playlists."
-
-    override suspend fun run(): Unit = Unit
 }

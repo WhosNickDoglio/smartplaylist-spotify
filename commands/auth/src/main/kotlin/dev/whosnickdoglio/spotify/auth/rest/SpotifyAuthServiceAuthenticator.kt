@@ -17,9 +17,7 @@ public class SpotifyAuthServiceAuthenticator(
     @param:ClientSecret private val clientSecret: String,
 ) : Authenticator {
     override fun authenticate(route: Route?, response: Response): Request {
-
         val encoded = Base64.encode("${clientId}:${clientSecret}".toByteArray())
-
         return response.newBuilder().addHeader("Authorization", "Basic $encoded").build().request
     }
 }

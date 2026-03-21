@@ -22,8 +22,10 @@ public class LoginCommand(
 ) : SuspendingCliktCommand("login") {
     override suspend fun run() {
         echo("Attempting to authorize Spotify...")
-        val response = authService.requestAccessToken(clientId = clientId, clientSecret = clientId)
-        when (response) {
+        when (
+            val response =
+                authService.requestAccessToken(clientId = clientId, clientSecret = clientSecret)
+        ) {
             is ApiResult.Failure -> {
                 echo("Request failed!")
             }

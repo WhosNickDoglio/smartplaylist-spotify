@@ -52,6 +52,7 @@ include(
     ":cli",
     ":commands:annotations",
     ":commands:auth",
+    ":commands:clikt",
     ":commands:config",
     ":commands:create",
     ":kover-aggregate",

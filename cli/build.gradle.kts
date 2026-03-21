@@ -33,6 +33,7 @@ dependencies {
     implementation(libs.clikt)
     implementation(projects.commands.annotations)
     implementation(projects.commands.auth)
+    implementation(projects.commands.clikt)
     implementation(projects.commands.config)
     implementation(projects.commands.create)
     implementation(projects.spotifyRest)

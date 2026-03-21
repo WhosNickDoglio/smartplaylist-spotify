@@ -8,17 +8,7 @@ plugins {
 }
 
 dependencies {
-    api(libs.eithernet)
-    api(libs.kotlin.serialization)
-    api(libs.okhttp)
-    api(libs.retrofit)
-    api(libs.retrofit.serialization)
-    api(projects.spotifyRest)
-
     implementation(libs.clikt)
-    implementation(libs.okhttp.logging)
-    implementation(projects.commands.annotations)
-    implementation(projects.commands.clikt)
 
     testImplementation(libs.assertk)
     testImplementation(libs.junit)
