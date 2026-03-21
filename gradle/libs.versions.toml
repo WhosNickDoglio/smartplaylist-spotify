@@ -8,14 +8,17 @@ kover = "0.9.1"
 jdk = "25"
 jdkTarget = "25"
 sort = "0.18.0"
+mosiac = "0.18.0"
 
 [plugins]
+compose = { id = "org.jetbrains.compose", version = "1.10.3" }
 convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version = "0.4.0" }
 detekt = { id = "dev.detekt", version.ref = "detekt" }
 lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.0" }
 dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependencyAnalysis" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
@@ -32,6 +35,8 @@ kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-j
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 tomlkt = { module = "dev.eav.tomlkt:tomlkt", version = "0.6.0" }
+mosiac-runtime = { module = "com.jakewharton.mosaic:mosaic-runtime", version.ref = "mosiac" }
+mosiac-testing = { module = "com.jakewharton.mosaic:mosaic-testing", version.ref = "mosiac" }
 spotify-api = { module = "se.michaelthelin.spotify:spotify-web-api-java", version = "10.0.0-RC3" }
 
 

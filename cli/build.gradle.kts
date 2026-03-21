@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: MIT
 plugins {
     alias(libs.plugins.convention.kotlin)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.compose)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.metro)
     alias(libs.plugins.buildConfig)
@@ -31,6 +33,7 @@ version = "1.0-SNAPSHOT"
 
 dependencies {
     implementation(libs.clikt)
+    implementation(libs.mosiac.runtime)
     implementation(projects.commands.annotations)
     implementation(projects.commands.auth)
     implementation(projects.commands.clikt)
