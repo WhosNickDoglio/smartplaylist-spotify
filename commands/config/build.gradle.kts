@@ -4,9 +4,13 @@ plugins {
     alias(libs.plugins.convention.kotlin)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.metro)
+    alias(libs.plugins.burst)
 }
 
 dependencies {
     implementation(libs.clikt)
     implementation(projects.commands.annotations)
+
+    testImplementation(libs.assertk)
+    testImplementation(libs.junit)
 }

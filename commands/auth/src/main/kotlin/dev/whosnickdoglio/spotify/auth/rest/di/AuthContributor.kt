@@ -6,11 +6,12 @@ package dev.whosnickdoglio.spotify.auth.rest.di
 import com.slack.eithernet.integration.retrofit.ApiResultCallAdapterFactory
 import com.slack.eithernet.integration.retrofit.ApiResultConverterFactory
 import dev.whosnickdoglio.spotify.auth.rest.SpotifyAccountService
-import dev.whosnickdoglio.spotify.auth.rest.SpotifyAuthHeaderInterceptor
-import dev.whosnickdoglio.spotify.auth.rest.SpotifyAuthenticator
+import dev.whosnickdoglio.spotify.auth.rest.SpotifyAuthServiceAuthenticator
+import dev.whosnickdoglio.spotify.auth.rest.SpotifyAuthServiceInterceptor
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
+import dev.zacsweers.metro.Qualifier
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -23,20 +24,23 @@ import retrofit2.create
 public interface AuthContributor {
 
     @Provides
+    @AuthOkhttp
     public fun provideOkhttp(
-        authenticator: SpotifyAuthenticator,
-        interceptor: SpotifyAuthHeaderInterceptor,
+        authenticator: SpotifyAuthServiceAuthenticator,
+        authServiceInterceptor: SpotifyAuthServiceInterceptor,
     ): OkHttpClient =
         OkHttpClient.Builder()
             .authenticator(authenticator)
-            .addInterceptor(interceptor)
+            .addInterceptor(authServiceInterceptor)
             .addNetworkInterceptor(
                 HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
             )
             .build()
 
     @Provides
-    public fun providesSpotifyAccountService(client: Lazy<OkHttpClient>): SpotifyAccountService =
+    public fun providesSpotifyAccountService(
+        @AuthOkhttp client: Lazy<OkHttpClient>
+    ): SpotifyAccountService =
         Retrofit.Builder()
             .baseUrl("https://accounts.spotify.com/")
             .addConverterFactory(ApiResultConverterFactory)
@@ -48,3 +52,5 @@ public interface AuthContributor {
             .build()
             .create()
 }
+
+@Qualifier internal annotation class AuthOkhttp
