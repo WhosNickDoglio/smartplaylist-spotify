@@ -22,7 +22,5 @@ public class SpotifyAuthCommand(@AuthSubcommand commands: Set<SuspendingCliktCom
         subcommands(commands)
     }
 
-    override fun help(context: Context): String {
-        return "AUTH"
-    }
+    override fun help(context: Context): String = "Command for managing authentication with Spotify"
 }

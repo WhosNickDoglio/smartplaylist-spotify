@@ -4,6 +4,7 @@
 package dev.whosnickdoglio.spotify.auth.command
 
 import com.github.ajalt.clikt.command.SuspendingCliktCommand
+import com.github.ajalt.clikt.core.Context
 import com.slack.eithernet.ApiResult
 import dev.whosnickdoglio.spotify.auth.rest.SpotifyAccountService
 import dev.whosnickdoglio.spotify.rest.di.ClientId
@@ -20,6 +21,9 @@ public class LoginCommand(
     @param:ClientId private val clientId: String,
     @param:ClientSecret private val clientSecret: String,
 ) : SuspendingCliktCommand("login") {
+
+    override fun help(context: Context): String = "Attempts to login into Spotify"
+
     override suspend fun run() {
         echo("Attempting to authorize Spotify...")
         when (
