@@ -27,5 +27,9 @@ version = "1.0-SNAPSHOT"
 
 dependencies {
     implementation(libs.clikt)
+    implementation(projects.commands.annotations)
+    implementation(projects.commands.auth)
+    implementation(projects.commands.config)
+    implementation(projects.commands.create)
     implementation(projects.spotifyRest)
 }

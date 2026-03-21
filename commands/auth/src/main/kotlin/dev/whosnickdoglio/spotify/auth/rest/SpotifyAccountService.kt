@@ -1,6 +1,6 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-package dev.whosnickdoglio.spotify.rest.auth
+package dev.whosnickdoglio.spotify.auth.rest
 
 import com.slack.eithernet.ApiResult
 import kotlinx.serialization.SerialName

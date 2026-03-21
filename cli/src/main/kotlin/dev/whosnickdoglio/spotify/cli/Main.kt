@@ -7,7 +7,7 @@ import com.github.ajalt.clikt.command.main
 import com.github.ajalt.clikt.core.Context
 import com.github.ajalt.clikt.core.subcommands
 import dev.whosnickdoglio.spotify.cli.di.AppDependencyGraph
-import dev.whosnickdoglio.spotify.cli.di.RootSubcommand
+import dev.whosnickdoglio.spotify.commands.RootSubcommand
 import dev.zacsweers.metro.Inject
 import dev.zacsweers.metro.createGraph
 

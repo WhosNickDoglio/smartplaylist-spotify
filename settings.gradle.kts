@@ -48,4 +48,11 @@ develocity {
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include(":cli", ":spotify-rest")
+include(
+    ":cli",
+    ":spotify-rest",
+    ":commands:annotations",
+    ":commands:auth",
+    ":commands:config",
+    ":commands:create",
+)

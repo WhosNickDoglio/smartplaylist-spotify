@@ -1,6 +1,6 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
-package dev.whosnickdoglio.spotify.rest.auth
+package dev.whosnickdoglio.spotify.auth.rest
 
 import dev.zacsweers.metro.Inject
 import okhttp3.Authenticator
