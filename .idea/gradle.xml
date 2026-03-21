@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/commands/auth" />
             <option value="$PROJECT_DIR$/commands/config" />
             <option value="$PROJECT_DIR$/commands/create" />
+            <option value="$PROJECT_DIR$/kover-aggregate" />
             <option value="$PROJECT_DIR$/spotify-rest" />
           </set>
         </option>
