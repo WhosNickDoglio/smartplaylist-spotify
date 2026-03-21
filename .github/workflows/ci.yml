@@ -49,8 +49,8 @@ jobs:
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ./.github/actions/setup
-#        with:
-#          encryption_key: ${{ secrets.GRADLE_ENCRYPTION_KEY }} TODO
+        with:
+          encryption_key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
       - name: Lint
         run: ./gradlew ${{ matrix.command }}
   Tests:
@@ -59,8 +59,8 @@ jobs:
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: ./.github/actions/setup
-#        with:
-#          encryption_key: ${{ secrets.GRADLE_ENCRYPTION_KEY }} TODO
+        with:
+          encryption_key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
       - name: Run Unit Tests
         run: ./gradlew kover-aggregate:koverXmlReport --no-build-cache
       - name: Codecov
