@@ -1,0 +1,35 @@
+// Copyright (C) 2026 Nicholas Doglio
+// SPDX-License-Identifier: MIT
+plugins {
+    alias(libs.plugins.convention.kotlin)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.metro)
+    alias(libs.plugins.buildConfig)
+    application
+}
+
+application { mainClass = "dev.whosnickdoglio.spotify.cli.MainKt" }
+
+// TODO set this up better for CI
+buildConfig {
+    buildConfigField("CLIENT_ID", providers.environmentVariable("SPOTIFY_CLIENT_ID").orElse(""))
+    buildConfigField(
+        "CLIENT_SECRET",
+        providers.environmentVariable("SPOTIFY_CLIENT_SECRET").orElse(""),
+    )
+    packageName("dev.whosnickdoglio.spotify")
+    useKotlinOutput { topLevelConstants = true }
+}
+
+group = "dev.whosnickdoglio"
+
+version = "1.0-SNAPSHOT"
+
+dependencies {
+    implementation(libs.clikt)
+    implementation(libs.mosiac.runtime)
+    implementation(projects.cliktCompose)
+    implementation(projects.spotifyRest)
+}
