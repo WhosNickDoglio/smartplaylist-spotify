@@ -8,7 +8,10 @@ plugins {
     application
 }
 
-application { mainClass = "dev.whosnickdoglio.spotify.cli.MainKt" }
+application {
+    mainClass = "dev.whosnickdoglio.spotify.cli.MainKt"
+    applicationName = "sps"
+}
 
 // TODO set this up better for CI
 buildConfig {
@@ -17,6 +20,7 @@ buildConfig {
         "CLIENT_SECRET",
         providers.environmentVariable("SPOTIFY_CLIENT_SECRET").orElse(""),
     )
+    buildConfigField("VERSION", providers.provider { version.toString() }.orElse(""))
     packageName("dev.whosnickdoglio.spotify")
     useKotlinOutput { topLevelConstants = true }
 }
