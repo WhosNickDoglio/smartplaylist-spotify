@@ -48,4 +48,4 @@ develocity {
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-include(":cli", ":spotify-rest", ":clikt-compose")
+include(":cli", ":spotify-rest")

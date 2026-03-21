@@ -10,7 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/cli" />
-            <option value="$PROJECT_DIR$/clikt-compose" />
             <option value="$PROJECT_DIR$/spotify-rest" />
           </set>
         </option>
