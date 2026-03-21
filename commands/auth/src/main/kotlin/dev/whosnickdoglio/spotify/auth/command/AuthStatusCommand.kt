@@ -17,6 +17,6 @@ public class AuthStatusCommand : SuspendingCliktCommand("status") {
     override fun help(context: Context): String = "Displays the Auth state"
 
     override suspend fun run() {
-        TODO("Not yet implemented")
+        echo("auth status...")
     }
 }

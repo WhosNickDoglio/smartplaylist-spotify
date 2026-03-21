@@ -5,6 +5,6 @@ package dev.whosnickdoglio.spotify.clikt
 
 import com.github.ajalt.clikt.command.SuspendingCliktCommand
 
-public open class NoOpSuspendingCliktCommand(name: String) : SuspendingCliktCommand(name) {
+public open class NoOpSuspendingCliktCommand(name: String? = null) : SuspendingCliktCommand(name) {
     final override suspend fun run(): Unit = Unit
 }

@@ -1,7 +1,7 @@
 [versions]
 agp = "8.13.2"
 dependencyAnalysis = "3.0.0"
-kotlin = "2.3.20"
+kotlin = "2.3.10"
 detekt = "2.0.0-alpha.2"
 kover = "0.9.1"
 jdk = "25"
@@ -25,6 +25,7 @@ burst = { id = "app.cash.burst" }
 metro = { id = "dev.zacsweers.metro", version = "0.11.4" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.0.9" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.26.0" }
+mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.1.0" }
 
 [libraries]
 clikt = { module = "com.github.ajalt.clikt:clikt", version = "5.1.0" }
@@ -32,6 +33,7 @@ datastore = { module = "androidx.datastore:datastore-preferences-core", version 
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.10.0" }
 retrofit-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-mock = { module = "com.squareup.retrofit2:retrofit-mock", version.ref = "retrofit" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 eithernet = { module = "com.slack.eithernet:eithernet-integration-retrofit", version = "2.0.0" }
 okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }

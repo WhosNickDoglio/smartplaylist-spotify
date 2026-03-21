@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.metro)
     alias(libs.plugins.burst)
+    alias(libs.plugins.mockingbird)
 }
 
 dependencies {
@@ -21,5 +22,6 @@ dependencies {
     implementation(projects.commands.clikt)
 
     testImplementation(libs.assertk)
+    testImplementation(libs.retrofit.mock)
     testImplementation(libs.junit)
 }

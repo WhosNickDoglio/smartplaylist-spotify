@@ -15,6 +15,7 @@ plugins {
   alias(libs.plugins.sortDependencies) apply false
   alias(libs.plugins.metro) apply false
   alias(libs.plugins.buildConfig) apply false
+  alias(libs.plugins.mockingbird) apply false
 }
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
