@@ -9,6 +9,8 @@ plugins {
 
 dependencies {
     implementation(libs.clikt)
+    implementation(libs.datastore)
+    implementation(libs.tomlkt)
     implementation(projects.commands.annotations)
 
     testImplementation(libs.assertk)

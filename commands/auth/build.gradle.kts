@@ -22,6 +22,6 @@ dependencies {
     implementation(projects.commands.clikt)
 
     testImplementation(libs.assertk)
-    testImplementation(libs.retrofit.mock)
     testImplementation(libs.junit)
+    testImplementation(libs.retrofit.mock)
 }
