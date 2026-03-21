@@ -14,7 +14,7 @@ import dev.zacsweers.metro.Inject
 @Inject
 @RootSubcommand
 @ContributesIntoSet(AppScope::class)
-internal class CreateSmartPlaylistCommand : SuspendingCliktCommand(name = "smart-playlist") {
+public class CreateSmartPlaylistCommand : SuspendingCliktCommand(name = "smart-playlist") {
 
     override fun help(context: Context): String =
         "Create playlist given a specific set of criteria."
@@ -23,13 +23,13 @@ internal class CreateSmartPlaylistCommand : SuspendingCliktCommand(name = "smart
         TODO("Not yet implemented")
     }
 
-    sealed interface PlaylistType {
-        data class Year(val year: Int) : PlaylistType
+    public sealed interface PlaylistType {
+        public data class Year(val year: Int) : PlaylistType
 
-        data class LastXDays(val days: DayOptions) : PlaylistType
+        public data class LastXDays(val days: DayOptions) : PlaylistType
     }
 
-    enum class DayOptions {
+    public enum class DayOptions {
         LAST_7_DAYS,
         LAST_14_DAYS,
         LAST_30_DAYS,

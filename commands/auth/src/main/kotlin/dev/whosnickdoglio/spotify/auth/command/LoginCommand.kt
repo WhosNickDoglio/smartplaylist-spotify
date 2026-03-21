@@ -6,6 +6,7 @@ package dev.whosnickdoglio.spotify.auth.command
 import com.github.ajalt.clikt.command.SuspendingCliktCommand
 import com.github.ajalt.clikt.core.Context
 import com.slack.eithernet.ApiResult
+import dev.whosnickdoglio.spotify.auth.command.di.AuthSubcommand
 import dev.whosnickdoglio.spotify.auth.rest.SpotifyAccountService
 import dev.whosnickdoglio.spotify.rest.di.ClientId
 import dev.whosnickdoglio.spotify.rest.di.ClientSecret

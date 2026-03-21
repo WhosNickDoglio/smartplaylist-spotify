@@ -12,7 +12,7 @@ import dev.zacsweers.metro.Inject
 @Inject
 @RootSubcommand
 @ContributesIntoSet(AppScope::class)
-internal class ConfigCommand : SuspendingCliktCommand(name = "config") {
+public class ConfigCommand : SuspendingCliktCommand(name = "config") {
     override suspend fun run() {
         //        TODO("Not yet implemented")
     }

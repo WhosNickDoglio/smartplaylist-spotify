@@ -18,6 +18,8 @@ plugins {
   alias(libs.plugins.mockingbird) apply false
 }
 
+dependencyAnalysis { useTypesafeProjectAccessors(true) }
+
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
 tasks.updateDaemonJvm.configure {
   languageVersion = JavaLanguageVersion.of(libs.versions.jdk.get())
