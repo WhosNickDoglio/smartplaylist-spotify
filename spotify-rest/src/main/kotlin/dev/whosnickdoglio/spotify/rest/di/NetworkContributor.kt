@@ -11,12 +11,21 @@ import dev.zacsweers.metro.Provides
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
 
 @ContributesTo(AppScope::class)
 public interface NetworkContributor {
+
+    @Provides
+    public fun provideOkhttp(): OkHttpClient =
+        OkHttpClient.Builder()
+            .addNetworkInterceptor(
+                HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
+            )
+            .build()
 
     @Provides
     public fun providesSpotifyService(client: Lazy<OkHttpClient>): SpotifyService =
