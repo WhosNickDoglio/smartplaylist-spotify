@@ -2,41 +2,17 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.spotify.rest.di
 
-import com.slack.eithernet.integration.retrofit.ApiResultCallAdapterFactory
-import com.slack.eithernet.integration.retrofit.ApiResultConverterFactory
-import dev.whosnickdoglio.spotify.rest.SpotifyService
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.kotlinx.serialization.asConverterFactory
-import retrofit2.create
+import se.michaelthelin.spotify.SpotifyApi
 
 @ContributesTo(AppScope::class)
 public interface NetworkContributor {
 
     @Provides
-    public fun provideOkhttp(): OkHttpClient =
-        OkHttpClient.Builder()
-            .addNetworkInterceptor(
-                HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
-            )
-            .build()
-
-    @Provides
-    public fun providesSpotifyService(client: Lazy<OkHttpClient>): SpotifyService =
-        Retrofit.Builder()
-            .baseUrl("https://api.spotify.com/")
-            .addConverterFactory(ApiResultConverterFactory)
-            .addCallAdapterFactory(ApiResultCallAdapterFactory)
-            .addConverterFactory(
-                Json.asConverterFactory("application/json; charset=UTF8".toMediaType())
-            )
-            .callFactory { client.value.newCall(it) }
-            .build()
-            .create()
+    public fun provideSpotifyApi(
+        @ClientId clientId: String,
+        @ClientSecret clientSecret: String,
+    ): SpotifyApi = SpotifyApi.Builder().setClientId(clientId).setClientSecret(clientSecret).build()
 }
