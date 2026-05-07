@@ -9,9 +9,8 @@ import dev.whosnickdoglio.spotify.auth.command.di.AuthSubcommand
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoSet
 import dev.zacsweers.metro.Inject
-import kotlinx.coroutines.future.await
 import se.michaelthelin.spotify.SpotifyApi
-import se.michaelthelin.spotify.model_objects.credentials.ClientCredentials
+import se.michaelthelin.spotify.model_objects.credentials.AuthorizationCodeCredentials
 
 @Inject
 @AuthSubcommand
@@ -22,8 +21,15 @@ public class LoginCommand(private val spotifyApi: SpotifyApi) : SuspendingCliktC
 
     override suspend fun run() {
         echo("Attempting to authorize Spotify...")
-        val result: ClientCredentials? =
-            spotifyApi.clientCredentials().build().executeAsync().await()
-        echo(result.toString())
+        val clientCredentials = spotifyApi.clientCredentials().build().execute()
+        val token = clientCredentials.accessToken
+        echo("Successfully authorized Spotify!")
+
+        val login: AuthorizationCodeCredentials? =
+            spotifyApi
+                .authorizationCodePKCE(/* code= */ token, /* code_verifier= */ "foo")
+                .build()
+                .execute()
+        echo("Successfully logged in! ${login.toString()}")
     }
 }
