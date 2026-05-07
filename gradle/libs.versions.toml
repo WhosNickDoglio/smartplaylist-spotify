@@ -1,16 +1,16 @@
 [versions]
-agp = "8.13.2"
+agp = "9.2.1"
 coroutines = "1.10.2"
-dependencyAnalysis = "3.6.1"
-kotlin = "2.3.10"
-detekt = "2.0.0-alpha.2"
+dependencyAnalysis = "3.10.0"
+kotlin = "2.3.21"
+detekt = "2.0.0-alpha.3"
 kover = "0.9.1"
 jdk = "25"
 jdkTarget = "25"
-sort = "0.16"
+sort = "0.18.0"
 
 [plugins]
-convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version = "0.3.0" }
+convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version = "0.4.0" }
 detekt = { id = "dev.detekt", version.ref = "detekt" }
 lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.0" }
@@ -20,21 +20,21 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 burst = { id = "app.cash.burst" }
-metro = { id = "dev.zacsweers.metro", version = "0.11.4" }
+metro = { id = "dev.zacsweers.metro", version = "1.0.0" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.0.9" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.26.0" }
-mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.1.0" }
+mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.2.0" }
 
 [libraries]
 clikt = { module = "com.github.ajalt.clikt:clikt", version = "5.1.0" }
 datastore = { module = "androidx.datastore:datastore-preferences-core", version = "1.2.1" }
-kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.10.0" }
+kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.11.0" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 tomlkt = { module = "dev.eav.tomlkt:tomlkt", version = "0.6.0" }
-spotify-api = { module = "se.michaelthelin.spotify:spotify-web-api-java", version = "10.0.0-RC2" }
+spotify-api = { module = "se.michaelthelin.spotify:spotify-web-api-java", version = "10.0.0-RC3" }
 
 
 junit = { module = "junit:junit", version = "4.13.2" }
-burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.11.0" }
+burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.12.2" }
 assertk = { module = "com.willowtreeapps.assertk:assertk", version = "0.28.1" }
