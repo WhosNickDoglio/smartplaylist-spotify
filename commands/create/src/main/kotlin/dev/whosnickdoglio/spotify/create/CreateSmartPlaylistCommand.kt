@@ -14,7 +14,7 @@ import dev.zacsweers.metro.Inject
 @Inject
 @RootSubcommand
 @ContributesIntoSet(AppScope::class)
-public class CreateSmartPlaylistCommand : SuspendingCliktCommand(name = "smart-playlist") {
+public class CreateSmartPlaylistCommand : SuspendingCliktCommand(name = "create") {
 
     override fun help(context: Context): String =
         "Create playlist given a specific set of criteria."
