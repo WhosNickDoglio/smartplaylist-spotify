@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-rootProject.name = "smartplaylist-cli-spotify"
+rootProject.name = "smartplaylist-spotify"
 
 pluginManagement {
   repositories {
