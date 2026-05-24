@@ -10,7 +10,7 @@ plugins {
 
 application {
     mainClass = "dev.whosnickdoglio.spotify.cli.MainKt"
-    applicationName = "sps"
+    applicationName = "spot"
 }
 
 // TODO set this up better for CI

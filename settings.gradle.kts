@@ -49,7 +49,7 @@ develocity {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(
-    ":cli",
+    ":frontends:cli",
     ":commands:annotations",
     ":commands:auth",
     ":commands:clikt",

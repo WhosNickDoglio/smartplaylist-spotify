@@ -21,7 +21,7 @@ public suspend fun main(args: Array<String>) {
 
 @Inject
 internal class RootCommand(@RootSubcommand commands: Set<SuspendingCliktCommand>) :
-    NoOpSuspendingCliktCommand(name = "sps") {
+    NoOpSuspendingCliktCommand(name = "spot") {
     init {
         versionOption(VERSION)
         subcommands(commands.sortedBy { it.commandName })
