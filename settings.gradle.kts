@@ -50,6 +50,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(
     ":frontends:cli",
+    ":frontends:desktop",
     ":commands:annotations",
     ":commands:auth",
     ":commands:clikt",

@@ -8,13 +8,17 @@ kover = "0.9.1"
 jdk = "25"
 jdkTarget = "25"
 sort = "0.18.0"
+compose-jb = "1.11.0"
+circuit = "0.33.1"
 
 [plugins]
+compose = { id = "org.jetbrains.compose", version.ref = "compose-jb" }
 convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version = "0.4.0" }
 detekt = { id = "dev.detekt", version.ref = "detekt" }
 lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.0" }
 dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependencyAnalysis" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
@@ -33,6 +37,17 @@ coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", ve
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 tomlkt = { module = "dev.eav.tomlkt:tomlkt", version = "0.6.0" }
 spotify-api = { module = "se.michaelthelin.spotify:spotify-web-api-java", version = "10.0.0-RC3" }
+
+compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "compose-jb" }
+compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "compose-jb" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "compose-jb" }
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-jb" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-jb" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version = "1.11.0-alpha07" }
+compose-ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "compose-jb" }
+
+circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
+circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
 
 
 junit = { module = "junit:junit", version = "4.13.2" }
