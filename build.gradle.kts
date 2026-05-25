@@ -7,7 +7,13 @@ plugins {
   alias(libs.plugins.dependencyAnalysis)
   alias(libs.plugins.doctor)
   alias(libs.plugins.ktfmt)
+  alias(libs.plugins.android.app) apply false
+  alias(libs.plugins.android.library) apply false
   alias(libs.plugins.compose) apply false
+  alias(libs.plugins.convention.app) apply false
+  alias(libs.plugins.convention.lib) apply false
+  alias(libs.plugins.convention.kotlin) apply false
+  alias(libs.plugins.convention.kmp) apply false
   alias(libs.plugins.detekt) apply false
   alias(libs.plugins.kotlin.compose) apply false
   alias(libs.plugins.kotlin.jvm) apply false

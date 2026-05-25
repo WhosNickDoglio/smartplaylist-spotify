@@ -19,7 +19,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
   repositories {
     exclusiveContent {
       forRepository { google() }
@@ -49,8 +48,10 @@ develocity {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(
+    ":frontends:android",
     ":frontends:cli",
     ":frontends:desktop",
+    ":frontends:web",
     ":commands:annotations",
     ":commands:auth",
     ":commands:clikt",

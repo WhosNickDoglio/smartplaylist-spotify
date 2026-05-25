@@ -6,14 +6,23 @@ kotlin = "2.3.21"
 detekt = "2.0.0-alpha.3"
 kover = "0.9.1"
 jdk = "25"
-jdkTarget = "25"
+jdkTarget = "21"
 sort = "0.18.0"
 compose-jb = "1.11.0"
 circuit = "0.33.1"
+ktor = "3.5.0"
+work = "2.11.2"
+sqldelight = "2.3.2"
+plugin = "0.4.0"
 
 [plugins]
+android-app = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-jb" }
-convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version = "0.4.0" }
+convention-app = { id = "dev.whosnickdoglio.convention.android.app", version.ref = "plugin" }
+convention-lib = { id = "dev.whosnickdoglio.convention.android.library", version.ref = "plugin" }
+convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version.ref = "plugin" }
+convention-kmp = { id = "dev.whosnickdoglio.convention.kmp", version.ref = "plugin" }
 detekt = { id = "dev.detekt", version.ref = "detekt" }
 lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.0" }
@@ -30,6 +39,12 @@ ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.26.0" }
 mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.2.0" }
 
 [libraries]
+androidx-core = { module = "androidx.core:core-ktx", version = "1.18.0" }
+androidx-datastore = { module = "androidx.datastore:datastore", version = "1.2.1" }
+androidx-workmanager = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
+androidx-startup = { module = "androidx.startup:startup-runtime", version = "1.2.0" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.13.0" }
+
 clikt = { module = "com.github.ajalt.clikt:clikt", version = "5.1.0" }
 datastore = { module = "androidx.datastore:datastore-preferences-core", version = "1.2.1" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.11.0" }
@@ -50,6 +65,18 @@ circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.
 circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
 
 
+ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+
+sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
+sqldelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
+sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
+
+
 junit = { module = "junit:junit", version = "4.13.2" }
 burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.12.2" }
 assertk = { module = "com.willowtreeapps.assertk:assertk", version = "0.28.1" }
+androidx-workmanager-test = { module = "androidx.work:work-testing", version.ref = "work" }
