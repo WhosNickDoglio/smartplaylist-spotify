@@ -1,5 +1,8 @@
 [versions]
 agp = "9.2.1"
+min-sdk = "30"
+target-sdk = "37"
+compile-sdk = "37"
 coroutines = "1.11.0"
 dependencyAnalysis = "3.12.0"
 kotlin = "2.3.21"
@@ -14,10 +17,12 @@ ktor = "3.5.0"
 work = "2.11.2"
 sqldelight = "2.3.2"
 plugin = "0.4.0"
+composeBom = "2026.02.01"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+cacheFix = { id = "org.gradle.android.cache-fix", version = "3.0.3" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-jb" }
 convention-app = { id = "dev.whosnickdoglio.convention.android.app", version.ref = "plugin" }
 convention-lib = { id = "dev.whosnickdoglio.convention.android.library", version.ref = "plugin" }
@@ -30,6 +35,7 @@ dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version.re
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-parcel = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 burst = { id = "app.cash.burst" }
@@ -39,6 +45,14 @@ ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.26.0" }
 mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.2.0" }
 
 [libraries]
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-core = { module = "androidx.core:core-ktx", version = "1.18.0" }
 androidx-datastore = { module = "androidx.datastore:datastore", version = "1.2.1" }
 androidx-workmanager = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
@@ -66,6 +80,7 @@ circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-anno
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
 ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
 ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 
@@ -73,7 +88,7 @@ sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.re
 sqldelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 
-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.11.0" }
+desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 
 junit = { module = "junit:junit", version = "4.13.2" }
 burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.12.2" }

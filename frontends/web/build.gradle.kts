@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.convention.kmp)
     alias(libs.plugins.metro)
     alias(libs.plugins.buildConfig)
+    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.compose)
 }
 
 kotlin {
@@ -13,4 +15,17 @@ kotlin {
     //    wasmJs { browser() }
 
     applyDefaultHierarchyTemplate()
+
+    sourceSets {
+        webMain.dependencies {
+            implementation(projects.circuitProviders)
+            implementation(libs.circuit.codegen.annotations)
+            implementation(libs.circuit.foundation)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.ui.backhandler)
+        }
+    }
 }

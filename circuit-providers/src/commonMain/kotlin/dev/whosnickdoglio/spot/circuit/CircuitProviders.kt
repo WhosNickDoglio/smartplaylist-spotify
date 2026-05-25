@@ -12,14 +12,14 @@ import dev.zacsweers.metro.Multibinds
 import dev.zacsweers.metro.Provides
 
 @ContributesTo(AppScope::class)
-internal interface CircuitProviders {
+public interface CircuitProviders {
 
-    @Multibinds fun presenterFactories(): Set<Presenter.Factory>
+    @Multibinds public fun presenterFactories(): Set<Presenter.Factory>
 
-    @Multibinds fun viewFactories(): Set<Ui.Factory>
+    @Multibinds public fun viewFactories(): Set<Ui.Factory>
 
     @Provides
-    fun provideCircuit(
+    public fun provideCircuit(
         uiFactories: Set<Ui.Factory>,
         presenterFactories: Set<Presenter.Factory>,
     ): Circuit =

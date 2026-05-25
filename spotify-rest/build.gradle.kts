@@ -12,12 +12,13 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(libs.ktor.auth)
             implementation(libs.ktor.core)
             implementation(libs.ktor.contentNegotiation)
             implementation(libs.ktor.serialization)
             implementation(libs.ktor.cio)
             implementation(libs.ktor.logging)
-            implementation(libs.serialization)
+            implementation(libs.kotlin.serialization)
         }
     }
 }

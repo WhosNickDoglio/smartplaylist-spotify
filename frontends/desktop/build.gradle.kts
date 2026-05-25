@@ -32,5 +32,6 @@ dependencies {
     implementation(libs.compose.runtime)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.backhandler)
+    implementation(projects.circuitProviders)
     implementation(projects.spotifyRest)
 }
