@@ -5,7 +5,4 @@ plugins {
     alias(libs.plugins.metro)
 }
 
-dependencies {
-    api(libs.circuit.foundation)
-
-}
+dependencies { api(libs.circuit.foundation) }
