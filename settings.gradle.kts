@@ -57,7 +57,6 @@ include(
     ":frontends:android",
     ":frontends:cli",
     ":frontends:desktop",
-    ":frontends:web",
     ":kover-aggregate",
     ":spotify-rest",
 )

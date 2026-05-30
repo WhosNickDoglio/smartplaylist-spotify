@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.di
+package dev.whosnickdoglio.spot.circuit
 
 import com.slack.circuit.foundation.Circuit
 import com.slack.circuit.runtime.presenter.Presenter

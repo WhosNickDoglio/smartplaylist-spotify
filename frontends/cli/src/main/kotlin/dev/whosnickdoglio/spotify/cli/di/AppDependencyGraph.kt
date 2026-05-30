@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: MIT
 package dev.whosnickdoglio.spotify.cli.di
 
+import dev.whosnickdoglio.spot.rest.ClientId
+import dev.whosnickdoglio.spot.rest.ClientSecret
 import dev.whosnickdoglio.spotify.CLIENT_ID
 import dev.whosnickdoglio.spotify.CLIENT_SECRET
 import dev.whosnickdoglio.spotify.cli.RootCommand
-import dev.whosnickdoglio.spotify.rest.di.ClientId
-import dev.whosnickdoglio.spotify.rest.di.ClientSecret
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.DependencyGraph
 import dev.zacsweers.metro.Provides
