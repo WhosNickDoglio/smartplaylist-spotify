@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.metro)
     alias(libs.plugins.buildConfig)
+    alias(libs.plugins.gr8)
     application
 }
 
@@ -31,8 +32,8 @@ version = "1.0-SNAPSHOT"
 
 dependencies {
     implementation(libs.clikt)
+    implementation(projects.auth.cli)
     implementation(projects.commands.annotations)
-    implementation(projects.commands.auth)
     implementation(projects.commands.clikt)
     implementation(projects.commands.config)
     implementation(projects.commands.create)

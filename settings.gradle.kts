@@ -48,9 +48,10 @@ develocity {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(
+    ":auth:cli",
+    ":auth:screen",
     ":circuit-providers",
     ":commands:annotations",
-    ":commands:auth",
     ":commands:clikt",
     ":commands:config",
     ":commands:create",

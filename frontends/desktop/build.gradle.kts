@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.metro)
     alias(libs.plugins.buildConfig)
     alias(libs.plugins.compose)
+    alias(libs.plugins.gr8)
 }
 
 compose.desktop { application.mainClass = "dev.whosnickdoglio.spot.Main.kt" }
@@ -32,6 +33,7 @@ dependencies {
     implementation(libs.compose.runtime)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.backhandler)
+    implementation(projects.auth.screen)
     implementation(projects.circuitProviders)
     implementation(projects.spotifyRest)
 }

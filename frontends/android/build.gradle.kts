@@ -25,8 +25,12 @@ dependencies {
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.startup)
+    implementation(libs.androidx.workmanager)
     implementation(libs.circuit.codegen.annotations)
     implementation(libs.circuit.foundation)
+    implementation(projects.auth.screen)
     implementation(projects.circuitProviders)
 
     debugImplementation(libs.androidx.compose.ui.test.manifest)
@@ -34,6 +38,7 @@ dependencies {
 
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
+    androidTestImplementation(libs.androidx.workmanager.test)
 
     coreLibraryDesugaring(libs.desugar)
 }

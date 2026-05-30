@@ -44,6 +44,7 @@ metro = { id = "dev.zacsweers.metro", version = "1.1.1" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.0.9" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.26.0" }
 mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.2.0" }
+gr8 = { id = "com.gradleup.gr8", version = "0.11.2" }
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -75,8 +76,10 @@ compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-jb
 compose-material3 = { module = "org.jetbrains.compose.material3:material3", version = "1.11.0-alpha07" }
 compose-ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "compose-jb" }
 
+circuit = { module = "com.slack.circuit:circuit", version.ref = "circuit" }
 circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
 circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
+circuit-overlays = { module = "com.slack.circuit:circuitx-overlays", version.ref = "circuit" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
@@ -96,6 +99,7 @@ desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 
 junit = { module = "junit:junit", version = "4.13.2" }
 turbine = { module = "app.cash.turbine:turbine", version = "1.2.1" }
+robolectric = { module = "org.robolectric:robolectric", version = "4.16.1" }
 burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.12.2" }
 assertk = { module = "com.willowtreeapps.assertk:assertk", version = "0.28.1" }
 androidx-workmanager-test = { module = "androidx.work:work-testing", version.ref = "work" }
