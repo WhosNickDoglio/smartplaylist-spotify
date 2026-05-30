@@ -26,6 +26,7 @@ plugins {
   alias(libs.plugins.metro) apply false
   alias(libs.plugins.buildConfig) apply false
   alias(libs.plugins.mockingbird) apply false
+  alias(libs.plugins.sqldelight) apply false
 }
 
 dependencyAnalysis { useTypesafeProjectAccessors(true) }

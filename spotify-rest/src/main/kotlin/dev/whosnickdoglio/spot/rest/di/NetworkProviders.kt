@@ -1,14 +1,16 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.rest
+package dev.whosnickdoglio.spot.rest.di
 
 import com.slack.eithernet.integration.retrofit.ApiResultCallAdapterFactory
 import com.slack.eithernet.integration.retrofit.ApiResultConverterFactory
+import dev.whosnickdoglio.spot.rest.SpotifyService
+import dev.whosnickdoglio.spotify.CLIENT_ID
+import dev.whosnickdoglio.spotify.CLIENT_SECRET
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
-import dev.zacsweers.metro.Qualifier
 import dev.zacsweers.metro.SingleIn
 import kotlinx.serialization.json.Json
 import okhttp3.Authenticator
@@ -21,6 +23,10 @@ import retrofit2.create
 
 @ContributesTo(AppScope::class)
 public interface NetworkProviders {
+
+    @Provides @ClientSecret public fun provideClientSecret(): String = CLIENT_SECRET
+
+    @Provides @ClientId public fun provideClientId(): String = CLIENT_ID
 
     @SingleIn(AppScope::class)
     @UnauthorizedClient
@@ -53,8 +59,3 @@ public interface NetworkProviders {
             .build()
             .create()
 }
-
-// Authorized
-@Qualifier public annotation class UnauthorizedClient
-
-@Qualifier public annotation class AuthorizedClient

@@ -59,5 +59,6 @@ include(
     ":frontends:cli",
     ":frontends:desktop",
     ":kover-aggregate",
+    ":spotify-db",
     ":spotify-rest",
 )
