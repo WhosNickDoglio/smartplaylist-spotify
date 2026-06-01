@@ -5,6 +5,7 @@ package dev.whosnickdoglio.spot.rest.di
 
 import com.slack.eithernet.integration.retrofit.ApiResultCallAdapterFactory
 import com.slack.eithernet.integration.retrofit.ApiResultConverterFactory
+import dev.whosnickdoglio.spot.rest.SpotifyAccountService
 import dev.whosnickdoglio.spot.rest.SpotifyService
 import dev.whosnickdoglio.spotify.CLIENT_ID
 import dev.whosnickdoglio.spotify.CLIENT_SECRET
@@ -17,6 +18,8 @@ import okhttp3.Authenticator
 import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.create
@@ -31,7 +34,10 @@ public interface NetworkProviders {
     @SingleIn(AppScope::class)
     @UnauthorizedClient
     @Provides
-    public fun provideUnauthorizedHttpClient(): OkHttpClient = OkHttpClient.Builder().build()
+    public fun provideUnauthorizedHttpClient(): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor().apply { level = Level.BODY })
+            .build()
 
     @SingleIn(AppScope::class)
     @AuthorizedClient
@@ -50,6 +56,22 @@ public interface NetworkProviders {
     public fun provideSpotifyService(@AuthorizedClient client: Lazy<OkHttpClient>): SpotifyService =
         Retrofit.Builder()
             .baseUrl("")
+            .callFactory(client.value::newCall)
+            .addConverterFactory(ApiResultConverterFactory)
+            .addConverterFactory(
+                Json.asConverterFactory("application/json; charset=utf-8".toMediaType())
+            )
+            .addCallAdapterFactory(ApiResultCallAdapterFactory)
+            .build()
+            .create()
+
+    @SingleIn(AppScope::class)
+    @Provides
+    public fun provideSpotifyAccountService(
+        @UnauthorizedClient client: Lazy<OkHttpClient>
+    ): SpotifyAccountService =
+        Retrofit.Builder()
+            .baseUrl("https://accounts.spotify.com/")
             .callFactory(client.value::newCall)
             .addConverterFactory(ApiResultConverterFactory)
             .addConverterFactory(

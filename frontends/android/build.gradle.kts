@@ -1,3 +1,6 @@
+// Copyright (C) 2026 Nicholas Doglio
+// SPDX-License-Identifier: MIT
+
 plugins {
     alias(libs.plugins.convention.app)
     alias(libs.plugins.kotlin.compose)
@@ -11,10 +14,6 @@ android {
         applicationId = "dev.whosnickdoglio.spot"
         versionCode = 1
         versionName = "1.0"
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
     }
 }
 
@@ -32,6 +31,7 @@ dependencies {
     implementation(libs.circuit.foundation)
     implementation(projects.auth.screen)
     implementation(projects.circuitProviders)
+    implementation(projects.concurrency.implAndroid)
 
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)

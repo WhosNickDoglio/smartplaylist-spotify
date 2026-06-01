@@ -9,6 +9,6 @@ import dev.zacsweers.metro.Qualifier
 
 @Qualifier public annotation class AuthorizedClient
 
-@Qualifier internal annotation class ClientSecret
+@Qualifier public annotation class ClientSecret
 
-@Qualifier internal annotation class ClientId
+@Qualifier public annotation class ClientId

@@ -48,17 +48,22 @@ develocity {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 include(
-    ":auth:cli",
+    ":auth:core",
     ":auth:screen",
     ":circuit-providers",
-    ":commands:annotations",
-    ":commands:clikt",
-    ":commands:config",
-    ":commands:create",
+    ":creation:screen",
     ":frontends:android",
-    ":frontends:cli",
     ":frontends:desktop",
+    ":home:screen",
     ":kover-aggregate",
+    ":playlists:screen",
     ":spotify-db",
     ":spotify-rest",
+    ":targets",
 )
+
+include(":concurrency:impl-android")
+
+include(":concurrency:public")
+
+include(":concurrency:impl-desktop")

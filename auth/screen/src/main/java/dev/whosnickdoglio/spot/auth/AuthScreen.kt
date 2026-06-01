@@ -9,8 +9,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.CircuitUiState
+import com.slack.circuit.runtime.presenter.Presenter
 import com.slack.circuit.runtime.screen.Screen
 import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.Inject
 
 public data object AuthScreen : Screen {
     public data class State(val hello: String) : CircuitUiState
@@ -23,5 +25,8 @@ internal fun AuthScreen(state: AuthScreen.State, modifier: Modifier = Modifier) 
 }
 
 @CircuitInject(AuthScreen::class, AppScope::class)
-@Composable
-internal fun AuthPresenter(): AuthScreen.State = AuthScreen.State("Hello world!")
+@Inject
+public class AuthPresenter : Presenter<AuthScreen.State> {
+
+    @Composable override fun present(): AuthScreen.State = AuthScreen.State("Hello world!")
+}

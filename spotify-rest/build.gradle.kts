@@ -20,7 +20,7 @@ buildConfig {
 }
 
 dependencies {
-    implementation(libs.eithernet.retrofit)
+    api(libs.eithernet.retrofit)
     implementation(libs.kotlin.serialization)
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging)

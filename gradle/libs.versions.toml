@@ -9,7 +9,7 @@ kotlin = "2.3.21"
 detekt = "2.0.0-alpha.3"
 kover = "0.9.1"
 jdk = "25"
-jdkTarget = "21"
+jdkTarget = "17"
 sort = "0.18.0"
 compose-jb = "1.11.0"
 circuit = "0.33.1"
@@ -20,6 +20,7 @@ composeBom = "2026.02.01"
 retrofit = "3.0.0"
 okhttp = "5.3.0"
 eithernet = "2.0.0"
+cryptography = "0.6.0"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
@@ -65,6 +66,8 @@ androidx-activity-compose = { module = "androidx.activity:activity-compose", ver
 clikt = { module = "com.github.ajalt.clikt:clikt", version = "5.1.0" }
 datastore = { module = "androidx.datastore:datastore-preferences-core", version = "1.2.1" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.11.0" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 tomlkt = { module = "dev.eav.tomlkt:tomlkt", version = "0.6.0" }
@@ -81,6 +84,9 @@ circuit = { module = "com.slack.circuit:circuit", version.ref = "circuit" }
 circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
 circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
 circuit-overlays = { module = "com.slack.circuit:circuitx-overlays", version.ref = "circuit" }
+
+cryptography-core = {module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "cryptography"}
+cryptography-provider = {module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptography"}
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }

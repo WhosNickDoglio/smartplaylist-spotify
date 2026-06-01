@@ -20,7 +20,8 @@ public interface SpotifyAccountService {
     public suspend fun authorize(
         @Query("client_id") clientId: String,
         @Query("response_type") responseType: String = "code",
-        @Query("redirect_uri") redirectUri: String,
+        @Query("redirect_uri")
+        redirectUri: String = "https://whosnickdoglio.com/smartplaylist/callback",
         @Query("state") state: String,
         @Query("scope") scope: String,
         @Query("code_challenge_method") codeChallengeMethod: String = "S256",

@@ -35,5 +35,6 @@ dependencies {
     implementation(libs.compose.ui.backhandler)
     implementation(projects.auth.screen)
     implementation(projects.circuitProviders)
+    implementation(projects.concurrency.implDesktop)
     implementation(projects.spotifyRest)
 }
