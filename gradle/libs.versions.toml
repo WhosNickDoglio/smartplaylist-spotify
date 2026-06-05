@@ -80,10 +80,10 @@ compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-jb
 compose-material3 = { module = "org.jetbrains.compose.material3:material3", version = "1.11.0-alpha07" }
 compose-ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "compose-jb" }
 
-circuit = { module = "com.slack.circuit:circuit", version.ref = "circuit" }
 circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
 circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
 circuit-overlays = { module = "com.slack.circuit:circuitx-overlays", version.ref = "circuit" }
+circuit-test = { module = "com.slack.circuit:circuit-test", version.ref = "circuit" }
 
 cryptography-core = {module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "cryptography"}
 cryptography-provider = {module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptography"}
