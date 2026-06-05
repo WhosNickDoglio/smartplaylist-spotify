@@ -5,10 +5,10 @@ target-sdk = "37"
 compile-sdk = "37"
 coroutines = "1.11.0"
 dependencyAnalysis = "3.14.1"
-kotlin = "2.3.21"
+kotlin = "2.4.0"
 detekt = "2.0.0-alpha.3"
 kover = "0.9.8"
-jdk = "25"
+jdk = "26"
 jdkTarget = "17"
 sort = "0.18.0"
 compose-jb = "1.11.1"
@@ -107,6 +107,6 @@ desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 junit = { module = "junit:junit", version = "4.13.2" }
 turbine = { module = "app.cash.turbine:turbine", version = "1.2.1" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.16.1" }
-burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.12.2" }
+burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.13.0" }
 assertk = { module = "com.willowtreeapps.assertk:assertk", version = "0.28.1" }
 androidx-workmanager-test = { module = "androidx.work:work-testing", version.ref = "work" }
