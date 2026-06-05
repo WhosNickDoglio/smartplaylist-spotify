@@ -41,14 +41,15 @@ private fun PlaylistItem(playlist: Playlist, modifier: Modifier = Modifier) {
     Column(modifier) { Text(playlist.title) }
 }
 
+@Suppress("UnusedPrivateProperty")
 @AssistedInject
-public class PlaylistPresenter(@Assisted private val navigator: Navigator) :
+internal class PlaylistPresenter(@Assisted private val navigator: Navigator) :
     Presenter<PlaylistScreen.State> {
 
     @CircuitInject(PlaylistScreen::class, AppScope::class)
     @AssistedFactory
-    public fun interface Factory {
-        public fun create(@Assisted navigator: Navigator): PlaylistPresenter
+    fun interface Factory {
+        fun create(@Assisted navigator: Navigator): PlaylistPresenter
     }
 
     @Composable

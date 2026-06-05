@@ -26,7 +26,7 @@ internal fun AuthScreen(state: AuthScreen.State, modifier: Modifier = Modifier) 
 
 @CircuitInject(AuthScreen::class, AppScope::class)
 @Inject
-public class AuthPresenter : Presenter<AuthScreen.State> {
+internal class AuthPresenter : Presenter<AuthScreen.State> {
 
     @Composable override fun present(): AuthScreen.State = AuthScreen.State("Hello world!")
 }

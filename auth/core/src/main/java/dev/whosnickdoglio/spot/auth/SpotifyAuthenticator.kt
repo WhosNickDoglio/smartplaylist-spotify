@@ -11,10 +11,20 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import dev.zacsweers.metro.DependencyGraph
 import dev.zacsweers.metro.createGraph
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.runBlocking
 
 public interface SpotifyAuthenticator {
+    public val authenticationState: StateFlow<AuthenticationState>
+
     public suspend fun auth()
+}
+
+public enum class AuthenticationState {
+    AUTHENTICATED,
+    UNAUTHENTICATED,
 }
 
 @DependencyGraph(AppScope::class)
@@ -28,10 +38,14 @@ internal class DefaultSpotifyAuthenticator(
     private val spotifyAccountService: SpotifyAccountService,
     @param:ClientId private val clientId: String,
 ) : SpotifyAuthenticator {
+    private val _authState = MutableStateFlow(AuthenticationState.UNAUTHENTICATED)
+
+    override val authenticationState: StateFlow<AuthenticationState> = _authState.asStateFlow()
+
     override suspend fun auth() {
         val challenge = codeChallenge.challenge()
 
-        val url = "https://accounts.spotify.com/authorize"
+        // val url = "https://accounts.spotify.com/authorize"
 
         val response =
             spotifyAccountService.authorize(

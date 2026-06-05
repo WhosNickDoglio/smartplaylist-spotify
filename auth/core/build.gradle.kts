@@ -6,6 +6,7 @@ plugins {
 }
 
 dependencies {
+    implementation(libs.coroutines.core)
     implementation(libs.cryptography.core)
     implementation(libs.cryptography.provider)
     implementation(projects.spotifyRest)

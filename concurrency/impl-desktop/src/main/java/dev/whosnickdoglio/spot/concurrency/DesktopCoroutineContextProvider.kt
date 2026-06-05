@@ -8,6 +8,7 @@ import dev.zacsweers.metro.ContributesBinding
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.Dispatchers
 
+@Suppress("InjectDispatcher")
 @ContributesBinding(AppScope::class)
 internal class DesktopCoroutineContextProvider : CoroutineContextProvider {
     override val main: CoroutineContext = Dispatchers.Main

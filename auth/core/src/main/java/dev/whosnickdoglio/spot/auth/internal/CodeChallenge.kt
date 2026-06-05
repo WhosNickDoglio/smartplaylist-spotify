@@ -20,6 +20,7 @@ internal class DefaultCodeChallenge(private val hasher: Hasher) : CodeChallenge 
         return Base64.encode(hash)
     }
 
+    @Suppress("MagicNumber")
     private fun codeVerifier(): String {
         val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9')
         return (1..128).map { allowedChars.random() }.joinToString("")
