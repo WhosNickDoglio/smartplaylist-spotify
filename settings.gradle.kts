@@ -51,7 +51,11 @@ include(
     ":auth:core",
     ":auth:screen",
     ":circuit-providers",
+    ":concurrency:impl-android",
+    ":concurrency:impl-desktop",
+    ":concurrency:public",
     ":creation:screen",
+    ":design",
     ":frontends:android",
     ":frontends:desktop",
     ":home:screen",
@@ -61,9 +65,3 @@ include(
     ":spotify-rest",
     ":targets",
 )
-
-include(":concurrency:impl-android")
-
-include(":concurrency:public")
-
-include(":concurrency:impl-desktop")

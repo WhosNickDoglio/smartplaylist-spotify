@@ -10,6 +10,7 @@ import androidx.compose.ui.window.application
 import com.slack.circuit.foundation.CircuitCompositionLocals
 import com.slack.circuit.foundation.CircuitContent
 import dev.whosnickdoglio.spot.auth.AuthScreen
+import dev.whosnickdoglio.spot.design.SpotTheme
 import dev.whosnickdoglio.spot.di.DesktopDependencyGraph
 import dev.zacsweers.metro.createGraph
 
@@ -17,6 +18,6 @@ public fun main(): Unit = application {
     val component = remember { createGraph<DesktopDependencyGraph>() }
 
     Window(onCloseRequest = ::exitApplication, title = "Smartplaylist Spotify") {
-        CircuitCompositionLocals(component.circuit) { CircuitContent(AuthScreen) }
+        CircuitCompositionLocals(component.circuit) { SpotTheme { CircuitContent(AuthScreen) } }
     }
 }

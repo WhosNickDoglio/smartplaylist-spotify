@@ -36,5 +36,7 @@ dependencies {
     implementation(projects.auth.screen)
     implementation(projects.circuitProviders)
     implementation(projects.concurrency.implDesktop)
+    implementation(projects.design)
     implementation(projects.spotifyRest)
+    implementation(projects.targets)
 }

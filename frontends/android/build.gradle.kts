@@ -32,6 +32,8 @@ dependencies {
     implementation(projects.auth.screen)
     implementation(projects.circuitProviders)
     implementation(projects.concurrency.implAndroid)
+    implementation(projects.design)
+    implementation(projects.targets)
 
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)

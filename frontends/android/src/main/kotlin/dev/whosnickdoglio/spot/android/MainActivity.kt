@@ -10,15 +10,15 @@ import androidx.activity.enableEdgeToEdge
 import com.slack.circuit.foundation.CircuitCompositionLocals
 import com.slack.circuit.foundation.CircuitContent
 import dev.whosnickdoglio.spot.android.di.injector
-import dev.whosnickdoglio.spot.android.theme.SmartplaylistspotifyTheme
 import dev.whosnickdoglio.spot.auth.AuthScreen
+import dev.whosnickdoglio.spot.design.SpotTheme
 
 public class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            SmartplaylistspotifyTheme {
+            SpotTheme {
                 // TODO Parcelable nonsense
                 CircuitCompositionLocals(injector().circuit) { CircuitContent(AuthScreen) }
             }

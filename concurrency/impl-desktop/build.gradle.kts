@@ -6,6 +6,6 @@ plugins {
 }
 
 dependencies {
-    api(libs.coroutines.android)
+    api(libs.coroutines.swing)
     api(projects.concurrency.public)
 }
