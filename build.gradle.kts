@@ -31,6 +31,8 @@ plugins {
   alias(libs.plugins.roborazzi) apply false
 }
 
+doctor { javaHome { failOnError = false } }
+
 dependencyAnalysis { useTypesafeProjectAccessors(true) }
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
