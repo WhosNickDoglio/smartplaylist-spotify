@@ -61,6 +61,7 @@ include(
     ":home:screen",
     ":kover-aggregate",
     ":playlists:screen",
+    ":settings:screen",
     ":spotify-db",
     ":spotify-rest",
     ":targets",

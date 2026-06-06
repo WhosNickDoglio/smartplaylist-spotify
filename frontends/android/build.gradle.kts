@@ -6,6 +6,12 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.parcel)
     alias(libs.plugins.metro)
+    alias(libs.plugins.licensee)
+}
+
+licensee {
+    allow("Apache-2.0")
+    bundleAndroidAsset = true
 }
 
 android {
@@ -30,9 +36,16 @@ dependencies {
     implementation(libs.circuit.codegen.annotations)
     implementation(libs.circuit.foundation)
     implementation(projects.auth.screen)
+    implementation(projects.auth.core)
     implementation(projects.circuitProviders)
     implementation(projects.concurrency.implAndroid)
+    implementation(projects.creation.screen)
     implementation(projects.design)
+    implementation(projects.home.screen)
+    implementation(projects.playlists.screen)
+    implementation(projects.settings.screen)
+    implementation(projects.spotifyDb)
+    implementation(projects.spotifyRest)
     implementation(projects.targets)
 
     debugImplementation(libs.androidx.compose.ui.test.manifest)

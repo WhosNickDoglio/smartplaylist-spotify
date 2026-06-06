@@ -11,7 +11,7 @@ import okhttp3.Response
 import okhttp3.Route
 
 @ContributesBinding(AppScope::class)
-internal class SpotifyAuthenticator : Authenticator {
+internal class SpotifyRestAuthenticator : Authenticator {
     override fun authenticate(route: Route?, response: Response): Request? {
         TODO("Not yet implemented")
     }

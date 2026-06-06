@@ -9,12 +9,9 @@ import dev.whosnickdoglio.spot.rest.SpotifyAccountService
 import dev.whosnickdoglio.spot.rest.di.ClientId
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
-import dev.zacsweers.metro.DependencyGraph
-import dev.zacsweers.metro.createGraph
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.runBlocking
 
 public interface SpotifyAuthenticator {
     public val authenticationState: StateFlow<AuthenticationState>
@@ -25,11 +22,6 @@ public interface SpotifyAuthenticator {
 public enum class AuthenticationState {
     AUTHENTICATED,
     UNAUTHENTICATED,
-}
-
-@DependencyGraph(AppScope::class)
-public interface TestGraph {
-    public val auth: SpotifyAuthenticator
 }
 
 @ContributesBinding(AppScope::class)
@@ -63,9 +55,4 @@ internal class DefaultSpotifyAuthenticator(
             is ApiResult.Success<*> -> println(response.value.toString())
         }
     }
-}
-
-public fun main(): Unit = runBlocking {
-    val graph = createGraph<TestGraph>()
-    graph.auth.auth()
 }

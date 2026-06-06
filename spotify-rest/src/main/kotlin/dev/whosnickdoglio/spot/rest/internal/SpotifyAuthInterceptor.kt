@@ -9,8 +9,16 @@ import okhttp3.Interceptor
 import okhttp3.Response
 
 @ContributesBinding(AppScope::class)
-internal class SpotifyAuthInterceptor : Interceptor {
+internal class SpotifyAuthInterceptor(private val tokenProvider: SpotifyTokenProvider) :
+    Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-        TODO("Not yet implemented")
+        val newRequest =
+            chain
+                .request()
+                .newBuilder()
+                .addHeader("Authorization", "Bearer ${tokenProvider.token()}")
+                .build()
+
+        return chain.proceed(newRequest)
     }
 }

@@ -15,7 +15,11 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Inject
 
 public data object AuthScreen : Screen {
-    public data class State(val hello: String) : CircuitUiState
+    public data class State(val hello: String, val eventSink: (Event) -> Unit) : CircuitUiState
+
+    public sealed interface Event {
+        public data object LaunchAuth : Event
+    }
 }
 
 @CircuitInject(AuthScreen::class, AppScope::class)
@@ -28,5 +32,11 @@ internal fun AuthScreen(state: AuthScreen.State, modifier: Modifier = Modifier) 
 @Inject
 internal class AuthPresenter : Presenter<AuthScreen.State> {
 
-    @Composable override fun present(): AuthScreen.State = AuthScreen.State("Hello world!")
+    @Composable
+    override fun present(): AuthScreen.State =
+        AuthScreen.State("Hello world!") { event ->
+            when (event) {
+                AuthScreen.Event.LaunchAuth -> TODO()
+            }
+        }
 }
