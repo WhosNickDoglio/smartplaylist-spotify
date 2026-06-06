@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.metro)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.compose)
+    alias(libs.plugins.roborazzi)
 }
 
 dependencies {
@@ -13,4 +14,9 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.compose.runtime)
     implementation(libs.compose.ui)
+
+    testImplementation(libs.assertk)
+    testImplementation(libs.circuit.test)
+    testImplementation(libs.dejavu)
+    testImplementation(libs.junit)
 }

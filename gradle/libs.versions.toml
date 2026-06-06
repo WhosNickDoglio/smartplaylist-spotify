@@ -68,14 +68,12 @@ androidx-workmanager = { module = "androidx.work:work-runtime-ktx", version.ref 
 androidx-startup = { module = "androidx.startup:startup-runtime", version = "1.2.0" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.13.0" }
 
-clikt = { module = "com.github.ajalt.clikt:clikt", version = "5.1.0" }
 datastore = { module = "androidx.datastore:datastore-preferences-core", version = "1.2.1" }
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.11.0" }
 coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
 coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
-tomlkt = { module = "dev.eav.tomlkt:tomlkt", version = "0.6.0" }
 
 compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "compose-jb" }
 compose-ui-tooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "compose-jb" }

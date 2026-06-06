@@ -5,7 +5,6 @@ package dev.whosnickdoglio.spot.concurrency
 
 import kotlin.coroutines.CoroutineContext
 
-// https://stackoverflow.com/a/78509710
 public interface CoroutineContextProvider {
     public val main: CoroutineContext
     public val mainImmediate: CoroutineContext

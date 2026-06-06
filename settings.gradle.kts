@@ -15,6 +15,7 @@ pluginManagement {
     }
     mavenCentral()
     gradlePluginPortal()
+    maven(("https://storage.googleapis.com/r8-releases/raw"))
   }
 }
 
@@ -29,6 +30,7 @@ dependencyResolutionManagement {
       }
     }
     mavenCentral()
+    maven(("https://storage.googleapis.com/r8-releases/raw"))
   }
 }
 
