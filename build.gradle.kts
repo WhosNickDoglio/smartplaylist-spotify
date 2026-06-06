@@ -28,6 +28,7 @@ plugins {
   alias(libs.plugins.buildConfig) apply false
   alias(libs.plugins.mockingbird) apply false
   alias(libs.plugins.sqldelight) apply false
+  alias(libs.plugins.roborazzi) apply false
 }
 
 dependencyAnalysis { useTypesafeProjectAccessors(true) }

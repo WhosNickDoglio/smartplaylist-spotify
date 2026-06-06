@@ -21,6 +21,8 @@ retrofit = "3.0.0"
 okhttp = "5.3.2"
 eithernet = "2.0.0"
 cryptography = "0.6.0"
+roborazzi = "1.63.0"
+dejavu = "0.3.1"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
@@ -48,6 +50,7 @@ mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.2.0" }
 gr8 = { id = "com.gradleup.gr8", version = "0.11.2" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 licensee = { id = "app.cash.licensee", version = "1.14.1" }
+roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
@@ -86,8 +89,8 @@ circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-anno
 circuit-overlays = { module = "com.slack.circuit:circuitx-overlays", version.ref = "circuit" }
 circuit-test = { module = "com.slack.circuit:circuit-test", version.ref = "circuit" }
 
-cryptography-core = {module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "cryptography"}
-cryptography-provider = {module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptography"}
+cryptography-core = { module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "cryptography" }
+cryptography-provider = { module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptography" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
@@ -107,6 +110,7 @@ desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 
 junit = { module = "junit:junit", version = "4.13.2" }
 turbine = { module = "app.cash.turbine:turbine", version = "1.2.1" }
+dejavu = { module = "me.mmckenna.dejavu:dejavu", version.ref = "dejavu" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.16.1" }
 burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.13.0" }
 assertk = { module = "com.willowtreeapps.assertk:assertk", version = "0.28.1" }
