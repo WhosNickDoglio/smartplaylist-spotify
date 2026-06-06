@@ -23,6 +23,7 @@ eithernet = "2.0.0"
 cryptography = "0.6.0"
 roborazzi = "1.63.0"
 dejavu = "0.3.1"
+leak = "3.0-alpha-8"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
@@ -93,6 +94,8 @@ circuitx-gesture = { module = "com.slack.circuit:circuitx-gesture-navigation", v
 
 cryptography-core = { module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "cryptography" }
 cryptography-provider = { module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptography" }
+
+leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leak" }
 
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
