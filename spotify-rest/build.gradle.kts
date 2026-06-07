@@ -3,6 +3,7 @@
 
 plugins {
     alias(libs.plugins.convention.kmp)
+    alias(libs.plugins.android.library.kmp)
     alias(libs.plugins.metro)
     alias(libs.plugins.burst)
     alias(libs.plugins.kotlin.serialization)
@@ -21,24 +22,31 @@ buildConfig {
 }
 
 kotlin {
+    android {
+        namespace = "dev.whosnickdoglio.spot.rest"
+        compileSdk { version = release(37) }
+    }
     jvm()
     sourceSets {
-        jvmMain.dependencies {
-            api(libs.eithernet.retrofit)
+        commonMain.dependencies {
             implementation(libs.kotlin.serialization)
-            implementation(libs.okhttp)
-            implementation(libs.okhttp.logging)
-            implementation(libs.retrofit)
-            implementation(libs.retrofit.converter)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.auth)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.eithernet)
+            implementation(libs.okio)
+            implementation(projects.eithernetKtor)
         }
 
-        jvmTest.dependencies {
+        commonTest.dependencies {
             implementation(libs.assertk)
             implementation(libs.coroutines.test)
             implementation(libs.eithernet.test)
-            implementation(libs.junit)
-            implementation(libs.okhttp.mock)
-            implementation(libs.retrofit.mock)
+            implementation(libs.kotlin.test)
+            implementation(libs.ktor.client.mock)
         }
     }
 }

@@ -58,6 +58,7 @@ include(
     ":concurrency:public",
     ":creation:screen",
     ":design",
+    ":eithernet-ktor",
     ":frontends:android",
     ":frontends:desktop",
     ":home:screen",

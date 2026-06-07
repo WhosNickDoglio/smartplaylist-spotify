@@ -11,7 +11,11 @@ plugins {
     alias(libs.plugins.licensee)
 }
 
-licensee { allow("Apache-2.0") }
+licensee {
+    allow("Apache-2.0")
+    // Pulled in by SLF4J (transitive dependency of ktor)
+    allowUrl("https://opensource.org/license/mit")
+}
 
 gr8 {
     val shadowedJar =

@@ -5,14 +5,17 @@ package dev.whosnickdoglio.spot.rest.internal
 
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
-import okhttp3.Authenticator
-import okhttp3.Request
-import okhttp3.Response
-import okhttp3.Route
+
+public interface SpotifyTokenProvider {
+    // TODO refresh vs access
+    // suspend?
+    // persistence
+    public suspend fun token(): String
+}
 
 @ContributesBinding(AppScope::class)
-internal class SpotifyRestAuthenticator : Authenticator {
-    override fun authenticate(route: Route?, response: Response): Request? {
+internal class SpotifyTokenProviderImpl : SpotifyTokenProvider {
+    override suspend fun token(): String {
         TODO("Not yet implemented")
     }
 }
