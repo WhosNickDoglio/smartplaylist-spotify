@@ -12,9 +12,16 @@ public data object PlaylistScreen : Screen {
         CircuitUiState
 
     public sealed interface Event {
+
+        public data object SyncAllLivePlaylists : Event
+
         public data object CreateNewPlaylist : Event
 
         public data class EditPlaylist(val id: String) : Event
+
+        public data class DeletePlaylist(val id: String) : Event
+
+        public data class SyncPlaylist(val id: String) : Event
     }
 }
 

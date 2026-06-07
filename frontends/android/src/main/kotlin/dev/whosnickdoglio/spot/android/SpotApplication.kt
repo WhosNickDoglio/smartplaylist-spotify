@@ -3,17 +3,20 @@
 
 package dev.whosnickdoglio.spot.android
 
+import android.app.Application
 import android.os.StrictMode
 import androidx.compose.runtime.Composer
 import androidx.compose.runtime.tooling.ComposeStackTraceMode
 import dev.whosnickdoglio.spot.BuildConfig
 import dev.whosnickdoglio.spot.android.di.AndroidDependencyGraph
-import dev.whosnickdoglio.spot.android.di.GraphOwner
 import dev.zacsweers.metro.createGraph
+import dev.zacsweers.metrox.android.MetroAppComponentProviders
+import dev.zacsweers.metrox.android.MetroApplication
 
-internal class SpotApplication : GraphOwner() {
-    override val graph: AndroidDependencyGraph by lazy {
-        createGraph()
+internal class SpotApplication : Application(), MetroApplication {
+
+    override val appComponentProviders: MetroAppComponentProviders by lazy {
+        createGraph<AndroidDependencyGraph>()
     }
 
     override fun onCreate() {

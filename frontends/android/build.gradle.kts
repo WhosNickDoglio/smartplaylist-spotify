@@ -32,6 +32,13 @@ android {
             )
         }
     }
+
+    lint {
+        disable.add(
+            // Using MetroX Android which provides a custom AppComponentFactory
+            "Instantiatable"
+        )
+    }
 }
 
 dependencies {
@@ -48,6 +55,7 @@ dependencies {
     implementation(libs.circuit.foundation)
     implementation(libs.circuitx.android)
     implementation(libs.circuitx.gesture)
+    implementation(libs.metrox.android)
     implementation(projects.auth.core)
     implementation(projects.auth.screen)
     implementation(projects.circuitProviders)

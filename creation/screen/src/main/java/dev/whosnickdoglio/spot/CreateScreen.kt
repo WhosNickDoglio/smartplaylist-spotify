@@ -27,6 +27,8 @@ public class CreateScreen : Screen {
         public data object ToggleLiveUpdates : Event
 
         public data object CreatePlaylist : Event
+
+        public data object DeletePlaylist : Event
     }
 }
 
@@ -51,6 +53,7 @@ internal class CreatePresenter : Presenter<CreateScreen.State> {
                 is CreateScreen.Event.RemoveRule -> TODO()
                 is CreateScreen.Event.EditPlaylistTile -> TODO()
                 is CreateScreen.Event.ToggleLiveUpdates -> TODO()
+                is CreateScreen.Event.DeletePlaylist -> TODO()
             }
         }
 }

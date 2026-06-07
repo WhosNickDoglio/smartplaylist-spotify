@@ -56,11 +56,14 @@ internal class PlaylistPresenter(@Assisted private val navigator: Navigator) :
     override fun present(): PlaylistScreen.State =
         PlaylistScreen.State(playlists = emptyList()) { event ->
             when (event) {
-                PlaylistScreen.Event.CreateNewPlaylist -> {
+                is PlaylistScreen.Event.CreateNewPlaylist -> {
                     // navigator.goTo()
                 }
 
                 is PlaylistScreen.Event.EditPlaylist -> TODO()
+                is PlaylistScreen.Event.DeletePlaylist -> TODO()
+                is PlaylistScreen.Event.SyncAllLivePlaylists -> TODO()
+                is PlaylistScreen.Event.SyncPlaylist -> TODO()
             }
         }
 }

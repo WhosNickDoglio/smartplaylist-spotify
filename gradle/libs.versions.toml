@@ -24,6 +24,7 @@ cryptography = "0.6.0"
 roborazzi = "1.63.0"
 dejavu = "0.3.1"
 leak = "3.0-alpha-8"
+metro = "1.2.1"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
@@ -44,7 +45,7 @@ kotlin-parcel = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "k
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 burst = { id = "app.cash.burst" }
-metro = { id = "dev.zacsweers.metro", version = "1.2.1" }
+metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.0.10" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.26.0" }
 mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.2.0" }
@@ -101,6 +102,8 @@ retrofit-mock = { module = "com.squareup.retrofit2:retrofit-mock", version.ref =
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
 okhttp-mock = { module = "com.squareup.okhttp3:mockwebserver3-junit4", version.ref = "okhttp" }
+
+metrox-android = { module = "dev.zacsweers.metro:metrox-android", version.ref = "metro" }
 
 eithernet-test = { module = "com.slack.eithernet:eithernet-test-fixtures", version.ref = "eithernet" }
 eithernet-retrofit = { module = "com.slack.eithernet:eithernet-integration-retrofit", version.ref = "eithernet" }
