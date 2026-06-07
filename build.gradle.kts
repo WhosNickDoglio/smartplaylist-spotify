@@ -12,6 +12,7 @@ plugins {
   alias(libs.plugins.android.library.kmp) apply false
   alias(libs.plugins.cacheFix) apply false
   alias(libs.plugins.compose) apply false
+  alias(libs.plugins.compose.reload) apply false
   alias(libs.plugins.convention.app) apply false
   alias(libs.plugins.convention.lib) apply false
   alias(libs.plugins.convention.kotlin) apply false
