@@ -8,7 +8,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import com.slack.circuit.foundation.Circuit
 import com.slack.circuit.foundation.CircuitCompositionLocals
 import com.slack.circuit.foundation.NavigableCircuitContent
@@ -31,22 +34,24 @@ public class MainActivity(private val circuit: Circuit) : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SpotTheme {
-                // TODO Parcelable nonsense
-                CircuitCompositionLocals(circuit) {
-                    val navStack = rememberSaveableNavStack(root = HomeScreen)
-                    val navigator =
-                        rememberAndroidScreenAwareNavigator(
-                            rememberCircuitNavigator(navStack),
-                            this@MainActivity,
+                Surface {
+                    CircuitCompositionLocals(circuit) {
+                        val navStack = rememberSaveableNavStack(root = HomeScreen)
+                        val navigator =
+                            rememberAndroidScreenAwareNavigator(
+                                rememberCircuitNavigator(navStack),
+                                this@MainActivity,
+                            )
+                        NavigableCircuitContent(
+                            navigator = navigator,
+                            navStack = navStack,
+                            modifier = Modifier.safeDrawingPadding(),
+                            decoratorFactory =
+                                remember(navigator) {
+                                    GestureNavigationDecorationFactory(onBackInvoked = navigator::pop)
+                                },
                         )
-                    NavigableCircuitContent(
-                        navigator = navigator,
-                        navStack = navStack,
-                        decoratorFactory =
-                            remember(navigator) {
-                                GestureNavigationDecorationFactory(onBackInvoked = navigator::pop)
-                            },
-                    )
+                    }
                 }
             }
         }

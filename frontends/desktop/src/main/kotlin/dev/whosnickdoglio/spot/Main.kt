@@ -8,16 +8,24 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import com.slack.circuit.foundation.CircuitCompositionLocals
-import com.slack.circuit.foundation.CircuitContent
-import dev.whosnickdoglio.spot.auth.AuthScreen
+import com.slack.circuit.foundation.NavigableCircuitContent
+import com.slack.circuit.foundation.navstack.rememberSaveableNavStack
+import com.slack.circuit.foundation.rememberCircuitNavigator
 import dev.whosnickdoglio.spot.design.SpotTheme
 import dev.whosnickdoglio.spot.di.DesktopDependencyGraph
+import dev.whosnickdoglio.spot.home.HomeScreen
 import dev.zacsweers.metro.createGraph
 
 public fun main(): Unit = application {
     val component = remember { createGraph<DesktopDependencyGraph>() }
 
     Window(onCloseRequest = ::exitApplication, title = "Smartplaylist Spotify") {
-        CircuitCompositionLocals(component.circuit) { SpotTheme { CircuitContent(AuthScreen) } }
+        SpotTheme {
+            CircuitCompositionLocals(component.circuit) {
+                val navStack = rememberSaveableNavStack(root = HomeScreen)
+                val navigator = rememberCircuitNavigator(navStack = navStack, onRootPop = {})
+                NavigableCircuitContent(navigator = navigator, navStack = navStack)
+            }
+        }
     }
 }

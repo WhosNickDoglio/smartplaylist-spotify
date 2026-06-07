@@ -25,15 +25,18 @@ roborazzi = "1.63.0"
 dejavu = "0.3.1"
 leak = "3.0-alpha-8"
 metro = "1.2.1"
+coil = "3.5.0"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+android-library-kmp = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 cacheFix = { id = "org.gradle.android.cache-fix", version = "3.0.3" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-jb" }
 convention-app = { id = "dev.whosnickdoglio.convention.android.app", version.ref = "plugin" }
 convention-lib = { id = "dev.whosnickdoglio.convention.android.library", version.ref = "plugin" }
 convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version.ref = "plugin" }
+convention-kmp = { id = "dev.whosnickdoglio.convention.kmp", version.ref = "plugin" }
 detekt = { id = "dev.detekt", version.ref = "detekt" }
 lint = { id = "com.android.lint", version.ref = "agp" }
 doctor = { id = "com.osacky.doctor", version = "0.12.1" }
@@ -43,6 +46,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-parcel = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+kmp-parcel = { id = "io.github.solcott.kmp.parcelize", version = "1.0.4" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 burst = { id = "app.cash.burst" }
 metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
@@ -84,6 +88,13 @@ compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "compose-jb
 compose-material3 = { module = "org.jetbrains.compose.material3:material3", version = "1.11.0-alpha07" }
 compose-ui-backhandler = { module = "org.jetbrains.compose.ui:ui-backhandler", version.ref = "compose-jb" }
 
+coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil" }
+coil-network = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
+coil-test = { module = "io.coil-kt.coil3:coil-test", version.ref = "coil" }
+
+datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version = "0.8.0" }
+
 circuit-foundation = { module = "com.slack.circuit:circuit-foundation", version.ref = "circuit" }
 circuit-codegen-annotations = { module = "com.slack.circuit:circuit-codegen-annotations", version.ref = "circuit" }
 circuit-overlays = { module = "com.slack.circuit:circuitx-overlays", version.ref = "circuit" }
@@ -110,11 +121,13 @@ eithernet-retrofit = { module = "com.slack.eithernet:eithernet-integration-retro
 
 sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
+sqldelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 
 desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 
 junit = { module = "junit:junit", version = "4.13.2" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 turbine = { module = "app.cash.turbine:turbine", version = "1.2.1" }
 dejavu = { module = "me.mmckenna.dejavu:dejavu", version.ref = "dejavu" }
 robolectric = { module = "org.robolectric:robolectric", version = "4.16.1" }

@@ -1,22 +1,40 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 plugins {
-    alias(libs.plugins.convention.kotlin)
+    alias(libs.plugins.convention.kmp)
+    alias(libs.plugins.android.library.kmp)
     alias(libs.plugins.metro)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.compose)
     alias(libs.plugins.roborazzi)
+    alias(libs.plugins.kmp.parcel)
+    alias(libs.plugins.burst)
 }
 
-dependencies {
-    implementation(libs.circuit.foundation)
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.runtime)
-    implementation(libs.compose.ui)
+kotlin {
+    android {
+        namespace = "dev.whosnickdoglio.spot.playlists"
+        compileSdk { version = release(37) }
+    }
+    jvm()
 
-    testImplementation(libs.assertk)
-    testImplementation(libs.circuit.test)
-    testImplementation(libs.dejavu)
-    testImplementation(libs.junit)
+    sourceSets {
+        commonMain.dependencies {
+            implementation(libs.circuit.foundation)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material3)
+            implementation(libs.compose.runtime)
+            implementation(libs.compose.ui)
+            implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.datetime)
+            implementation(projects.creation.screen)
+        }
+
+        commonTest.dependencies {
+            implementation(libs.assertk)
+            implementation(libs.circuit.test)
+            implementation(libs.dejavu)
+            implementation(libs.kotlin.test)
+        }
+    }
 }

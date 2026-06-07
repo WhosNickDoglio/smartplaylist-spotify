@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 Nicholas Doglio -->
+<!-- SPDX-License-Identifier: MIT -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
@@ -12,7 +15,6 @@
         <activity
             android:name=".android.MainActivity"
             android:exported="true"
-            android:label="@string/title_activity_main"
             android:theme="@style/Theme.Smartplaylistspotify"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
