@@ -44,7 +44,7 @@ kotlin-parcel = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "k
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 burst = { id = "app.cash.burst" }
-metro = { id = "dev.zacsweers.metro", version = "1.2.0" }
+metro = { id = "dev.zacsweers.metro", version = "1.2.1" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.0.10" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.26.0" }
 mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.2.0" }
