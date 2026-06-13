@@ -40,7 +40,9 @@ internal fun HomeScreen(state: HomeScreen.State, modifier: Modifier = Modifier) 
         modifier = modifier.safeDrawingPadding(),
         decoratorFactory =
             remember(navigator) {
-                GestureNavigationDecorationFactory(onBackInvoked = navigator::pop)
+                GestureNavigationDecorationFactory(
+                    // onBackInvoked = navigator::pop
+                )
             },
     )
 }

@@ -63,7 +63,7 @@ public class MainActivity(private val circuit: Circuit) : ComponentActivity() {
                             decoratorFactory =
                                 remember(navigator) {
                                     GestureNavigationDecorationFactory(
-                                        onBackInvoked = navigator::pop
+                                        // onBackInvoked = navigator::pop
                                     )
                                 },
                         )
