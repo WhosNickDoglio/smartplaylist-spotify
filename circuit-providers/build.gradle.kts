@@ -7,5 +7,10 @@ plugins {
 
 kotlin {
     jvm()
-    sourceSets { commonMain.dependencies { api(libs.circuit.foundation) } }
+    sourceSets {
+        commonMain.dependencies {
+            api(libs.circuit.foundation)
+            api(libs.circuitx.sub)
+        }
+    }
 }

@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.net.toUri
@@ -21,6 +22,8 @@ import com.slack.circuit.foundation.navstack.rememberSaveableNavStack
 import com.slack.circuit.foundation.rememberCircuitNavigator
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.screen.Screen
+import com.slack.circuit.subcircuit.LocalSubCircuit
+import com.slack.circuit.subcircuit.SubCircuit
 import com.slack.circuitx.android.rememberAndroidScreenAwareNavigator
 import com.slack.circuitx.gesturenavigation.GestureNavigationDecorationFactory
 import dev.whosnickdoglio.spot.auth.AuthScreen
@@ -33,7 +36,10 @@ import dev.zacsweers.metrox.android.ActivityKey
 
 @ContributesIntoMap(AppScope::class, binding<Activity>())
 @ActivityKey
-public class MainActivity(private val circuit: Circuit) : ComponentActivity() {
+public class MainActivity(
+    private val circuit: Circuit,
+    private val subCircuit: SubCircuit,
+) : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -41,32 +47,35 @@ public class MainActivity(private val circuit: Circuit) : ComponentActivity() {
             SpotTheme {
                 Surface {
                     CircuitCompositionLocals(circuit) {
-                        val navStack = rememberSaveableNavStack(root = AuthScreen)
-                        val delegate = rememberCircuitNavigator(navStack)
-                        val urlAwareNavigator = remember {
-                            UrlAwareNavigator(
-                                delegate,
-                                launchUrl = {
-                                    CustomTabsIntent.Builder().build().launchUrl(this, it.toUri())
-                                },
+                        CompositionLocalProvider(LocalSubCircuit provides subCircuit) {
+                            val navStack = rememberSaveableNavStack(root = AuthScreen)
+                            val delegate = rememberCircuitNavigator(navStack)
+                            val urlAwareNavigator = remember {
+                                UrlAwareNavigator(
+                                    delegate,
+                                    launchUrl = {
+                                        CustomTabsIntent.Builder().build()
+                                            .launchUrl(this, it.toUri())
+                                    },
+                                )
+                            }
+                            val navigator =
+                                rememberAndroidScreenAwareNavigator(
+                                    urlAwareNavigator,
+                                    this@MainActivity,
+                                )
+                            NavigableCircuitContent(
+                                navigator = navigator,
+                                navStack = navStack,
+                                modifier = Modifier.safeDrawingPadding(),
+                                decoratorFactory =
+                                    remember(navigator) {
+                                        GestureNavigationDecorationFactory(
+                                            // onBackInvoked = navigator::pop
+                                        )
+                                    },
                             )
                         }
-                        val navigator =
-                            rememberAndroidScreenAwareNavigator(
-                                urlAwareNavigator,
-                                this@MainActivity,
-                            )
-                        NavigableCircuitContent(
-                            navigator = navigator,
-                            navStack = navStack,
-                            modifier = Modifier.safeDrawingPadding(),
-                            decoratorFactory =
-                                remember(navigator) {
-                                    GestureNavigationDecorationFactory(
-                                        // onBackInvoked = navigator::pop
-                                    )
-                                },
-                        )
                     }
                 }
             }
