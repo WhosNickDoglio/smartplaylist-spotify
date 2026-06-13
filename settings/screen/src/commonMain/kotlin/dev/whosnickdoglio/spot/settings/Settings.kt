@@ -4,6 +4,7 @@
 package dev.whosnickdoglio.spot.settings
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -28,6 +29,7 @@ public class Rule
 @Composable
 internal fun SettingsScreen(state: SettingsScreen.State, modifier: Modifier = Modifier) {
     Column(modifier) { Text(state.oops) }
+    LazyColumn {}
 }
 
 @CircuitInject(SettingsScreen::class, AppScope::class)

@@ -10,6 +10,7 @@ plugins {
   alias(libs.plugins.android.app) apply false
   alias(libs.plugins.android.library) apply false
   alias(libs.plugins.android.library.kmp) apply false
+  alias(libs.plugins.app.versioning) apply false
   alias(libs.plugins.cacheFix) apply false
   alias(libs.plugins.compose) apply false
   alias(libs.plugins.compose.reload) apply false

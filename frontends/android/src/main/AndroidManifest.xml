@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2026 Nicholas Doglio -->
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2026 Nicholas Doglio -->
 <!-- SPDX-License-Identifier: MIT -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".android.SpotApplication"

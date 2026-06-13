@@ -14,9 +14,8 @@ kotlin {
             implementation(libs.coroutines.core)
             implementation(libs.cryptography.core)
             implementation(libs.cryptography.provider)
-            // implementation(projects.spotifyRest)
+            implementation(projects.spotifyRest)
         }
-
         commonTest.dependencies {
             implementation(libs.assertk)
             implementation(libs.circuit.test)

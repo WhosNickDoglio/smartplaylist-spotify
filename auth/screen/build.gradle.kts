@@ -26,6 +26,9 @@ kotlin {
             implementation(libs.compose.runtime)
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.uri.kmp)
+            implementation(projects.auth.core)
+            implementation(projects.spotifyRest)
         }
 
         commonTest.dependencies {

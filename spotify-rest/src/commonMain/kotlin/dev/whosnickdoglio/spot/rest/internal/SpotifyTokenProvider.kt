@@ -6,16 +6,21 @@ package dev.whosnickdoglio.spot.rest.internal
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 
+// persistence
 public interface SpotifyTokenProvider {
-    // TODO refresh vs access
-    // suspend?
-    // persistence
-    public suspend fun token(): String
+
+    public suspend fun getTokens(): String
+
+    public suspend fun putTokens(access: String, refresh: String)
 }
 
 @ContributesBinding(AppScope::class)
 internal class SpotifyTokenProviderImpl : SpotifyTokenProvider {
-    override suspend fun token(): String {
+    override suspend fun getTokens(): String {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun putTokens(access: String, refresh: String) {
         TODO("Not yet implemented")
     }
 }

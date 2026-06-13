@@ -17,7 +17,7 @@ buildConfig {
         "CLIENT_SECRET",
         providers.environmentVariable("SPOTIFY_CLIENT_SECRET").orElse(""),
     )
-    packageName("dev.whosnickdoglio.spotify")
+    packageName("dev.whosnickdoglio.spot.rest")
     useKotlinOutput { topLevelConstants = true }
 }
 
@@ -29,6 +29,7 @@ kotlin {
     jvm()
     sourceSets {
         commonMain.dependencies {
+            api(libs.eithernet)
             implementation(libs.kotlin.serialization)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.auth)
@@ -36,8 +37,8 @@ kotlin {
             implementation(libs.ktor.client.cio)
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.serialization.kotlinx.json)
-            implementation(libs.eithernet)
             implementation(libs.okio)
+            api(libs.uri.kmp)
             implementation(projects.eithernetKtor)
         }
 
