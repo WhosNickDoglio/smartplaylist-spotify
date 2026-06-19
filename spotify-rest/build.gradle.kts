@@ -30,15 +30,16 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(libs.eithernet)
+            api(libs.uri.kmp)
+
             implementation(libs.kotlin.serialization)
-            implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.client.auth)
-            implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.cio)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.okio)
-            api(libs.uri.kmp)
             implementation(projects.eithernetKtor)
         }
 

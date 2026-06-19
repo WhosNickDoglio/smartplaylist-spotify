@@ -7,8 +7,8 @@ kotlin {
     jvm()
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.ktor.client.core)
             implementation(libs.eithernet)
+            implementation(libs.ktor.client.core)
             implementation(libs.okio)
         }
 
