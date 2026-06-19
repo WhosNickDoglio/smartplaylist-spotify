@@ -61,7 +61,6 @@ include(
     ":eithernet-ktor",
     ":frontends:android",
     ":frontends:desktop",
-    ":home:screen",
     ":kover-aggregate",
     ":playlists:screen",
     ":settings:screen",

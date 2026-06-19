@@ -15,7 +15,7 @@ import com.slack.circuit.foundation.rememberCircuitNavigator
 import com.slack.circuit.subcircuit.LocalSubCircuit
 import dev.whosnickdoglio.spot.design.SpotTheme
 import dev.whosnickdoglio.spot.di.DesktopDependencyGraph
-import dev.whosnickdoglio.spot.home.HomeScreen
+import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.createGraph
 
 public fun main(): Unit = application {
@@ -25,7 +25,7 @@ public fun main(): Unit = application {
         SpotTheme {
             CircuitCompositionLocals(component.circuit) {
                 CompositionLocalProvider(LocalSubCircuit provides component.subCircuit) {
-                    val navStack = rememberSaveableNavStack(root = HomeScreen)
+                    val navStack = rememberSaveableNavStack(root = PlaylistScreen)
                     val navigator = rememberCircuitNavigator(navStack = navStack, onRootPop = {})
                     NavigableCircuitContent(navigator = navigator, navStack = navStack)
                 }

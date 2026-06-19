@@ -21,6 +21,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(libs.circuit.foundation)
+            implementation(libs.circuitx.nav)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
             implementation(libs.compose.runtime)
