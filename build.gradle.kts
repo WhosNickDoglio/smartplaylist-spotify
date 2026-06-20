@@ -5,7 +5,8 @@ buildscript { dependencies { classpath(libs.burst) } }
 
 plugins {
   alias(libs.plugins.dependencyAnalysis)
-  alias(libs.plugins.doctor)
+  // github.com/runningcode/gradle-doctor/issues/302
+  // alias(libs.plugins.doctor)
   alias(libs.plugins.ktfmt)
   alias(libs.plugins.android.app) apply false
   alias(libs.plugins.android.library) apply false
@@ -36,9 +37,8 @@ plugins {
   alias(libs.plugins.roborazzi) apply false
 }
 
-doctor { javaHome { failOnError = false } }
-
-dependencyAnalysis { useTypesafeProjectAccessors(true) }
+// https://github.com/runningcode/gradle-doctor/issues/302
+// doctor { javaHome { failOnError = false } }
 
 // https://docs.gradle.org/8.9/userguide/gradle_daemon.html#daemon_jvm_criteria
 tasks.updateDaemonJvm.configure {
