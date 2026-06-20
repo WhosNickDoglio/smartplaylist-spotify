@@ -12,5 +12,7 @@
 :libraries:concurrency:public
 :libraries:design
 :libraries:eithernet-ktor
+:libraries:spotify-db
 :libraries:spotify-rest
 :libraries:targets
+:libraries:url-launcher
