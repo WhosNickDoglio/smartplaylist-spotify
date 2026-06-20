@@ -13,14 +13,21 @@ pluginManagement {
         includeGroup("com.google.testing.platform")
       }
     }
+    exclusiveContent {
+      forRepository { maven("https://storage.googleapis.com/r8-releases/raw") }
+      filter { includeModule("com.android.tools", "r8") }
+    }
     mavenCentral()
     gradlePluginPortal()
-    maven(("https://storage.googleapis.com/r8-releases/raw"))
   }
 }
 
 dependencyResolutionManagement {
   repositories {
+    exclusiveContent {
+      forRepository { maven("https://storage.googleapis.com/r8-releases/raw") }
+      filter { includeModule("com.android.tools", "r8") }
+    }
     exclusiveContent {
       forRepository { google() }
       filter {
@@ -30,7 +37,6 @@ dependencyResolutionManagement {
       }
     }
     mavenCentral()
-    maven(("https://storage.googleapis.com/r8-releases/raw"))
   }
 }
 
