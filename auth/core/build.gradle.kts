@@ -11,7 +11,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":spotify-rest"))
+            implementation(project(":libraries:spotify-rest"))
             implementation(libs.coroutines.core)
             implementation(libs.cryptography.core)
             implementation(libs.cryptography.provider)

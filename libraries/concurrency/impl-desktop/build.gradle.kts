@@ -6,6 +6,6 @@ plugins {
 }
 
 dependencies {
-    api(project(":concurrency:public"))
+    api(project(":libraries:concurrency:public"))
     api(libs.coroutines.swing)
 }

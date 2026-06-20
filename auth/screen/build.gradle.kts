@@ -21,7 +21,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(project(":auth:core"))
-            implementation(project(":spotify-rest"))
+            implementation(project(":libraries:spotify-rest"))
             implementation(libs.circuit.foundation)
             implementation(libs.circuitx.nav)
             implementation(libs.compose.foundation)
