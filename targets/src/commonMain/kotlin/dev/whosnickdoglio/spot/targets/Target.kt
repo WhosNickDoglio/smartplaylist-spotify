@@ -4,7 +4,7 @@
 package dev.whosnickdoglio.spot.targets
 
 public sealed interface Target {
-    public data object Android : Target
+    public data object Mobile : Target
 
     public data object Desktop : Target
 }
