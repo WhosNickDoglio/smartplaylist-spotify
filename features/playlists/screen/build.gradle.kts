@@ -13,23 +13,21 @@ plugins {
 
 kotlin {
     android {
-        namespace = "dev.whosnickdoglio.spot.auth"
+        namespace = "dev.whosnickdoglio.spot.playlists"
         compileSdk { version = release(37) }
     }
     jvm()
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":auth:core"))
-            implementation(project(":libraries:spotify-rest"))
+            implementation(project(":features:creation:screen"))
             implementation(libs.circuit.foundation)
-            implementation(libs.circuitx.nav)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
             implementation(libs.compose.runtime)
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.tooling.preview)
-            implementation(libs.uri.kmp)
+            implementation(libs.datetime)
         }
 
         commonTest.dependencies {

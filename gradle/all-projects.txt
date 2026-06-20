@@ -1,8 +1,10 @@
-:auth:core
-:auth:screen
-:creation:screen
-:frontends:android
-:frontends:desktop
+:apps:android
+:apps:desktop
+:features:auth:core
+:features:auth:screen
+:features:creation:screen
+:features:playlists:screen
+:features:settings:screen
 :kover-aggregate
 :libraries:circuit-providers
 :libraries:concurrency:impl-android
@@ -12,5 +14,3 @@
 :libraries:eithernet-ktor
 :libraries:spotify-rest
 :libraries:targets
-:playlists:screen
-:settings:screen
