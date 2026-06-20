@@ -50,6 +50,17 @@ buildConfig {
 }
 
 dependencies {
+    implementation(project(":auth:core"))
+    implementation(project(":auth:screen"))
+    implementation(project(":circuit-providers"))
+    implementation(project(":concurrency:impl-desktop"))
+    implementation(project(":creation:screen"))
+    implementation(project(":design"))
+    implementation(project(":playlists:screen"))
+    implementation(project(":settings:screen"))
+    implementation(project(":spotify-db"))
+    implementation(project(":spotify-rest"))
+    implementation(project(":targets"))
     implementation(compose.desktop.currentOs)
     implementation(libs.circuit.codegen.annotations)
     implementation(libs.circuit.foundation)
@@ -59,15 +70,4 @@ dependencies {
     implementation(libs.compose.runtime)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.backhandler)
-    implementation(projects.auth.core)
-    implementation(projects.auth.screen)
-    implementation(projects.circuitProviders)
-    implementation(projects.concurrency.implDesktop)
-    implementation(projects.creation.screen)
-    implementation(projects.design)
-    implementation(projects.playlists.screen)
-    implementation(projects.settings.screen)
-    implementation(projects.spotifyDb)
-    implementation(projects.spotifyRest)
-    implementation(projects.targets)
 }

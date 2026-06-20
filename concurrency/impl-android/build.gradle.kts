@@ -14,6 +14,6 @@ android { namespace = "dev.whosnickdoglio.spot.concurrency" }
 // For more details, see https://issuetracker.google.com/408242956.
 
 dependencies {
+    api(project(":concurrency:public"))
     api(libs.coroutines.android)
-    api(projects.concurrency.public)
 }

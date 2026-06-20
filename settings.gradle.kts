@@ -38,6 +38,7 @@ plugins {
   id("com.gradle.develocity") version "4.4.3"
   id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
   id("com.gradle.common-custom-user-data-gradle-plugin") version "2.6.0"
+  id("com.fueledbycaffeine.spotlight") version "1.6.10"
 }
 
 develocity {
@@ -46,25 +47,3 @@ develocity {
     termsOfUseAgree = "yes"
   }
 }
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
-
-include(
-    ":auth:core",
-    ":auth:screen",
-    ":circuit-providers",
-    ":concurrency:impl-android",
-    ":concurrency:impl-desktop",
-    ":concurrency:public",
-    ":creation:screen",
-    ":design",
-    ":eithernet-ktor",
-    ":frontends:android",
-    ":frontends:desktop",
-    ":kover-aggregate",
-    ":playlists:screen",
-    ":settings:screen",
-    ":spotify-db",
-    ":spotify-rest",
-    ":targets",
-)

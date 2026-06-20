@@ -11,10 +11,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(project(":spotify-rest"))
             implementation(libs.coroutines.core)
             implementation(libs.cryptography.core)
             implementation(libs.cryptography.provider)
-            implementation(projects.spotifyRest)
         }
         commonTest.dependencies {
             implementation(libs.assertk)

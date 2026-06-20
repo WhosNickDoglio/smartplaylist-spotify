@@ -1,0 +1,17 @@
+:auth:core
+:auth:screen
+:circuit-providers
+:concurrency:impl-android
+:concurrency:impl-desktop
+:concurrency:public
+:creation:screen
+:design
+:eithernet-ktor
+:frontends:android
+:frontends:desktop
+:kover-aggregate
+:playlists:screen
+:settings:screen
+:spotify-db
+:spotify-rest
+:targets

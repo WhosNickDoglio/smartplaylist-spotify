@@ -20,6 +20,8 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(project(":auth:core"))
+            implementation(project(":spotify-rest"))
             implementation(libs.circuit.foundation)
             implementation(libs.circuitx.nav)
             implementation(libs.compose.foundation)
@@ -28,8 +30,6 @@ kotlin {
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.uri.kmp)
-            implementation(projects.auth.core)
-            implementation(projects.spotifyRest)
         }
 
         commonTest.dependencies {

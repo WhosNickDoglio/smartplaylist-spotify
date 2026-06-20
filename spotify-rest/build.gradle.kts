@@ -32,6 +32,7 @@ kotlin {
             api(libs.eithernet)
             api(libs.uri.kmp)
 
+            implementation(project(":eithernet-ktor"))
             implementation(libs.kotlin.serialization)
             implementation(libs.ktor.client.auth)
             implementation(libs.ktor.client.cio)
@@ -40,7 +41,6 @@ kotlin {
             implementation(libs.ktor.client.logging)
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.okio)
-            implementation(projects.eithernetKtor)
         }
 
         commonTest.dependencies {

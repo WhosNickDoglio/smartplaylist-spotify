@@ -20,6 +20,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(project(":creation:screen"))
             implementation(libs.circuit.foundation)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
@@ -27,7 +28,6 @@ kotlin {
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.datetime)
-            implementation(projects.creation.screen)
         }
 
         commonTest.dependencies {
