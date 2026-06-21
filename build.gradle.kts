@@ -1,7 +1,13 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-buildscript { dependencies { classpath(libs.burst) } }
+buildscript {
+    dependencies {
+        classpath(libs.burst)
+        // https://github.com/autonomousapps/dependency-analysis-gradle-plugin/issues/1661
+        classpath(libs.kotlin.metadata)
+    }
+}
 
 plugins {
   alias(libs.plugins.dependencyAnalysis)

@@ -110,6 +110,8 @@ circuitx-sub-test = { module = "com.slack.circuit:circuitx-subcircuit-test", ver
 cryptography-core = { module = "dev.whyoleg.cryptography:cryptography-core", version.ref = "cryptography" }
 cryptography-provider = { module = "dev.whyoleg.cryptography:cryptography-provider-optimal", version.ref = "cryptography" }
 
+kotlin-metadata = { module = "org.jetbrains.kotlin:kotlin-metadata-jvm", version.ref = "kotlin" }
+
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leak" }
 
 okio = { module = "com.squareup.okio:okio", version = "3.17.0" }
