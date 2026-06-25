@@ -24,7 +24,7 @@ dejavu = "0.3.1"
 leak = "3.0-alpha-9"
 metro = "1.2.1"
 coil = "3.5.0"
-ktor = "3.5.0"
+ktor = "3.5.1"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
