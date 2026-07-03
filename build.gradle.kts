@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: MIT
 
 buildscript {
-    dependencies {
-        classpath(libs.burst)
-        // https://github.com/autonomousapps/dependency-analysis-gradle-plugin/issues/1661
-        classpath(libs.kotlin.metadata)
-    }
+  dependencies {
+    classpath(libs.burst)
+    // https://github.com/autonomousapps/dependency-analysis-gradle-plugin/issues/1661
+    classpath(libs.kotlin.metadata)
+  }
 }
 
 plugins {
