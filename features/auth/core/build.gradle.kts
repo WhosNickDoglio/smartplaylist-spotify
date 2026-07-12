@@ -18,7 +18,6 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.assertk)
-            implementation(libs.circuit.test)
             implementation(libs.dejavu)
             implementation(libs.kotlin.test)
         }
