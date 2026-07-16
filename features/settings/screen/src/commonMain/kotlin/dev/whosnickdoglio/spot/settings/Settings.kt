@@ -15,8 +15,10 @@ import com.slack.circuit.runtime.screen.Screen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Inject
 import io.github.solcott.kmp.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 @Parcelize
+@Serializable
 public class SettingsScreen : Screen {
     public data class State(val oops: String, val eventSink: (Event) -> Unit) : CircuitUiState
 

@@ -11,6 +11,7 @@ import com.slack.circuitx.navigation.intercepting.NavigationInterceptor
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoSet
 import io.github.solcott.kmp.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 import java.awt.Desktop
 import java.net.URI
 import java.util.Locale
@@ -27,7 +28,7 @@ public class LaunchUrlInterceptor : NavigationInterceptor {
 
 @Parcelize public interface DesktopScreen : Screen
 
-public data object OpenUrlDesktop : Screen
+@Serializable public data object OpenUrlDesktop : Screen
 
 // https://stackoverflow.com/a/68426773
 private fun openInBrowser(uri: URI) {

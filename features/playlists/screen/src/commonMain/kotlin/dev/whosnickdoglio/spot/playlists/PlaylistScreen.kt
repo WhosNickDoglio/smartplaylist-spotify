@@ -7,8 +7,10 @@ import com.slack.circuit.runtime.CircuitUiState
 import com.slack.circuit.runtime.screen.Screen
 import io.github.solcott.kmp.parcelize.Parcelize
 import kotlinx.datetime.LocalDateTime
+import kotlinx.serialization.Serializable
 
 @Parcelize
+@Serializable
 public data object PlaylistScreen : Screen {
     public data class State(val playlists: List<Playlist>, val eventSink: (Event) -> Unit) :
         CircuitUiState

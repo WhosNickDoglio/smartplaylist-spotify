@@ -65,6 +65,7 @@ dependencies {
     implementation(compose.desktop.currentOs)
     implementation(libs.circuit.codegen.annotations)
     implementation(libs.circuit.foundation)
+    implementation(libs.circuit.serialization)
     implementation(libs.circuitx.nav)
     implementation(libs.compose.foundation)
     implementation(libs.compose.material3)

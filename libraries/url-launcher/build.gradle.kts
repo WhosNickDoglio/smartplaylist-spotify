@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.library.kmp)
     alias(libs.plugins.metro)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose)
     alias(libs.plugins.kmp.parcel)
 }

@@ -15,6 +15,8 @@ import com.slack.circuit.foundation.CircuitCompositionLocals
 import com.slack.circuit.foundation.NavigableCircuitContent
 import com.slack.circuit.foundation.navstack.rememberSaveableNavStack
 import com.slack.circuit.foundation.rememberCircuitNavigator
+import com.slack.circuit.retained.CircuitRetainedSettings
+import com.slack.circuit.retained.ExperimentalCircuitRetainedApi
 import com.slack.circuit.subcircuit.LocalSubCircuit
 import com.slack.circuit.subcircuit.SubCircuit
 import com.slack.circuitx.navigation.intercepting.NavigationInterceptor
@@ -25,7 +27,9 @@ import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.Inject
 import dev.zacsweers.metro.createGraph
 
+@OptIn(ExperimentalCircuitRetainedApi::class)
 public fun main(): Unit = application {
+    CircuitRetainedSettings.useFirstParty = true
     val component = remember { createGraph<DesktopDependencyGraph>() }
     Window(onCloseRequest = ::exitApplication, title = "Smartplaylist Spotify") { component.app() }
 }

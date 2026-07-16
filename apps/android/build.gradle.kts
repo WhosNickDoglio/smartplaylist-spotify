@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.androidx.workmanager)
     implementation(libs.circuit.codegen.annotations)
     implementation(libs.circuit.foundation)
+    implementation(libs.circuit.serialization)
     implementation(libs.circuitx.android)
     implementation(libs.circuitx.gesture)
     implementation(libs.circuitx.nav)

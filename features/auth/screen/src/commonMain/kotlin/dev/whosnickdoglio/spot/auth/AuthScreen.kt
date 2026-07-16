@@ -21,6 +21,7 @@ import com.slack.circuit.runtime.presenter.Presenter
 import com.slack.circuit.runtime.screen.Screen
 import dev.whosnickdoglio.spot.auth.internal.CodeChallenge
 import dev.whosnickdoglio.spot.rest.SpotifyAccountService
+import dev.whosnickdoglio.spot.url.LaunchUrlScreen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Assisted
 import dev.zacsweers.metro.AssistedFactory
@@ -28,8 +29,10 @@ import dev.zacsweers.metro.AssistedInject
 import io.github.solcott.kmp.parcelize.Parcelize
 import kotlin.uuid.Uuid
 import kotlinx.coroutines.launch
+import kotlinx.serialization.Serializable
 
 @Parcelize
+@Serializable
 public data object AuthScreen : Screen {
     public data class State(
         val isAuthenticated: Boolean,
@@ -96,5 +99,3 @@ internal class AuthPresenter(
         }
     }
 }
-
-@Parcelize public data class LaunchUrlScreen(val url: String) : Screen

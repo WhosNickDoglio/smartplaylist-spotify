@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.android.library.kmp)
     alias(libs.plugins.metro)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose)
     alias(libs.plugins.roborazzi)
     alias(libs.plugins.kmp.parcel)
@@ -22,6 +23,7 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":features:auth:core"))
             implementation(project(":libraries:spotify-rest"))
+            implementation(project(":libraries:url-launcher"))
             implementation(libs.circuit.foundation)
             implementation(libs.circuitx.nav)
             implementation(libs.compose.foundation)
