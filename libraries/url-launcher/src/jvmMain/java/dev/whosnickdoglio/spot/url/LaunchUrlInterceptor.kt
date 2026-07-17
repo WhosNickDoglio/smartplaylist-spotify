@@ -11,10 +11,10 @@ import com.slack.circuitx.navigation.intercepting.NavigationInterceptor
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoSet
 import io.github.solcott.kmp.parcelize.Parcelize
-import kotlinx.serialization.Serializable
 import java.awt.Desktop
 import java.net.URI
 import java.util.Locale
+import kotlinx.serialization.Serializable
 
 @ContributesIntoSet(AppScope::class)
 public class LaunchUrlInterceptor : NavigationInterceptor {
