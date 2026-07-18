@@ -46,7 +46,7 @@ import kotlinx.serialization.modules.subclass
 
 @ContributesIntoMap(AppScope::class, binding<Activity>())
 @ActivityKey
-public class MainActivity(
+internal class MainActivity(
     private val circuit: Circuit,
     private val subCircuit: SubCircuit,
     private val navigationInterceptors: Set<NavigationInterceptor>,

@@ -11,7 +11,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoSet
 
 @ContributesIntoSet(AppScope::class)
-public class AuthInterceptor(private val authenticator: SpotifyAuthenticator) :
+internal class AuthInterceptor(private val authenticator: SpotifyAuthenticator) :
     NavigationInterceptor {
     override fun goTo(screen: Screen, navigationContext: NavigationContext): InterceptedResult {
         // // For protected screens, verify authentication

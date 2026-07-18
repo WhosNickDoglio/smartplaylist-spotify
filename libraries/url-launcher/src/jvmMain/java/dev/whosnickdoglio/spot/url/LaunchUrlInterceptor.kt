@@ -17,7 +17,7 @@ import java.util.Locale
 import kotlinx.serialization.Serializable
 
 @ContributesIntoSet(AppScope::class)
-public class LaunchUrlInterceptor : NavigationInterceptor {
+internal class LaunchUrlInterceptor : NavigationInterceptor {
     override fun goTo(screen: Screen, navigationContext: NavigationContext): InterceptedResult =
         if (screen is LaunchUrlScreen) {
             InterceptedGoToResult.Rewrite(OpenUrlDesktop)

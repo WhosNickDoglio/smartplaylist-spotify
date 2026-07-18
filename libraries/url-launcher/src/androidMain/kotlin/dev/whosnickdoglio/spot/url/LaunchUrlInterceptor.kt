@@ -15,7 +15,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoSet
 
 @ContributesIntoSet(AppScope::class)
-public class LaunchUrlInterceptor: NavigationInterceptor {
+internal class LaunchUrlInterceptor: NavigationInterceptor {
     override fun goTo(
         screen: Screen,
         navigationContext: NavigationContext
