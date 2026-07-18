@@ -25,7 +25,6 @@ public class SettingsScreen : Screen {
     public sealed interface Event
 }
 
-
 @CircuitInject(SettingsScreen::class, AppScope::class)
 @Composable
 internal fun SettingsScreen(state: SettingsScreen.State, modifier: Modifier = Modifier) {

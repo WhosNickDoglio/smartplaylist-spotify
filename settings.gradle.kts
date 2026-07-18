@@ -10,12 +10,9 @@ pluginManagement {
       filter {
         includeGroupAndSubgroups("androidx")
         includeGroupAndSubgroups("com.android")
+        includeModule("com.android.tools", "r8")
         includeGroup("com.google.testing.platform")
       }
-    }
-    exclusiveContent {
-      forRepository { maven("https://storage.googleapis.com/r8-releases/raw") }
-      filter { includeModule("com.android.tools", "r8") }
     }
     mavenCentral()
     gradlePluginPortal()
@@ -25,14 +22,11 @@ pluginManagement {
 dependencyResolutionManagement {
   repositories {
     exclusiveContent {
-      forRepository { maven("https://storage.googleapis.com/r8-releases/raw") }
-      filter { includeModule("com.android.tools", "r8") }
-    }
-    exclusiveContent {
       forRepository { google() }
       filter {
         includeGroupAndSubgroups("androidx")
         includeGroupAndSubgroups("com.android")
+        includeModule("com.android.tools", "r8")
         includeGroup("com.google.testing.platform")
       }
     }
