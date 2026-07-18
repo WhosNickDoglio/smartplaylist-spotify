@@ -28,7 +28,7 @@ internal class LaunchUrlInterceptor : NavigationInterceptor {
 
 @Parcelize public interface DesktopScreen : Screen
 
-@Serializable public data object OpenUrlDesktop : Screen
+@Serializable public data object OpenUrlDesktop : DesktopScreen
 
 // https://stackoverflow.com/a/68426773
 private fun openInBrowser(uri: URI) {

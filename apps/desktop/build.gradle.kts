@@ -47,7 +47,7 @@ dependencies {
     implementation(project(":features:playlists:screen"))
     implementation(project(":features:settings:screen"))
     implementation(project(":libraries:circuit-providers"))
-    implementation(project(":libraries:concurrency:impl-desktop"))
+    implementation(project(":libraries:concurrency"))
     implementation(project(":libraries:design"))
     implementation(project(":libraries:spotify-db"))
     implementation(project(":libraries:spotify-rest"))

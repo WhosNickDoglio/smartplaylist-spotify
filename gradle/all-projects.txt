@@ -7,9 +7,7 @@
 :features:settings:screen
 :kover-aggregate
 :libraries:circuit-providers
-:libraries:concurrency:impl-android
-:libraries:concurrency:impl-desktop
-:libraries:concurrency:public
+:libraries:concurrency
 :libraries:design
 :libraries:eithernet-ktor
 :libraries:spotify-db
