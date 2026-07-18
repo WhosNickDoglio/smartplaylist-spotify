@@ -26,7 +26,7 @@ plugins {
   alias(libs.plugins.convention.kotlin) apply false
   alias(libs.plugins.convention.kmp) apply false
   alias(libs.plugins.detekt) apply false
-  alias(libs.plugins.shadow) apply false
+  // alias(libs.plugins.shadow) apply false
   alias(libs.plugins.kotlin.compose) apply false
   alias(libs.plugins.kotlin.jvm) apply false
   alias(libs.plugins.kotlin.serialization) apply false

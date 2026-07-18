@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.metro)
     alias(libs.plugins.buildConfig)
     alias(libs.plugins.compose)
-    alias(libs.plugins.shadow)
+    // alias(libs.plugins.shadow)
     alias(libs.plugins.licensee)
 }
 
@@ -31,14 +31,14 @@ buildConfig {
     useKotlinOutput { topLevelConstants = true }
 }
 
-tasks.shadowJar.configure {
-    minimize {
-        r8 {
-            keepRuleFiles.from(layout.projectDirectory.file("rules"))
-            enableOptimization()
-        }
-    }
-}
+// tasks.shadowJar.configure {
+//     minimize {
+//         r8 {
+//             keepRuleFiles.from(layout.projectDirectory.file("rules"))
+//             enableOptimization()
+//         }
+//     }
+// }
 
 dependencies {
     implementation(project(":features:auth:core"))
