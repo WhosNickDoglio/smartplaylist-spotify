@@ -25,7 +25,6 @@ public class SettingsScreen : Screen {
     public sealed interface Event
 }
 
-public class Rule
 
 @CircuitInject(SettingsScreen::class, AppScope::class)
 @Composable
