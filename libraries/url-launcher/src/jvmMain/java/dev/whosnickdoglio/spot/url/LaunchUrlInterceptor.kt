@@ -20,7 +20,7 @@ import kotlinx.serialization.Serializable
 internal class LaunchUrlInterceptor : NavigationInterceptor {
     override fun goTo(screen: Screen, navigationContext: NavigationContext): InterceptedResult =
         if (screen is LaunchUrlScreen) {
-            InterceptedGoToResult.Rewrite(OpenUrlDesktop)
+            InterceptedGoToResult.Rewrite(OpenUrlDesktop(screen.url))
         } else {
             NavigationInterceptor.Skipped
         }
@@ -28,10 +28,11 @@ internal class LaunchUrlInterceptor : NavigationInterceptor {
 
 @Parcelize public interface DesktopScreen : Screen
 
-@Serializable public data object OpenUrlDesktop : DesktopScreen
+@Serializable public data class OpenUrlDesktop(val url: String) : DesktopScreen
 
 // https://stackoverflow.com/a/68426773
-private fun openInBrowser(uri: URI) {
+internal fun openInBrowser(uri: URI) {
+
     val osName by
         lazy(LazyThreadSafetyMode.NONE) {
             System.getProperty("os.name").lowercase(Locale.getDefault())

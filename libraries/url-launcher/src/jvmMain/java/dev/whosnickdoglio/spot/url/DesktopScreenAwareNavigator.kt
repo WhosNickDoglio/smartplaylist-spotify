@@ -9,6 +9,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.screen.Screen
+import java.net.URI
 
 @Stable
 public class DesktopScreenAwareNavigator(
@@ -23,11 +24,23 @@ public class DesktopScreenAwareNavigator(
     }
 }
 
+@Stable
+private class DefaultDesktopScreenStarter : DesktopScreenStarter {
+    override fun start(screen: DesktopScreen): Boolean =
+        when (screen) {
+            is OpenUrlDesktop -> {
+                openInBrowser(URI(screen.url))
+                true
+            }
+            else -> false
+        }
+}
+
 @CheckResult
 @Composable
 public fun rememberDesktopScreenAwareNavigator(
     delegate: Navigator,
-    starter: DesktopScreenStarter,
+    starter: DesktopScreenStarter = DefaultDesktopScreenStarter(),
 ): Navigator = remember(delegate) { DesktopScreenAwareNavigator(delegate, starter) }
 
 public fun interface DesktopScreenStarter {

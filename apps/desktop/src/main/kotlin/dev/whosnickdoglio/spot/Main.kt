@@ -21,9 +21,10 @@ import com.slack.circuit.subcircuit.LocalSubCircuit
 import com.slack.circuit.subcircuit.SubCircuit
 import com.slack.circuitx.navigation.intercepting.NavigationInterceptor
 import com.slack.circuitx.navigation.intercepting.rememberInterceptingNavigator
+import dev.whosnickdoglio.spot.auth.AuthScreen
 import dev.whosnickdoglio.spot.design.SpotTheme
 import dev.whosnickdoglio.spot.di.DesktopDependencyGraph
-import dev.whosnickdoglio.spot.playlists.PlaylistScreen
+import dev.whosnickdoglio.spot.url.rememberDesktopScreenAwareNavigator
 import dev.zacsweers.metro.Inject
 import dev.zacsweers.metro.createGraph
 
@@ -47,9 +48,11 @@ internal class App(
             CircuitCompositionLocals(circuit) {
                 CompositionLocalProvider(LocalSubCircuit provides subCircuit) {
                     Surface {
-                        val navStack = rememberSaveableNavStack(root = PlaylistScreen)
+                        val navStack = rememberSaveableNavStack(root = AuthScreen)
                         val baseNavigator =
-                            rememberCircuitNavigator(navStack = navStack, onRootPop = {})
+                            rememberDesktopScreenAwareNavigator(
+                                rememberCircuitNavigator(navStack = navStack, onRootPop = {})
+                            )
                         val navigator =
                             rememberInterceptingNavigator(
                                 navigator = baseNavigator,
