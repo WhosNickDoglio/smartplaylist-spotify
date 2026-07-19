@@ -14,3 +14,4 @@
 :libraries:spotify-rest
 :libraries:targets
 :libraries:url-launcher
+:libraries:use-case
