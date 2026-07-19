@@ -17,7 +17,7 @@ licensee {
     allowUrl("https://opensource.org/license/mit")
 }
 
-compose.desktop { application.mainClass = "dev.whosnickdoglio.spot.Main.kt" }
+compose.desktop { application.mainClass = "dev.whosnickdoglio.spot.Main" }
 
 // TODO set this up better for CI
 buildConfig {
