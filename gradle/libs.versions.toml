@@ -139,7 +139,6 @@ uri-kmp = { module = "com.eygraber:uri-kmp", version = "0.0.21" }
 
 desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 
-junit = { module = "junit:junit", version = "4.13.2" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 turbine = { module = "app.cash.turbine:turbine", version = "1.2.1" }
 dejavu = { module = "me.mmckenna.dejavu:dejavu", version.ref = "dejavu" }
