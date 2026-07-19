@@ -149,6 +149,9 @@ local.properties
 *.aab
 *.apks
 
+# Signing keys
+*.jks
+
 # Google/Firebase secrets
 google-services.json
 
