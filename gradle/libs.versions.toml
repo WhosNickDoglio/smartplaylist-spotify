@@ -57,7 +57,7 @@ mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.3.0" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 licensee = { id = "app.cash.licensee", version = "1.14.1" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
-shadow = { id = "com.gradleup.shadow", version = "9.6.0" }
+shadow = { id = "com.gradleup.shadow", version = "9.6.1" }
 
 [libraries]
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
