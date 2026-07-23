@@ -33,7 +33,7 @@ android-library-kmp = { id = "com.android.kotlin.multiplatform.library", version
 app-versioning = { id = "io.github.reactivecircus.app-versioning", version = "1.6.0" }
 cacheFix = { id = "org.gradle.android.cache-fix", version = "3.0.3" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-jb" }
-compose-reload = { id = "org.jetbrains.compose.hot-reload", version = "1.1.1" }
+compose-reload = { id = "org.jetbrains.compose.hot-reload", version = "1.2.0" }
 convention-app = { id = "dev.whosnickdoglio.convention.android.app", version.ref = "plugin" }
 convention-lib = { id = "dev.whosnickdoglio.convention.android.library", version.ref = "plugin" }
 convention-kotlin = { id = "dev.whosnickdoglio.convention.kotlin", version.ref = "plugin" }
