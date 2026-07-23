@@ -19,8 +19,14 @@ kotlin {
     jvm()
 
     sourceSets {
-        androidMain.dependencies { api(libs.coroutines.android) }
-        commonMain.dependencies { api(libs.coroutines.core) }
-        jvmMain.dependencies { api(libs.coroutines.swing) }
+        androidMain.dependencies {
+            api(libs.coroutines.android)
+        }
+        commonMain.dependencies {
+            api(libs.coroutines.core)
+        }
+        jvmMain.dependencies {
+            api(libs.coroutines.swing)
+        }
     }
 }

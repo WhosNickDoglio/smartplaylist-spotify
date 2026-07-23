@@ -5,10 +5,11 @@ plugins {
     alias(libs.plugins.convention.kmp)
     alias(libs.plugins.android.library.kmp)
     alias(libs.plugins.metro)
-    alias(libs.plugins.burst)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.buildConfig)
     alias(libs.plugins.app.platform)
+    alias(libs.plugins.burst)
+    alias(libs.plugins.mockingbird)
 }
 
 appPlatform {
@@ -33,9 +34,10 @@ kotlin {
     }
     jvm()
     sourceSets {
+        androidMain.dependencies { implementation(libs.slf4j.android) }
+
         commonMain.dependencies {
             api(libs.eithernet)
-            api(libs.uri.kmp)
 
             implementation(project(":libraries:build-info:public"))
             implementation(project(":libraries:eithernet-ktor:public"))

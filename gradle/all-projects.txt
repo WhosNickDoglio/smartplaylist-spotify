@@ -12,10 +12,13 @@
 :libraries:build-info:public
 :libraries:circuit-providers:impl
 :libraries:concurrency:public
+:libraries:deeplink:impl
+:libraries:deeplink:public
 :libraries:design:public
 :libraries:eithernet-ktor:public
 :libraries:livewire:impl
 :libraries:spotify-db:public
+:libraries:spotify-rest:testing
 :libraries:spotify-rest:public
 :libraries:targets:public
 :libraries:url-launcher:public
