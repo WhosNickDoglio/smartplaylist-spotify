@@ -50,7 +50,7 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(project(":features:auth:impl"))
     implementation(project(":features:auth:public"))
-    implementation(project(":features:creation:screen"))
+    implementation(project(":features:creation:impl"))
     implementation(project(":features:playlists:screen"))
     implementation(project(":features:settings:screen"))
     implementation(project(":libraries:circuit-providers"))

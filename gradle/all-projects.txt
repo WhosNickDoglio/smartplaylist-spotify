@@ -2,7 +2,8 @@
 :apps:desktop
 :features:auth:impl
 :features:auth:public
-:features:creation:screen
+:features:creation:public
+:features:creation:impl
 :features:playlists:screen
 :features:settings:screen
 :kover-aggregate

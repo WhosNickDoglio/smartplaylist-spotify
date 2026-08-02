@@ -53,7 +53,7 @@ buildConfig {
 
 dependencies {
     implementation(project(":features:auth:impl"))
-    implementation(project(":features:creation:screen"))
+    implementation(project(":features:creation:impl"))
     implementation(project(":features:playlists:screen"))
     implementation(project(":features:settings:screen"))
     implementation(project(":libraries:circuit-providers"))

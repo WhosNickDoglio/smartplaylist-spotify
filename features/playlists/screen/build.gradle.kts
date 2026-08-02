@@ -21,7 +21,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":features:creation:screen"))
+            implementation(project(":features:creation:public"))
             implementation(libs.circuit.foundation)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)

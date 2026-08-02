@@ -14,13 +14,14 @@ plugins {
 
 kotlin {
     android {
-        namespace = "dev.whosnickdoglio.spot.creation"
+        namespace = "dev.whosnickdoglio.spot.creation.impl"
         compileSdk { version = release(37) }
     }
     jvm()
 
     sourceSets {
         commonMain.dependencies {
+            api(project(":features:creation:public"))
             implementation(libs.circuit.foundation)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
