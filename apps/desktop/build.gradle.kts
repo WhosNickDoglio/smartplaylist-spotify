@@ -56,6 +56,7 @@ dependencies {
     implementation(project(":features:creation:impl"))
     implementation(project(":features:playlists:impl"))
     implementation(project(":features:settings:impl"))
+    implementation(project(":libraries:build-info:public"))
     implementation(project(":libraries:circuit-providers"))
     implementation(project(":libraries:concurrency"))
     implementation(project(":libraries:design"))

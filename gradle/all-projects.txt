@@ -9,6 +9,7 @@
 :features:settings:impl
 :features:settings:public
 :kover-aggregate
+:libraries:build-info:public
 :libraries:circuit-providers
 :libraries:concurrency
 :libraries:design
