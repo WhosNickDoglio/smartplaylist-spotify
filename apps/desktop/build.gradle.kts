@@ -11,6 +11,15 @@ plugins {
     alias(libs.plugins.licensee)
 }
 
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add(
+            // TODO figure out how to handle deeplinking in Desktop app
+            "-Xwarning-level=SUSPICIOUS_UNUSED_MULTIBINDING:disabled"
+        )
+    }
+}
+
 licensee {
     allow("Apache-2.0")
     // androidx.datastore:datastore-preferences-external-protobuf
