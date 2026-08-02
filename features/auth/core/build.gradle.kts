@@ -7,6 +7,9 @@ plugins {
 }
 
 kotlin {
+    compilerOptions {
+        optIn.add("dev.zacsweers.metro.ExperimentalMetroCoroutinesApi")
+    }
     jvm()
 
     sourceSets {
