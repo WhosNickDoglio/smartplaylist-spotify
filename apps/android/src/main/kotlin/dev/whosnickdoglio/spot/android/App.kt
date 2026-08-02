@@ -58,7 +58,7 @@ internal class App(
     private val circuit: Circuit,
     private val subCircuit: SubCircuit,
     private val navigationInterceptors: Set<NavigationInterceptor>,
-    @Assisted private val context: Context
+    @Assisted private val context: Context,
 ) {
     @AssistedFactory
     fun interface Factory {

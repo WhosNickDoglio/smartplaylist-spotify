@@ -15,15 +15,16 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoSet
 
 @ContributesIntoSet(AppScope::class)
-internal class LaunchUrlInterceptor: NavigationInterceptor {
+internal class LaunchUrlInterceptor : NavigationInterceptor {
     override fun goTo(
         screen: Screen,
-        navigationContext: NavigationContext
-    ): InterceptedResult = if (screen is LaunchUrlScreen) {
-        InterceptedGoToResult.Rewrite(
-            IntentScreen(Intent(Intent.ACTION_VIEW, screen.url.toUri()))
-        )
-    } else {
-        NavigationInterceptor.Skipped
-    }
+        navigationContext: NavigationContext,
+    ): InterceptedResult =
+        if (screen is LaunchUrlScreen) {
+            InterceptedGoToResult.Rewrite(
+                IntentScreen(Intent(Intent.ACTION_VIEW, screen.url.toUri()))
+            )
+        } else {
+            NavigationInterceptor.Skipped
+        }
 }
