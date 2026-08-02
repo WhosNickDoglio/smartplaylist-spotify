@@ -2,12 +2,12 @@
 :apps:desktop
 :features:auth:impl
 :features:auth:public
-:features:creation:public
 :features:creation:impl
-:features:playlists:public
+:features:creation:public
 :features:playlists:impl
-:features:settings:public
+:features:playlists:public
 :features:settings:impl
+:features:settings:public
 :kover-aggregate
 :libraries:circuit-providers
 :libraries:concurrency
