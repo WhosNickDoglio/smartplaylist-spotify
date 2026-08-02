@@ -4,6 +4,8 @@
 package dev.whosnickdoglio.spot.rest.di
 
 import com.livewire.plugin.network.ktor.LivewireNetworkPlugin
+import dev.whosnickdoglio.spot.info.BuildInfo
+import dev.whosnickdoglio.spot.info.BuildVariant
 import dev.whosnickdoglio.spot.rest.CLIENT_ID
 import dev.whosnickdoglio.spot.rest.CLIENT_SECRET
 import dev.zacsweers.metro.AppScope
@@ -32,14 +34,16 @@ public interface NetworkProviders {
     // https://www.kmpbits.com/posts/ktor-client-advanced
     @SingleIn(AppScope::class)
     @Provides
-    public fun provideHttpClient(): HttpClient =
+    public fun provideHttpClient(buildInfo: BuildInfo): HttpClient =
         HttpClient(CIO) {
-            install(Logging) {
-                logger = Logger.DEFAULT
-                level = LogLevel.ALL
+            if (buildInfo.buildVariant == BuildVariant.DEBUG) {
+                install(Logging) {
+                    logger = Logger.DEFAULT
+                    level = LogLevel.ALL
+                }
+
+                install(LivewireNetworkPlugin)
             }
-            // TODO hide behind debug
-            install(LivewireNetworkPlugin)
             install(ContentNegotiation) {
                 json(
                     Json {

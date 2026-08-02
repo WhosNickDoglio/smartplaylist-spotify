@@ -32,6 +32,7 @@ kotlin {
             api(libs.eithernet)
             api(libs.uri.kmp)
 
+            implementation(project(":libraries:build-info:public"))
             implementation(project(":libraries:eithernet-ktor"))
             implementation(libs.kotlin.serialization)
             implementation(libs.ktor.client.auth)
