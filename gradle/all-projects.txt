@@ -4,7 +4,8 @@
 :features:auth:public
 :features:creation:public
 :features:creation:impl
-:features:playlists:screen
+:features:playlists:public
+:features:playlists:impl
 :features:settings:screen
 :kover-aggregate
 :libraries:circuit-providers

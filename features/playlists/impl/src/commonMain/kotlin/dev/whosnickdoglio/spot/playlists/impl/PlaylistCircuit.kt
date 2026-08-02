@@ -1,17 +1,12 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.playlists
+package dev.whosnickdoglio.spot.playlists.impl
 
 import com.slack.circuit.runtime.CircuitUiState
-import com.slack.circuit.runtime.screen.Screen
-import io.github.solcott.kmp.parcelize.Parcelize
 import kotlinx.datetime.LocalDateTime
-import kotlinx.serialization.Serializable
 
-@Parcelize
-@Serializable
-public data object PlaylistScreen : Screen {
+public data object PlaylistCircuit {
     public data class State(val playlists: List<Playlist>, val eventSink: (Event) -> Unit) :
         CircuitUiState
 

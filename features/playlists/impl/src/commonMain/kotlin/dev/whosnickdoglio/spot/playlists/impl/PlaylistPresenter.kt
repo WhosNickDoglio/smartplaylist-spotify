@@ -1,13 +1,14 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.playlists
+package dev.whosnickdoglio.spot.playlists.impl
 
 import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import dev.whosnickdoglio.spot.creation.CreateScreen
+import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Assisted
 import dev.zacsweers.metro.AssistedFactory
@@ -18,7 +19,7 @@ import kotlinx.datetime.toLocalDateTime
 
 @AssistedInject
 internal class PlaylistPresenter(@Assisted private val navigator: Navigator) :
-    Presenter<PlaylistScreen.State> {
+    Presenter<PlaylistCircuit.State> {
 
     @CircuitInject(PlaylistScreen::class, AppScope::class)
     @AssistedFactory
@@ -27,7 +28,7 @@ internal class PlaylistPresenter(@Assisted private val navigator: Navigator) :
     }
 
     @Composable
-    override fun present(): PlaylistScreen.State {
+    override fun present(): PlaylistCircuit.State {
         val playlists =
             List(100) {
                 Playlist(
@@ -37,15 +38,15 @@ internal class PlaylistPresenter(@Assisted private val navigator: Navigator) :
                 )
             }
 
-        return PlaylistScreen.State(playlists = playlists) { event ->
+        return PlaylistCircuit.State(playlists = playlists) { event ->
             when (event) {
-                is PlaylistScreen.Event.CreateNewPlaylist -> {
+                is PlaylistCircuit.Event.CreateNewPlaylist -> {
                     navigator.goTo(CreateScreen)
                 }
-                is PlaylistScreen.Event.EditPlaylist -> TODO()
-                is PlaylistScreen.Event.DeletePlaylist -> TODO()
-                is PlaylistScreen.Event.SyncAllLivePlaylists -> TODO()
-                is PlaylistScreen.Event.SyncPlaylist -> TODO()
+                is PlaylistCircuit.Event.EditPlaylist -> TODO()
+                is PlaylistCircuit.Event.DeletePlaylist -> TODO()
+                is PlaylistCircuit.Event.SyncAllLivePlaylists -> TODO()
+                is PlaylistCircuit.Event.SyncPlaylist -> TODO()
             }
         }
     }

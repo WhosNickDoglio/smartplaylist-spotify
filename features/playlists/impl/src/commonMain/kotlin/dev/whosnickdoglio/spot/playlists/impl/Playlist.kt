@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.playlists
+package dev.whosnickdoglio.spot.playlists.impl
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.slack.circuit.codegen.annotations.CircuitInject
+import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.AppScope
 import kotlin.time.Clock
 import kotlinx.datetime.TimeZone
@@ -23,12 +24,12 @@ import kotlinx.datetime.toLocalDateTime
 
 @CircuitInject(PlaylistScreen::class, AppScope::class)
 @Composable
-internal fun PlaylistScreen(state: PlaylistScreen.State, modifier: Modifier = Modifier) {
+internal fun PlaylistScreen(state: PlaylistCircuit.State, modifier: Modifier = Modifier) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { state.eventSink(PlaylistScreen.Event.CreateNewPlaylist) }
+                onClick = { state.eventSink(PlaylistCircuit.Event.CreateNewPlaylist) }
             ) {
                 Text("Create")
             }
