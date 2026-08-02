@@ -13,6 +13,8 @@ plugins {
 
 licensee {
     allow("Apache-2.0")
+    // androidx.datastore:datastore-preferences-external-protobuf
+    allow("BSD-3-Clause")
     // Pulled in by SLF4J (transitive dependency of ktor)
     allowUrl("https://opensource.org/license/mit")
 }
