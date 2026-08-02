@@ -15,14 +15,17 @@ import dev.zacsweers.metrox.android.MetroApplication
 
 internal class SpotApplication : Application(), MetroApplication {
 
-    override val appComponentProviders: MetroAppComponentProviders by lazy {
+    private val graph: AndroidDependencyGraph by lazy {
         createGraph<AndroidDependencyGraph>()
     }
+
+    override val appComponentProviders: MetroAppComponentProviders = graph
 
     override fun onCreate() {
         super.onCreate()
         Composer.setDiagnosticStackTraceMode(ComposeStackTraceMode.Auto)
         if (BuildConfig.DEBUG) {
+            graph.livewireClient.start()
             StrictMode.setVmPolicy(StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build())
             StrictMode.setThreadPolicy(
                 StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build()

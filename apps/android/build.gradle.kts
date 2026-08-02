@@ -12,6 +12,8 @@ plugins {
 
 licensee {
     allow("Apache-2.0")
+    // androidx.datastore:datastore-preferences-external-protobuf
+    allow("BSD-3-Clause")
     // Pulled in by SLF4J (transitive dependency of ktor)
     allowUrl("https://opensource.org/license/mit")
     bundleAndroidAsset = true
@@ -54,6 +56,7 @@ dependencies {
     implementation(project(":libraries:circuit-providers"))
     implementation(project(":libraries:concurrency"))
     implementation(project(":libraries:design"))
+    implementation(project(":libraries:livewire"))
     implementation(project(":libraries:spotify-db"))
     implementation(project(":libraries:spotify-rest"))
     implementation(project(":libraries:targets"))

@@ -49,6 +49,7 @@ dependencies {
     implementation(project(":libraries:circuit-providers"))
     implementation(project(":libraries:concurrency"))
     implementation(project(":libraries:design"))
+    implementation(project(":libraries:livewire"))
     implementation(project(":libraries:spotify-db"))
     implementation(project(":libraries:spotify-rest"))
     implementation(project(":libraries:targets"))

@@ -10,6 +10,7 @@
 :libraries:concurrency
 :libraries:design
 :libraries:eithernet-ktor
+:libraries:livewire
 :libraries:spotify-db
 :libraries:spotify-rest
 :libraries:targets

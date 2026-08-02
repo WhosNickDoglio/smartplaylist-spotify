@@ -3,6 +3,7 @@
 
 package dev.whosnickdoglio.spot.rest.di
 
+import com.livewire.plugin.network.ktor.LivewireNetworkPlugin
 import dev.whosnickdoglio.spot.rest.CLIENT_ID
 import dev.whosnickdoglio.spot.rest.CLIENT_SECRET
 import dev.zacsweers.metro.AppScope
@@ -37,6 +38,8 @@ public interface NetworkProviders {
                 logger = Logger.DEFAULT
                 level = LogLevel.ALL
             }
+            // TODO hide behind debug
+            install(LivewireNetworkPlugin)
             install(ContentNegotiation) {
                 json(
                     Json {
