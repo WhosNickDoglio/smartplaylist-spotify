@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.auth
+package dev.whosnickdoglio.spot.auth.impl
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -14,48 +14,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.slack.circuit.codegen.annotations.CircuitInject
-import com.slack.circuit.runtime.CircuitUiState
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.internal.rememberStableCoroutineScope
 import com.slack.circuit.runtime.presenter.Presenter
-import com.slack.circuit.runtime.screen.Screen
-import dev.whosnickdoglio.spot.auth.internal.CodeChallenge
+import dev.whosnickdoglio.spot.auth.AuthScreen
+import dev.whosnickdoglio.spot.auth.impl.internal.CodeChallenge
 import dev.whosnickdoglio.spot.rest.SpotifyAccountService
 import dev.whosnickdoglio.spot.url.LaunchUrlScreen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Assisted
 import dev.zacsweers.metro.AssistedFactory
 import dev.zacsweers.metro.AssistedInject
-import io.github.solcott.kmp.parcelize.Parcelize
 import kotlin.uuid.Uuid
 import kotlinx.coroutines.launch
-import kotlinx.serialization.Serializable
-
-@Parcelize
-@Serializable
-public data object AuthScreen : Screen {
-    public data class State(
-        val isAuthenticated: Boolean,
-        val errorMessage: String?,
-        val eventSink: (Event) -> Unit,
-    ) : CircuitUiState
-
-    public sealed interface Event {
-        public data object LaunchAuth : Event
-    }
-}
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @CircuitInject(AuthScreen::class, AppScope::class)
 @Composable
-internal fun AuthScreen(state: AuthScreen.State, modifier: Modifier = Modifier) {
+internal fun AuthScreen(state: AuthCircuit.State, modifier: Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize(),
     ) {
         Button(
-            onClick = { state.eventSink(AuthScreen.Event.LaunchAuth) },
+            onClick = { state.eventSink(AuthCircuit.Event.LaunchAuth) },
             modifier = Modifier.align(Alignment.CenterHorizontally).wrapContentSize(),
         ) {
             Text("Authenticate")
@@ -68,7 +51,7 @@ internal class AuthPresenter(
     @Assisted private val navigator: Navigator,
     private val spotifyAccountService: SpotifyAccountService,
     private val codeChallenge: CodeChallenge,
-) : Presenter<AuthScreen.State> {
+) : Presenter<AuthCircuit.State> {
 
     private val state by lazy { Uuid.random().toString() }
 
@@ -79,11 +62,11 @@ internal class AuthPresenter(
     }
 
     @Composable
-    override fun present(): AuthScreen.State {
+    override fun present(): AuthCircuit.State {
         val scope = rememberStableCoroutineScope()
-        return AuthScreen.State(isAuthenticated = false, errorMessage = null) { event ->
+        return AuthCircuit.State(isAuthenticated = false, errorMessage = null) { event ->
             when (event) {
-                AuthScreen.Event.LaunchAuth -> {
+                AuthCircuit.Event.LaunchAuth -> {
                     scope.launch {
                         val challenge = codeChallenge.challenge()
                         val url =

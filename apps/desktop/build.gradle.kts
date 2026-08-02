@@ -52,8 +52,7 @@ buildConfig {
 // }
 
 dependencies {
-    implementation(project(":features:auth:core"))
-    implementation(project(":features:auth:screen"))
+    implementation(project(":features:auth:impl"))
     implementation(project(":features:creation:screen"))
     implementation(project(":features:playlists:screen"))
     implementation(project(":features:settings:screen"))

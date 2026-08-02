@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.auth.internal
+package dev.whosnickdoglio.spot.auth.impl.internal
 
 import dev.whyoleg.cryptography.operations.Hasher
 import dev.zacsweers.metro.AppScope

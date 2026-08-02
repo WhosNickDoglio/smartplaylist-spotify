@@ -14,14 +14,16 @@ plugins {
 
 kotlin {
     android {
-        namespace = "dev.whosnickdoglio.spot.auth"
+        namespace = "dev.whosnickdoglio.spot.auth.impl"
         compileSdk { version = release(37) }
     }
     jvm()
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":features:auth:core"))
+            api(project(":features:auth:public"))
+
+            implementation(project(":features:auth:public"))
             implementation(project(":libraries:spotify-rest"))
             implementation(project(":libraries:url-launcher"))
             implementation(libs.circuit.foundation)
@@ -31,6 +33,9 @@ kotlin {
             implementation(libs.compose.runtime)
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.coroutines.core)
+            implementation(libs.cryptography.core)
+            implementation(libs.cryptography.provider)
             implementation(libs.uri.kmp)
         }
 

@@ -1,7 +1,7 @@
 :apps:android
 :apps:desktop
-:features:auth:core
-:features:auth:screen
+:features:auth:impl
+:features:auth:public
 :features:creation:screen
 :features:playlists:screen
 :features:settings:screen

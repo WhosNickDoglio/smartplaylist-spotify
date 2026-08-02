@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.auth
+package dev.whosnickdoglio.spot.auth.impl
 
 import com.slack.circuit.runtime.screen.Screen
 import com.slack.circuitx.navigation.intercepting.InterceptedResult
@@ -11,8 +11,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoSet
 
 @ContributesIntoSet(AppScope::class)
-internal class AuthInterceptor(private val authenticator: SpotifyAuthenticator) :
-    NavigationInterceptor {
+internal class AuthInterceptor() : NavigationInterceptor {
     override fun goTo(screen: Screen, navigationContext: NavigationContext): InterceptedResult {
         // // For protected screens, verify authentication
         // if (screen is ProtectedScreen && !authManager.isLoggedIn()) {
