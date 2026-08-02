@@ -6,7 +6,8 @@
 :features:creation:impl
 :features:playlists:public
 :features:playlists:impl
-:features:settings:screen
+:features:settings:public
+:features:settings:impl
 :kover-aggregate
 :libraries:circuit-providers
 :libraries:concurrency

@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.settings
+package dev.whosnickdoglio.spot.settings.impl
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
@@ -11,15 +11,11 @@ import androidx.compose.ui.Modifier
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.CircuitUiState
 import com.slack.circuit.runtime.presenter.Presenter
-import com.slack.circuit.runtime.screen.Screen
+import dev.whosnickdoglio.spot.settings.SettingsScreen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Inject
-import io.github.solcott.kmp.parcelize.Parcelize
-import kotlinx.serialization.Serializable
 
-@Parcelize
-@Serializable
-public class SettingsScreen : Screen {
+public class SettingsCircuit {
     public data class State(val oops: String, val eventSink: (Event) -> Unit) : CircuitUiState
 
     public sealed interface Event
@@ -27,15 +23,16 @@ public class SettingsScreen : Screen {
 
 @CircuitInject(SettingsScreen::class, AppScope::class)
 @Composable
-internal fun SettingsScreen(state: SettingsScreen.State, modifier: Modifier = Modifier) {
+internal fun SettingsScreen(state: SettingsCircuit.State, modifier: Modifier = Modifier) {
     Column(modifier) { Text(state.oops) }
     LazyColumn {}
 }
 
 @CircuitInject(SettingsScreen::class, AppScope::class)
 @Inject
-internal class SettingsPresenter : Presenter<SettingsScreen.State> {
+internal class SettingsPresenter : Presenter<SettingsCircuit.State> {
 
     @Composable
-    override fun present(): SettingsScreen.State = SettingsScreen.State("Hello world!") { event -> }
+    override fun present(): SettingsCircuit.State =
+        SettingsCircuit.State("Hello world!") { event -> }
 }

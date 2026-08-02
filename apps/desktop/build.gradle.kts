@@ -55,7 +55,7 @@ dependencies {
     implementation(project(":features:auth:impl"))
     implementation(project(":features:creation:impl"))
     implementation(project(":features:playlists:impl"))
-    implementation(project(":features:settings:screen"))
+    implementation(project(":features:settings:impl"))
     implementation(project(":libraries:circuit-providers"))
     implementation(project(":libraries:concurrency"))
     implementation(project(":libraries:design"))
