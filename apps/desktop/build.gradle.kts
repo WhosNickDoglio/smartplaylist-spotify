@@ -9,6 +9,11 @@ plugins {
     alias(libs.plugins.compose)
     // alias(libs.plugins.shadow)
     alias(libs.plugins.licensee)
+    alias(libs.plugins.ksp)
+}
+
+ksp {
+    arg("circuit.codegen.mode", "metro")
 }
 
 kotlin {
@@ -75,4 +80,5 @@ dependencies {
     implementation(libs.compose.runtime)
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.backhandler)
+    ksp(libs.circuit.codegen)
 }

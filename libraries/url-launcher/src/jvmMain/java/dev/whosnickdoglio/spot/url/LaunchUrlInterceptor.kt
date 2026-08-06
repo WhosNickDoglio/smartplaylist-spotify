@@ -4,6 +4,7 @@
 package dev.whosnickdoglio.spot.url
 
 import com.slack.circuit.runtime.screen.Screen
+import com.slack.circuit.serialization.CircuitSerializable
 import com.slack.circuitx.navigation.intercepting.InterceptedGoToResult
 import com.slack.circuitx.navigation.intercepting.InterceptedResult
 import com.slack.circuitx.navigation.intercepting.NavigationContext
@@ -14,7 +15,6 @@ import io.github.solcott.kmp.parcelize.Parcelize
 import java.awt.Desktop
 import java.net.URI
 import java.util.Locale
-import kotlinx.serialization.Serializable
 
 @ContributesIntoSet(AppScope::class)
 internal class LaunchUrlInterceptor : NavigationInterceptor {
@@ -26,9 +26,11 @@ internal class LaunchUrlInterceptor : NavigationInterceptor {
         }
 }
 
-@Parcelize public interface DesktopScreen : Screen
+public interface DesktopScreen : Screen
 
-@Serializable public data class OpenUrlDesktop(val url: String) : DesktopScreen
+@Parcelize
+@CircuitSerializable(AppScope::class)
+public data class OpenUrlDesktop(val url: String) : DesktopScreen
 
 // https://stackoverflow.com/a/68426773
 internal fun openInBrowser(uri: URI) {

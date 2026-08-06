@@ -10,6 +10,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(libs.circuit.foundation)
+            api(libs.circuit.serialization)
             api(libs.circuitx.sub)
         }
     }

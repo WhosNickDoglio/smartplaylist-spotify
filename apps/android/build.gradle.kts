@@ -8,6 +8,11 @@ plugins {
     alias(libs.plugins.metro)
     alias(libs.plugins.licensee)
     alias(libs.plugins.app.versioning)
+    alias(libs.plugins.ksp)
+}
+
+ksp {
+    arg("circuit.codegen.mode", "metro")
 }
 
 licensee {
@@ -88,4 +93,6 @@ dependencies {
     androidTestImplementation(libs.androidx.workmanager.test)
 
     coreLibraryDesugaring(libs.desugar)
+
+    ksp(libs.circuit.codegen)
 }
