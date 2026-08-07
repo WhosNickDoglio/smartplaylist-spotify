@@ -8,11 +8,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose)
     alias(libs.plugins.kmp.parcel)
-    alias(libs.plugins.ksp)
-}
-
-ksp {
-    arg("circuit.codegen.mode", "metro")
 }
 
 kotlin {
@@ -30,11 +25,4 @@ kotlin {
             implementation(libs.uri.kmp)
         }
     }
-}
-
-dependencies {
-    add("kspJvm", libs.circuit.codegen)
-    add("kspAndroid", libs.circuit.codegen)
-
-    kspCommonMainMetadata(libs.circuit.codegen)
 }
