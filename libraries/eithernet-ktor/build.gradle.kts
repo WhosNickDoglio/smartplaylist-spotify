@@ -1,7 +1,10 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-plugins { alias(libs.plugins.convention.kmp) }
+plugins {
+    alias(libs.plugins.convention.kmp)
+    alias(libs.plugins.app.platform)
+}
 
 kotlin {
     jvm()

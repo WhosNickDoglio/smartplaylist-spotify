@@ -3,6 +3,7 @@
 plugins {
     alias(libs.plugins.convention.kmp)
     alias(libs.plugins.android.library.kmp)
+    alias(libs.plugins.app.platform)
 }
 
 kotlin {

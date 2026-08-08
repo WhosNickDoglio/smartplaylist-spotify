@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.metro)
     alias(libs.plugins.licensee)
     alias(libs.plugins.app.versioning)
+    alias(libs.plugins.app.platform)
 }
 
 licensee {

@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.metro)
     alias(libs.plugins.burst)
     alias(libs.plugins.sqldelight)
+    alias(libs.plugins.app.platform)
 }
 
 sqldelight { databases { register("SpotDb") { packageName.set("dev.whosnickdoglio.spot") } } }

@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.burst)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.buildConfig)
+    alias(libs.plugins.app.platform)
 }
 
 // TODO set this up better for CI

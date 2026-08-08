@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kmp.parcel)
     alias(libs.plugins.metro)
+    alias(libs.plugins.app.platform)
 }
 
 kotlin {

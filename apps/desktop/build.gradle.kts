@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.compose)
     // alias(libs.plugins.shadow)
     alias(libs.plugins.licensee)
+    alias(libs.plugins.app.platform)
 }
 
 kotlin {
