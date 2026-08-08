@@ -11,6 +11,10 @@ plugins {
     alias(libs.plugins.app.platform)
 }
 
+appPlatform {
+    enableModuleStructure(true)
+}
+
 // TODO set this up better for CI
 buildConfig {
     buildConfigField("CLIENT_ID", providers.environmentVariable("SPOTIFY_CLIENT_ID").orElse(""))
@@ -34,7 +38,7 @@ kotlin {
             api(libs.uri.kmp)
 
             implementation(project(":libraries:build-info:public"))
-            implementation(project(":libraries:eithernet-ktor"))
+            implementation(project(":libraries:eithernet-ktor:public"))
             implementation(libs.kotlin.serialization)
             implementation(libs.ktor.client.auth)
             implementation(libs.ktor.client.cio)

@@ -9,6 +9,10 @@ plugins {
     alias(libs.plugins.app.platform)
 }
 
+appPlatform {
+    enableModuleStructure(true)
+}
+
 kotlin {
     android {
         namespace = "dev.whosnickdoglio.spot.settings"

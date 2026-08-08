@@ -12,6 +12,10 @@ plugins {
     alias(libs.plugins.app.platform)
 }
 
+appPlatform {
+    enableModuleStructure(true)
+}
+
 kotlin {
     compilerOptions {
         freeCompilerArgs.add(
@@ -58,14 +62,14 @@ dependencies {
     implementation(project(":features:playlists:impl"))
     implementation(project(":features:settings:impl"))
     implementation(project(":libraries:build-info:public"))
-    implementation(project(":libraries:circuit-providers"))
-    implementation(project(":libraries:concurrency"))
-    implementation(project(":libraries:design"))
-    implementation(project(":libraries:livewire"))
-    implementation(project(":libraries:spotify-db"))
-    implementation(project(":libraries:spotify-rest"))
-    implementation(project(":libraries:targets"))
-    implementation(project(":libraries:url-launcher"))
+    implementation(project(":libraries:circuit-providers:impl"))
+    implementation(project(":libraries:concurrency:public"))
+    implementation(project(":libraries:design:public"))
+    implementation(project(":libraries:livewire:impl"))
+    implementation(project(":libraries:spotify-db:public"))
+    implementation(project(":libraries:spotify-rest:public"))
+    implementation(project(":libraries:targets:public"))
+    implementation(project(":libraries:url-launcher:public"))
     implementation(compose.desktop.currentOs)
     implementation(libs.circuit.codegen.annotations)
     implementation(libs.circuit.foundation)

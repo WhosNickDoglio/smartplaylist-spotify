@@ -13,6 +13,10 @@ plugins {
     alias(libs.plugins.app.platform)
 }
 
+appPlatform {
+    enableModuleStructure(true)
+}
+
 kotlin {
     android {
         namespace = "dev.whosnickdoglio.spot.auth.impl"
@@ -25,8 +29,8 @@ kotlin {
             api(project(":features:auth:public"))
 
             implementation(project(":features:auth:public"))
-            implementation(project(":libraries:spotify-rest"))
-            implementation(project(":libraries:url-launcher"))
+            implementation(project(":libraries:spotify-rest:public"))
+            implementation(project(":libraries:url-launcher:public"))
             implementation(libs.circuit.foundation)
             implementation(libs.circuitx.nav)
             implementation(libs.compose.foundation)

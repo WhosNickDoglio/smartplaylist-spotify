@@ -10,6 +10,10 @@ plugins {
     alias(libs.plugins.app.platform)
 }
 
+appPlatform {
+    enableModuleStructure(true)
+}
+
 sqldelight { databases { register("SpotDb") { packageName.set("dev.whosnickdoglio.spot") } } }
 
 kotlin {
