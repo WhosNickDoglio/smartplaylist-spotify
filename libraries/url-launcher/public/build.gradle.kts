@@ -27,7 +27,6 @@ kotlin {
             implementation(libs.circuit.foundation)
             implementation(libs.circuit.serialization)
             implementation(libs.circuitx.nav)
-            implementation(libs.uri.kmp)
         }
     }
 }

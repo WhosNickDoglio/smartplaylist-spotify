@@ -27,6 +27,8 @@ import io.ktor.client.network.sockets.SocketTimeoutException
 import io.ktor.client.plugins.ClientRequestException
 import io.ktor.client.plugins.ServerResponseException
 import io.ktor.client.statement.HttpResponse
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.isSuccess
 import io.ktor.util.network.UnresolvedAddressException
 import okio.IOException
 
@@ -39,9 +41,26 @@ public suspend inline fun <reified T : Any, E : Any> HttpClient.apiResultOf(
 ): ApiResult<T, E> {
     return try {
         val response = block()
-        ApiResult.success(response.body<T>())
+        if (response.status.isSuccess()) {
+            ApiResult.success(response.body<T>())
+        } else {
+            response.asKtorApiResult()
+        }
     } catch (e: Exception) {
         e.asKtorApiResult()
+    }
+}
+
+@PublishedApi
+internal fun <E : Any> HttpResponse.asKtorApiResult(): ApiResult<Nothing, E> {
+    fun HttpStatusCode.isClientRequestFailure(): Boolean = value in (400 until 500)
+
+    fun HttpStatusCode.isServerResponseFailure(): Boolean = value in (500 until 600)
+
+    return if (status.isClientRequestFailure() || status.isServerResponseFailure()) {
+        ApiResult.httpFailure(status.value)
+    } else {
+        ApiResult.unknownFailure(IllegalStateException(this.status.toString()))
     }
 }
 

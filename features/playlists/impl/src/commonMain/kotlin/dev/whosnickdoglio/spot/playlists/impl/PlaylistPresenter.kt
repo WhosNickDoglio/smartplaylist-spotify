@@ -4,9 +4,12 @@
 package dev.whosnickdoglio.spot.playlists.impl
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
+import dev.whosnickdoglio.spot.auth.AuthScreen
+import dev.whosnickdoglio.spot.auth.TokenRepository
 import dev.whosnickdoglio.spot.creation.CreateScreen
 import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.AppScope
@@ -18,17 +21,26 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
 @AssistedInject
-internal class PlaylistPresenter(@Assisted private val navigator: Navigator) :
-    Presenter<PlaylistCircuit.State> {
+internal class PlaylistPresenter(
+    private val tokenRepository: TokenRepository,
+    @Assisted private val navigator: Navigator,
+) : Presenter<PlaylistCircuit.State> {
 
     @CircuitInject(PlaylistScreen::class, AppScope::class)
     @AssistedFactory
     fun interface Factory {
-        fun create(@Assisted navigator: Navigator): PlaylistPresenter
+        fun create(navigator: Navigator): PlaylistPresenter
     }
 
     @Composable
     override fun present(): PlaylistCircuit.State {
+        // TODO figure out a better way to do this
+        LaunchedEffect(Unit) {
+            if (tokenRepository.getTokens() == null) {
+                navigator.goTo(AuthScreen(bounceBackScreen = PlaylistScreen))
+            }
+        }
+
         val playlists =
             List(100) {
                 Playlist(

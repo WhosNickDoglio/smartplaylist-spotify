@@ -2,3 +2,11 @@
 -keep class kotlin.Metadata { *; }
 # Keep Unit as it's in the signature of public methods:
 -keep class kotlin.Unit { *; }
+
+# https://whyoleg.github.io/cryptography-kotlin/getting-started/troubleshooting/proguard-r8/#keep-rules
+# In case `cryptography-provider-jdk` artifact is used
+-keep class dev.whyoleg.cryptography.CryptographyProviderContainer
+-keep class dev.whyoleg.cryptography.providers.jdk.JdkCryptographyProviderContainer
+# In case `cryptography-provider-jdk-bc` artifact is used
+-keep class dev.whyoleg.cryptography.providers.jdk.DefaultJdkSecurityProvider
+-keep class dev.whyoleg.cryptography.providers.jdk.bc.BcDefaultJdkSecurityProvider

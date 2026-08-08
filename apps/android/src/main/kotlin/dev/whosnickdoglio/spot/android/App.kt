@@ -17,6 +17,7 @@ import com.slack.circuit.foundation.navstack.rememberSaveableNavStack
 import com.slack.circuit.foundation.rememberCircuitNavigator
 import com.slack.circuit.runtime.screen.CircuitSaver
 import com.slack.circuit.runtime.screen.ProvideCircuitSaver
+import com.slack.circuit.runtime.screen.Screen
 import com.slack.circuit.subcircuit.LocalSubCircuit
 import com.slack.circuit.subcircuit.SubCircuit
 import com.slack.circuitx.android.rememberAndroidScreenAwareNavigator
@@ -24,7 +25,6 @@ import com.slack.circuitx.gesturenavigation.GestureNavigationDecorationFactory
 import com.slack.circuitx.navigation.intercepting.NavigationInterceptor
 import com.slack.circuitx.navigation.intercepting.rememberInterceptingNavigator
 import dev.whosnickdoglio.spot.design.SpotTheme
-import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.Assisted
 import dev.zacsweers.metro.AssistedFactory
 import dev.zacsweers.metro.AssistedInject
@@ -36,10 +36,14 @@ internal class App(
     private val navigationInterceptors: Set<NavigationInterceptor>,
     private val circuitSaver: CircuitSaver,
     @Assisted private val context: Context,
+    @Assisted private val backstack: List<Screen>,
 ) {
     @AssistedFactory
     fun interface Factory {
-        fun create(context: Context): App
+        fun create(
+            context: Context,
+            backstack: List<Screen>,
+        ): App
     }
 
     @Composable
@@ -49,7 +53,7 @@ internal class App(
                 CircuitCompositionLocals(circuit) {
                     CompositionLocalProvider(LocalSubCircuit provides subCircuit) {
                         ProvideCircuitSaver(circuitSaver) {
-                            val navStack = rememberSaveableNavStack(root = PlaylistScreen)
+                            val navStack = rememberSaveableNavStack(initialScreens = backstack)
                             val baseNavigator =
                                 rememberAndroidScreenAwareNavigator(
                                     rememberCircuitNavigator(navStack),

@@ -17,7 +17,7 @@ import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.auth.Auth
 import io.ktor.client.plugins.auth.providers.bearer
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.plugins.logging.DEFAULT
+import io.ktor.client.plugins.logging.ANDROID
 import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
@@ -38,7 +38,7 @@ public interface NetworkProviders {
         HttpClient(CIO) {
             if (buildInfo.buildVariant == BuildVariant.DEBUG) {
                 install(Logging) {
-                    logger = Logger.DEFAULT
+                    logger = Logger.ANDROID
                     level = LogLevel.ALL
                 }
 

@@ -3,9 +3,28 @@
 
 package dev.whosnickdoglio.spot.auth
 
+import catchup.deeplink.DeepLinkable
 import com.slack.circuit.runtime.screen.Screen
 import com.slack.circuit.serialization.CircuitSerializable
 import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.ContributesIntoMap
+import dev.zacsweers.metro.StringKey
 import io.github.solcott.kmp.parcelize.Parcelize
 
-@Parcelize @CircuitSerializable(AppScope::class) public data object AuthScreen : Screen
+@Parcelize
+@CircuitSerializable(AppScope::class)
+public data class AuthScreen(
+    val code: String? = null,
+    val state: String? = null,
+    val bounceBackScreen: Screen? = null,
+) : Screen {
+    @StringKey("auth")
+    @ContributesIntoMap(AppScope::class)
+    public object DeepLinker : DeepLinkable {
+        override fun createScreen(queryParams: Map<String, List<String?>>): Screen =
+            AuthScreen(
+                code = queryParams["code"]?.first(),
+                state = queryParams["state"]?.first(),
+            )
+    }
+}

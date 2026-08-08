@@ -7,7 +7,7 @@ import com.slack.circuit.runtime.CircuitUiState
 
 public interface AuthCircuit {
     public data class State(
-        val isAuthenticated: Boolean,
+        val authState: AuthorizationState,
         val errorMessage: String?,
         val eventSink: (Event) -> Unit,
     ) : CircuitUiState
