@@ -15,6 +15,15 @@ appPlatform {
     enableModuleStructure(true)
 }
 
+kotlin {
+    compilerOptions {
+        freeCompilerArgs.add(
+            // TODO ignoring for now to work around
+            "-Xwarning-level=SUSPICIOUS_UNUSED_MULTIBINDING:disabled"
+        )
+    }
+}
+
 licensee {
     allow("Apache-2.0")
     // androidx.datastore:datastore-preferences-external-protobuf
