@@ -18,5 +18,6 @@
 :libraries:spotify-db:public
 :libraries:spotify-rest:public
 :libraries:targets:public
+:libraries:url-launcher:impl
 :libraries:url-launcher:public
 :libraries:use-case:public

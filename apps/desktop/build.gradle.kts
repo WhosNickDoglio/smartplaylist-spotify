@@ -69,7 +69,7 @@ dependencies {
     implementation(project(":libraries:spotify-db:public"))
     implementation(project(":libraries:spotify-rest:public"))
     implementation(project(":libraries:targets:public"))
-    implementation(project(":libraries:url-launcher:public"))
+    implementation(project(":libraries:url-launcher:impl"))
     implementation(compose.desktop.currentOs)
     implementation(libs.circuit.codegen.annotations)
     implementation(libs.circuit.foundation)

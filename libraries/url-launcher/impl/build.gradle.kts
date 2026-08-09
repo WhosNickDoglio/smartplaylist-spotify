@@ -17,13 +17,14 @@ appPlatform {
 
 kotlin {
     android {
-        namespace = "dev.whosnickdoglio.spot.url"
+        namespace = "dev.whosnickdoglio.spot.url.impl"
         compileSdk { version = release(37) }
     }
     jvm()
 
     sourceSets {
         commonMain.dependencies {
+            api(project(":libraries:url-launcher:public"))
             implementation(libs.circuit.foundation)
             implementation(libs.circuit.serialization)
             implementation(libs.circuitx.nav)

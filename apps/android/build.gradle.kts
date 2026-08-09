@@ -75,7 +75,7 @@ dependencies {
     implementation(project(":libraries:spotify-db:public"))
     implementation(project(":libraries:spotify-rest:public"))
     implementation(project(":libraries:targets:public"))
-    implementation(project(":libraries:url-launcher:public"))
+    implementation(project(":libraries:url-launcher:impl"))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.browser)
     implementation(libs.androidx.compose.material3)

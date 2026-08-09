@@ -9,7 +9,9 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.screen.Screen
+import java.awt.Desktop
 import java.net.URI
+import java.util.Locale
 
 @Stable
 public class DesktopScreenAwareNavigator(
@@ -45,4 +47,21 @@ public fun rememberDesktopScreenAwareNavigator(
 
 public fun interface DesktopScreenStarter {
     public fun start(screen: DesktopScreen): Boolean
+}
+
+// https://stackoverflow.com/a/68426773
+internal fun openInBrowser(uri: URI) {
+
+    val osName by
+        lazy(LazyThreadSafetyMode.NONE) {
+            System.getProperty("os.name").lowercase(Locale.getDefault())
+        }
+    val desktop = Desktop.getDesktop()
+    when {
+        Desktop.isDesktopSupported() && desktop.isSupported(Desktop.Action.BROWSE) ->
+            desktop.browse(uri)
+        "mac" in osName -> Runtime.getRuntime().exec("open $uri")
+        "nix" in osName || "nux" in osName -> Runtime.getRuntime().exec("xdg-open $uri")
+        else -> throw RuntimeException("cannot open $uri")
+    }
 }
