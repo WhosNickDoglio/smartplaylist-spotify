@@ -40,7 +40,6 @@ plugins {
     alias(libs.plugins.mockingbird) apply false
     alias(libs.plugins.sqldelight) apply false
     alias(libs.plugins.roborazzi) apply false
-    alias(libs.plugins.r8booster) apply false
 }
 
 // https://github.com/runningcode/gradle-doctor/issues/302

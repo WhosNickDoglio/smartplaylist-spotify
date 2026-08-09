@@ -9,7 +9,6 @@ plugins {
     alias(libs.plugins.licensee)
     alias(libs.plugins.app.versioning)
     alias(libs.plugins.app.platform)
-    alias(libs.plugins.r8booster)
 }
 
 appPlatform {
