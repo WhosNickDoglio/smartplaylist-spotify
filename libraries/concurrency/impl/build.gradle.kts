@@ -13,12 +13,21 @@ appPlatform {
 
 kotlin {
     android {
-        namespace = "dev.whosnickdoglio.spot.concurrency"
+        namespace = "dev.whosnickdoglio.spot.concurrency.impl"
         compileSdk { version = release(37) }
     }
     jvm()
 
     sourceSets {
-        commonMain.dependencies { api(libs.coroutines.core) }
+        androidMain.dependencies {
+            api(libs.coroutines.android)
+        }
+        commonMain.dependencies {
+            api(project(":libraries:concurrency:public"))
+            api(libs.coroutines.core)
+        }
+        jvmMain.dependencies {
+            api(libs.coroutines.swing)
+        }
     }
 }

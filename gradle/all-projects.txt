@@ -11,6 +11,7 @@
 :kover-aggregate
 :libraries:build-info:public
 :libraries:circuit-providers:impl
+:libraries:concurrency:impl
 :libraries:concurrency:public
 :libraries:design:public
 :libraries:eithernet-ktor:public

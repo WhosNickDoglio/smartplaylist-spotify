@@ -63,7 +63,7 @@ dependencies {
     implementation(project(":features:settings:impl"))
     implementation(project(":libraries:build-info:public"))
     implementation(project(":libraries:circuit-providers:impl"))
-    implementation(project(":libraries:concurrency:public"))
+    implementation(project(":libraries:concurrency:impl"))
     implementation(project(":libraries:design:public"))
     implementation(project(":libraries:livewire:impl"))
     implementation(project(":libraries:spotify-db:public"))

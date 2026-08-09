@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.concurrency.internal
+package dev.whosnickdoglio.spot.concurrency.impl
 
 import dev.whosnickdoglio.spot.concurrency.ApplicationScope
 import dev.whosnickdoglio.spot.concurrency.CoroutineContextProvider
