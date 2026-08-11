@@ -1,0 +1,32 @@
+// Copyright (C) 2026 Nicholas Doglio
+// SPDX-License-Identifier: MIT
+plugins {
+    alias(libs.plugins.convention.kmp)
+    alias(libs.plugins.android.library.kmp)
+    alias(libs.plugins.app.platform)
+}
+
+appPlatform {
+    enableModuleStructure(true)
+}
+
+kotlin {
+    android {
+        namespace = "dev.whosnickdoglio.spot.concurrency.tesing"
+        compileSdk { version = release(37) }
+    }
+    jvm()
+
+    sourceSets {
+        androidMain.dependencies {
+            api(libs.coroutines.android)
+        }
+        commonMain.dependencies {
+            api(project(":libraries:concurrency:public"))
+            api(libs.coroutines.test)
+        }
+        jvmMain.dependencies {
+            api(libs.coroutines.swing)
+        }
+    }
+}

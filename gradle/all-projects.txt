@@ -13,6 +13,7 @@
 :libraries:circuit-providers:impl
 :libraries:concurrency:impl
 :libraries:concurrency:public
+:libraries:concurrency:testing
 :libraries:design:public
 :libraries:eithernet-ktor:public
 :libraries:livewire:impl
