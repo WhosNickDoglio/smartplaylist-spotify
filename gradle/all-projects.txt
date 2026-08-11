@@ -16,6 +16,7 @@
 :libraries:concurrency:testing
 :libraries:design:public
 :libraries:eithernet-ktor:public
+:libraries:encrypted-serialization:public
 :libraries:livewire:impl
 :libraries:spotify-db:public
 :libraries:spotify-rest:public
