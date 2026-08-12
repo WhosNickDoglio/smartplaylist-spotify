@@ -5,7 +5,10 @@ package dev.whosnickdoglio.spot.circuit
 
 import com.slack.circuit.foundation.Circuit
 import com.slack.circuit.runtime.presenter.Presenter
+import com.slack.circuit.runtime.screen.CircuitSaver
 import com.slack.circuit.runtime.ui.Ui
+import com.slack.circuit.serialization.CircuitSerializerRegistration
+import com.slack.circuit.serialization.SerializableCircuitSaver
 import com.slack.circuit.subcircuit.SubCircuit
 import com.slack.circuit.subcircuit.SubPresenterFactory
 import com.slack.circuit.subcircuit.SubUiFactory
@@ -24,6 +27,13 @@ public interface CircuitProviders {
     @Multibinds(allowEmpty = true) public fun subPresenterFactories(): Set<SubPresenterFactory>
 
     @Multibinds(allowEmpty = true) public fun subViewFactories(): Set<SubUiFactory>
+
+    @Multibinds public fun circuitSerializerRegistrations(): Set<CircuitSerializerRegistration>
+
+    @Provides
+    public fun provideCircuitSaver(
+        registrations: Set<CircuitSerializerRegistration>
+    ): CircuitSaver = SerializableCircuitSaver(registrations)
 
     @Provides
     public fun provideCircuit(
