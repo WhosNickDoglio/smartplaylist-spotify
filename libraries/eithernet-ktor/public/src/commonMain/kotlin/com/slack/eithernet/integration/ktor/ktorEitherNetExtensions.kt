@@ -1,8 +1,3 @@
-// Copyright (C) 2026 Nicholas Doglio
-// SPDX-License-Identifier: MIT
-
-package com.slack.eithernet.integration.ktor
-
 /*
  * Copyright (C) 2025 Slack Technologies, LLC
  *
@@ -18,6 +13,8 @@ package com.slack.eithernet.integration.ktor
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package com.slack.eithernet.integration.ktor
 
 import com.slack.eithernet.ApiResult
 import io.ktor.client.HttpClient
