@@ -1,14 +1,13 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.rest
+package dev.whosnickdoglio.spot.rest.auth
 
 import com.eygraber.uri.Uri
 import com.slack.eithernet.ApiResult
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-// TODO error handling
 public interface SpotifyAccountService {
 
     public fun getAuthUrl(state: String, codeChallenge: String): Uri

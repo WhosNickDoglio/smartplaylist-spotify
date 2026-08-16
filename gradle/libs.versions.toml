@@ -1,6 +1,7 @@
 [versions]
 agp = "9.3.1"
 min-sdk = "30"
+slf4jAndroid = "1.7.36"
 target-sdk = "37"
 compile-sdk = "37"
 coroutines = "1.11.0"
@@ -137,6 +138,7 @@ metrox-android = { module = "dev.zacsweers.metro:metrox-android", version.ref = 
 eithernet = { module = "com.slack.eithernet:eithernet", version.ref = "eithernet" }
 eithernet-test = { module = "com.slack.eithernet:eithernet-test-fixtures", version.ref = "eithernet" }
 
+slf4j-android = { module = "org.slf4j:slf4j-android", version.ref = "slf4jAndroid" }
 sqldelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqldelight" }
 sqldelight-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqldelight" }
 sqldelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }

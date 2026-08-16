@@ -21,6 +21,7 @@
 :libraries:encrypted-serialization:public
 :libraries:livewire:impl
 :libraries:spotify-db:public
+:libraries:spotify-rest:impl
 :libraries:spotify-rest:public
 :libraries:targets:public
 :libraries:url-launcher:impl

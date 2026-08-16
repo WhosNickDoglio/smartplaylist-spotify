@@ -3,16 +3,12 @@
 
 package dev.whosnickdoglio.spot.rest
 
-public sealed interface SpotifyErrorResponse {
-    // 400
-    public data class BadRequest(val oops: String) : SpotifyErrorResponse
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-    // 401
-    public data class BadToken(val oops: String) : SpotifyErrorResponse
-
-    // 403
-    public data class BadOauthRequest(val oops: String) : SpotifyErrorResponse
-
-    // 429
-    public data class ExceededRateLimit(val oops: String) : SpotifyErrorResponse
-}
+// {"error":"invalid_grant","error_description":"code_verifier was incorrect"}
+@Serializable
+public data class SpotifyErrorResponse(
+    val error: String,
+    @SerialName("error_description") val message: String,
+)

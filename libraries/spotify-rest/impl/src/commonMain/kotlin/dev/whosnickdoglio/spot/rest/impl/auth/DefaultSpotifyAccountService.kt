@@ -1,14 +1,14 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.rest.internal
+package dev.whosnickdoglio.spot.rest.impl.auth
 
 import com.eygraber.uri.Uri
 import com.slack.eithernet.ApiResult
 import com.slack.eithernet.integration.ktor.apiResultOf
-import dev.whosnickdoglio.spot.rest.AccessTokenRequestResponse
-import dev.whosnickdoglio.spot.rest.SpotifyAccountService
-import dev.whosnickdoglio.spot.rest.di.ClientId
+import dev.whosnickdoglio.spot.rest.auth.AccessTokenRequestResponse
+import dev.whosnickdoglio.spot.rest.auth.SpotifyAccountService
+import dev.whosnickdoglio.spot.rest.impl.di.ClientId
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import io.ktor.client.HttpClient
@@ -26,6 +26,7 @@ internal class DefaultSpotifyAccountService(
         listOf(
                 "playlist-modify-public",
                 "playlist-modify-private",
+                "playlist-read-private",
                 "user-follow-read",
                 "user-read-recently-played",
             )

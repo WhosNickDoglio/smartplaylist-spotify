@@ -19,7 +19,7 @@ import com.slack.circuit.runtime.internal.rememberStableCoroutineScope
 import com.slack.circuit.runtime.presenter.Presenter
 import dev.whosnickdoglio.spot.auth.AuthScreen
 import dev.whosnickdoglio.spot.auth.impl.internal.CodeChallenge
-import dev.whosnickdoglio.spot.rest.SpotifyAccountService
+import dev.whosnickdoglio.spot.rest.auth.SpotifyAccountService
 import dev.whosnickdoglio.spot.url.LaunchUrlScreen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Assisted

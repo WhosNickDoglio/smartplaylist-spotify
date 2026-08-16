@@ -1,13 +1,13 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.rest.di
+package dev.whosnickdoglio.spot.rest.impl.di
 
 import com.livewire.plugin.network.ktor.LivewireNetworkPlugin
 import dev.whosnickdoglio.spot.info.BuildInfo
 import dev.whosnickdoglio.spot.info.BuildVariant
-import dev.whosnickdoglio.spot.rest.CLIENT_ID
-import dev.whosnickdoglio.spot.rest.CLIENT_SECRET
+import dev.whosnickdoglio.spot.rest.impl.CLIENT_ID
+import dev.whosnickdoglio.spot.rest.impl.CLIENT_SECRET
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
@@ -25,7 +25,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 @ContributesTo(AppScope::class)
-public interface NetworkProviders {
+public interface etworkProviders {
 
     @Provides @ClientSecret public fun provideClientSecret(): String = CLIENT_SECRET
 
