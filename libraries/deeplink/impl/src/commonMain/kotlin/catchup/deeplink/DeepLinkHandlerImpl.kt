@@ -18,7 +18,15 @@ package catchup.deeplink
 import com.slack.circuit.runtime.screen.Screen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
+import dev.zacsweers.metro.ContributesTo
+import dev.zacsweers.metro.Multibinds
 import io.ktor.http.Url
+
+// Temporarily allow compilation until we have actual deeplinks
+@ContributesTo(AppScope::class)
+public interface DeepLinkableProvider {
+    @Multibinds(allowEmpty = true) public fun routes(): Map<String, DeepLinkable>
+}
 
 @ContributesBinding(AppScope::class)
 internal class DeepLinkHandlerImpl(private val routes: Map<String, DeepLinkable>) :
