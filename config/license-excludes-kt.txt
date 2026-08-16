@@ -1,2 +1,6 @@
+libraries/deeplink/impl/src/commonMain/kotlin/catchup/deeplink/DeepLinkHandlerImpl.kt
+libraries/deeplink/public/src/androidMain/kotlin/catchup/deeplink/DeepLinkHandler.kt
+libraries/deeplink/public/src/commonMain/kotlin/catchup/deeplink/DeepLinHandler.kt
+libraries/deeplink/public/src/commonMain/kotlin/catchup/deeplink/DeepLinkable.kt
 libraries/eithernet-ktor/public/src/commonMain/kotlin/com/slack/eithernet/integration/ktor/ktorEitherNetExtensions.kt
 libraries/eithernet-ktor/public/src/commonTest/kotlin/com/slack/eithernet/integration/ktor/KtorEitherNetExtensionsTest.kt

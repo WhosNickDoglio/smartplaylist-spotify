@@ -14,6 +14,8 @@
 :libraries:concurrency:impl
 :libraries:concurrency:public
 :libraries:concurrency:testing
+:libraries:deeplink:impl
+:libraries:deeplink:public
 :libraries:design:public
 :libraries:eithernet-ktor:public
 :libraries:encrypted-serialization:public
