@@ -27,6 +27,8 @@ kotlin {
 
 licensee {
     allow("Apache-2.0")
+    // com.michael-bull.kotlin-result:kotlin-result
+    allow("ISC")
     // androidx.datastore:datastore-preferences-external-protobuf
     allow("BSD-3-Clause")
     // Pulled in by SLF4J (transitive dependency of ktor)
@@ -66,6 +68,7 @@ dependencies {
     implementation(project(":libraries:concurrency:impl"))
     implementation(project(":libraries:deeplink:impl"))
     implementation(project(":libraries:design:public"))
+    implementation(project(":libraries:encrypted-serialization:public"))
     implementation(project(":libraries:livewire:impl"))
     implementation(project(":libraries:spotify-db:public"))
     implementation(project(":libraries:spotify-rest:impl"))

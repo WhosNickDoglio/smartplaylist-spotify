@@ -27,7 +27,9 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(project(":features:playlists:public"))
+            implementation(project(":features:auth:public"))
             implementation(project(":features:creation:public"))
+            implementation(project(":libraries:spotify-rest:public"))
             implementation(libs.circuit.foundation)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)

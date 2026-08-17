@@ -48,7 +48,7 @@ internal class App(
             CircuitCompositionLocals(circuit) {
                 CompositionLocalProvider(LocalSubCircuit provides subCircuit) {
                     Surface {
-                        val navStack = rememberSaveableNavStack(root = AuthScreen)
+                        val navStack = rememberSaveableNavStack(root = AuthScreen())
                         val baseNavigator =
                             rememberDesktopScreenAwareNavigator(
                                 rememberCircuitNavigator(navStack = navStack, onRootPop = {})

@@ -5,6 +5,7 @@ package dev.whosnickdoglio.spot.usecase
 
 import kotlinx.coroutines.flow.Flow
 
+// https://medium.com/@june.pravin/clean-architecture-functional-style-use-case-composition-with-rxjava-kotlin-898726c97dfe
 public fun interface UseCase<ARG : Any, RETURN : Any> {
     public suspend operator fun invoke(arg: ARG): RETURN
 }
