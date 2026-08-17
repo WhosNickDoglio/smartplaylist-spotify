@@ -1,7 +1,7 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
 
-package dev.whosnickdoglio.spot.rest.impl
+package dev.whosnickdoglio.spot.rest.impl.auth
 
 import assertk.assertThat
 import assertk.assertions.isEqualTo

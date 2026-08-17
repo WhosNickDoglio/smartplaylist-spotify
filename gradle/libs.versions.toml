@@ -27,6 +27,7 @@ metro = "1.4.2"
 coil = "3.6.0"
 ktor = "3.5.2"
 datstore = "1.3.0-alpha10"
+result = "2.3.1"
 
 [plugins]
 android-app = { id = "com.android.application", version.ref = "agp" }
@@ -94,6 +95,9 @@ coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-core = { module = "io.coil-kt.coil3:coil-core", version.ref = "coil" }
 coil-network = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
 coil-test = { module = "io.coil-kt.coil3:coil-test", version.ref = "coil" }
+
+result = { module = "com.michael-bull.kotlin-result:kotlin-result", version.ref = "result" }
+result-coroutines = { module = "com.michael-bull.kotlin-result:kotlin-result-coroutines", version.ref = "result" }
 
 livewire-client = { module = "com.livewire-kt.livewire:client", version.ref = "livewire" }
 livewire-sql = { module = "com.livewire-kt.livewire:plugin-database", version.ref = "livewire" }

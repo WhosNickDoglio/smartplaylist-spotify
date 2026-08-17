@@ -10,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import catchup.deeplink.DeepLinkHandler
 import catchup.deeplink.parse
-import com.slack.circuit.retained.ExperimentalCircuitRetainedApi
 import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesIntoMap
@@ -24,9 +23,8 @@ internal class MainActivity(
     private val deepLinkHandler: DeepLinkHandler,
 ) : ComponentActivity() {
 
-    @OptIn(ExperimentalCircuitRetainedApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
-        val backStack = deepLinkHandler.parse(intent) ?: listOf(PlaylistScreen)
+        val backStack = listOf(PlaylistScreen) + deepLinkHandler.parse(intent).orEmpty()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val app = appFactory.create(this, backStack)
