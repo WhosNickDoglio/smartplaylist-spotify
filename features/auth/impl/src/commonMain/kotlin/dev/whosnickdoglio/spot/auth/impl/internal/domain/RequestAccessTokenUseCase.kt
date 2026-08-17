@@ -14,22 +14,19 @@ import dev.whosnickdoglio.spot.rest.auth.TokenRequestResponse
 import dev.whosnickdoglio.spot.rest.auth.Tokens
 import dev.whosnickdoglio.spot.rest.auth.toTokens
 import dev.whosnickdoglio.spot.usecase.UseCase
-import dev.zacsweers.metro.AppScope
-import dev.zacsweers.metro.ContributesBinding
+import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.withContext
-
-public interface RequestAccessTokenUseCase : UseCase<String, Result<Tokens, AccessTokenFailure>>
 
 public sealed interface AccessTokenFailure {
     public data object Error : AccessTokenFailure
 }
 
-@ContributesBinding(AppScope::class)
-internal class DefaultRequestAccessTokenUseCase(
+@Inject
+internal class RequestAccessTokenUseCase(
     @CodeVerifier private val codeVerifier: String,
     private val spotifyAccountService: SpotifyAccountService,
     private val coroutineContextProvider: CoroutineContextProvider,
-) : RequestAccessTokenUseCase {
+) : UseCase<String, Result<Tokens, AccessTokenFailure>> {
     override suspend fun invoke(arg: String): Result<Tokens, AccessTokenFailure> =
         withContext(coroutineContextProvider.io) {
             when (

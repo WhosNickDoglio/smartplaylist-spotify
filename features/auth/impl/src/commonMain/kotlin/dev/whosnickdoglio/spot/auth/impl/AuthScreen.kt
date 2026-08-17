@@ -11,17 +11,16 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.github.michaelbull.result.onErr
+import com.github.michaelbull.result.get
+import com.github.michaelbull.result.getErrorOr
+import com.github.michaelbull.result.mapError
 import com.github.michaelbull.result.onOk
 import com.slack.circuit.codegen.annotations.CircuitInject
-import com.slack.circuit.retained.rememberRetained
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.internal.rememberStableCoroutineScope
 import com.slack.circuit.runtime.presenter.Presenter
@@ -35,6 +34,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Assisted
 import dev.zacsweers.metro.AssistedFactory
 import dev.zacsweers.metro.AssistedInject
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
@@ -46,25 +46,26 @@ internal fun AuthScreen(state: AuthCircuit.State, modifier: Modifier = Modifier)
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize(),
     ) {
-        if (state.authState == AuthorizationState.UserAuthorized) {
-            Text("WOOOO AUTHENTICATED")
-        } else {
-            Button(
-                onClick = { state.eventSink(AuthCircuit.Event.LaunchAuth) },
-                modifier = Modifier.align(Alignment.CenterHorizontally).wrapContentSize(),
-            ) {
-                Text("Authenticate")
+        when (state) {
+            is AuthCircuit.State.Error -> {
+                Button(
+                    onClick = { state.eventSink(AuthCircuit.Event.LaunchAuth) },
+                    modifier = Modifier.align(Alignment.CenterHorizontally).wrapContentSize(),
+                ) {
+                    Text("Authenticate")
+                }
+            }
+
+            is AuthCircuit.State.Unauthorized -> {
+                Button(
+                    onClick = { state.eventSink(AuthCircuit.Event.LaunchAuth) },
+                    modifier = Modifier.align(Alignment.CenterHorizontally).wrapContentSize(),
+                ) {
+                    Text("Authenticate")
+                }
             }
         }
     }
-}
-
-public sealed interface AuthorizationState {
-    public data object Unauthorized : AuthorizationState
-
-    public data object UserAuthorized : AuthorizationState
-
-    public data class Error(val message: String) : AuthorizationState
 }
 
 @AssistedInject
@@ -86,49 +87,70 @@ internal class AuthPresenter(
     @Composable
     override fun present(): AuthCircuit.State {
         val scope = rememberStableCoroutineScope()
-        var authState: AuthorizationState by rememberRetained {
-            mutableStateOf(AuthorizationState.Unauthorized)
-        }
-
-        var errorMessage: String? by remember { mutableStateOf(null) }
-
-        if (screen.code != null && screen.state != null) {
-            authState = AuthorizationState.UserAuthorized
-            LaunchedEffect(screen) {
-                val isSameStateValue = verifyStateUseCase(screen.state!!)
-            }
-        }
-
-        LaunchedEffect(authState) {
-            when (authState) {
-                is AuthorizationState.Error -> {
-                    errorMessage = (authState as AuthorizationState.Error).message
-                }
-                is AuthorizationState.Unauthorized -> Unit
-                is AuthorizationState.UserAuthorized -> {
-                    if (screen.code != null) {
-                        val tokens = requestAccessTokenUseCase(screen.code!!)
-                        tokens
+        val state by
+            produceState<AuthCircuit.State>(
+                initialValue =
+                    AuthCircuit.State.Unauthorized({
+                        eventSink(
+                            it,
+                            scope,
+                        )
+                    }),
+                key1 = screen,
+            ) {
+                if (screen.code != null) {
+                    val isSameStateValue = verifyStateUseCase(screen.state!!)
+                    if (isSameStateValue) {
+                        value =
+                            AuthCircuit.State.Error(
+                                "oops",
+                                {
+                                    eventSink(
+                                        it,
+                                        scope,
+                                    )
+                                },
+                            )
+                    }
+                    val tokens =
+                        requestAccessTokenUseCase(screen.code!!)
                             .onOk {
                                 tokenRepository.putTokens(it)
                                 navigator.pop()
                             }
-                            .onErr {
-                                // TODO
+                            .mapError {
+                                AuthCircuit.State.Error(
+                                    "oops",
+                                    {
+                                        eventSink(
+                                            it,
+                                            scope,
+                                        )
+                                    },
+                                )
                             }
-                    }
+
+                    value =
+                        tokens.getErrorOr(
+                            AuthCircuit.State.Error("") {
+                                eventSink(
+                                    it,
+                                    scope,
+                                )
+                            }
+                        )
                 }
             }
-        }
 
-        return AuthCircuit.State(authState = authState, errorMessage = errorMessage) { event ->
-            when (event) {
-                AuthCircuit.Event.LaunchAuth -> {
-                    scope.launch {
-                        val url = requestAuthorizationUrlUseCase()
+        return state
+    }
 
-                        navigator.goTo(LaunchUrlScreen(url))
-                    }
+    private fun eventSink(event: AuthCircuit.Event, scope: CoroutineScope) {
+        when (event) {
+            AuthCircuit.Event.LaunchAuth -> {
+                scope.launch {
+                    val url = requestAuthorizationUrlUseCase()
+                    navigator.goTo(LaunchUrlScreen(url))
                 }
             }
         }

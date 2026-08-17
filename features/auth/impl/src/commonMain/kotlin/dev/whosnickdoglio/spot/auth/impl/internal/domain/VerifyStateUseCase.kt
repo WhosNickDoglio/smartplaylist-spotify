@@ -6,17 +6,14 @@ package dev.whosnickdoglio.spot.auth.impl.internal.domain
 import dev.whosnickdoglio.spot.auth.impl.di.State
 import dev.whosnickdoglio.spot.concurrency.CoroutineContextProvider
 import dev.whosnickdoglio.spot.usecase.UseCase
-import dev.zacsweers.metro.AppScope
-import dev.zacsweers.metro.ContributesBinding
+import dev.zacsweers.metro.Inject
 import kotlinx.coroutines.withContext
 
-public interface VerifyStateUseCase : UseCase<String, Boolean>
-
-@ContributesBinding(AppScope::class)
-internal class DefaultVerifyStateUseCase(
+@Inject
+internal class VerifyStateUseCase(
     @State private val state: String,
     private val coroutineContextProvider: CoroutineContextProvider,
-) : VerifyStateUseCase {
+) : UseCase<String, Boolean> {
     override suspend fun invoke(arg: String): Boolean =
         withContext(coroutineContextProvider.default) {
             return@withContext arg == state
