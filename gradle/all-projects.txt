@@ -18,9 +18,11 @@
 :libraries:design:public
 :libraries:eithernet-ktor:public
 :libraries:livewire:impl
+:libraries:result-assertions:testing
 :libraries:spotify-db:public
 :libraries:spotify-rest:impl
 :libraries:spotify-rest:public
+:libraries:spotify-rest:testing
 :libraries:targets:public
 :libraries:url-launcher:impl
 :libraries:url-launcher:public
