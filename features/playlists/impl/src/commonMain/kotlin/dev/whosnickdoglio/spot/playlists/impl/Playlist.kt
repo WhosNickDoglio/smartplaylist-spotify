@@ -36,7 +36,13 @@ internal fun PlaylistScreen(state: PlaylistCircuit.State, modifier: Modifier = M
         },
     ) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(state.playlists) { playlist -> PlaylistItem(playlist, modifier.padding(it)) }
+            if (state.errorMessage != null) {
+                item {
+                    Text(state.errorMessage)
+                }
+            } else {
+                items(state.playlists) { playlist -> PlaylistItem(playlist, modifier.padding(it)) }
+            }
         }
     }
 }
