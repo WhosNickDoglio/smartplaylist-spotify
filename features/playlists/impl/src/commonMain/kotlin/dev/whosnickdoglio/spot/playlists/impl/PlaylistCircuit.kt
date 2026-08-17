@@ -7,8 +7,11 @@ import com.slack.circuit.runtime.CircuitUiState
 import kotlinx.datetime.LocalDateTime
 
 public data object PlaylistCircuit {
-    public data class State(val playlists: List<Playlist>, val eventSink: (Event) -> Unit) :
-        CircuitUiState
+    public data class State(
+        val playlists: List<Playlist>,
+        val errorMessage: String? = null,
+        val eventSink: (Event) -> Unit,
+    ) : CircuitUiState
 
     public sealed interface Event {
 
