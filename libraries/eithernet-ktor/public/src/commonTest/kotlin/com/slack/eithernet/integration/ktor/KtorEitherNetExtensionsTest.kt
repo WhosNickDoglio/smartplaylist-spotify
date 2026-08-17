@@ -17,13 +17,30 @@
 package com.slack.eithernet.integration.ktor
 
 import com.slack.eithernet.ApiResult
+import io.ktor.client.HttpClient
+import io.ktor.client.call.HttpClientCall
+import io.ktor.client.engine.mock.MockEngine
+import io.ktor.client.engine.mock.respond
 import io.ktor.client.network.sockets.ConnectTimeoutException
 import io.ktor.client.network.sockets.SocketTimeoutException
+import io.ktor.client.request.HttpResponseData
+import io.ktor.client.statement.HttpResponse
+import io.ktor.http.Headers
+import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpProtocolVersion
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.headersOf
+import io.ktor.util.date.GMTDate
 import io.ktor.util.network.UnresolvedAddressException
+import io.ktor.utils.io.ByteReadChannel
+import io.ktor.utils.io.InternalAPI
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertTrue
+import kotlin.time.Clock
 import okio.IOException
 
 class KtorEitherNetExtensionsTest {
@@ -89,4 +106,72 @@ class KtorEitherNetExtensionsTest {
         assertTrue(socketResult.error.cause is SocketTimeoutException)
         assertTrue(addressResult.error.cause is UnresolvedAddressException)
     }
+
+    @Test
+    fun `asKtorApiResult converts 400 error response with  body to httpFailure`() {
+        val response =
+            FakeResponse(
+                responseData =
+                    HttpResponseData(
+                        statusCode = HttpStatusCode.BadRequest,
+                        requestTime = GMTDate(Clock.System.now().toEpochMilliseconds()),
+                        headers = Headers.Empty,
+                        version = HttpProtocolVersion.HTTP_2_0,
+                        body = mapOf("error" to "oops"),
+                        callContext = EmptyCoroutineContext,
+                    )
+            )
+
+        val result = response.asKtorApiResult<Unit>()
+
+        assertTrue(result is ApiResult.Failure.HttpFailure)
+    }
+
+    @Test
+    fun `asKtorApiResult converts 500 error response with  body to httpFailure`() {
+        val response =
+            FakeResponse(
+                responseData =
+                    HttpResponseData(
+                        statusCode = HttpStatusCode.InternalServerError,
+                        requestTime = GMTDate(Clock.System.now().toEpochMilliseconds()),
+                        headers = Headers.Empty,
+                        version = HttpProtocolVersion.HTTP_2_0,
+                        body = mapOf("error" to "oops"),
+                        callContext = EmptyCoroutineContext,
+                    )
+            )
+
+        val result = response.asKtorApiResult<Unit>()
+        assertTrue(result is ApiResult.Failure.HttpFailure)
+    }
+}
+
+private class FakeResponse(
+    override val call: HttpClientCall =
+        HttpClientCall(
+            HttpClient(
+                engine =
+                    MockEngine { _ ->
+                        respond(
+                            content = ByteReadChannel("""{"ip":"127.0.0.1"}"""),
+                            status = HttpStatusCode.OK,
+                            headers = headersOf(HttpHeaders.ContentType, "application/json"),
+                        )
+                    }
+            )
+        ),
+    responseData: HttpResponseData,
+) : HttpResponse() {
+    override val coroutineContext: CoroutineContext = responseData.callContext
+    override val status: HttpStatusCode = responseData.statusCode
+    override val version: HttpProtocolVersion = responseData.version
+    override val requestTime: GMTDate = responseData.requestTime
+    override val responseTime: GMTDate = responseData.responseTime
+
+    @InternalAPI
+    override val rawContent: ByteReadChannel =
+        responseData.body as? ByteReadChannel ?: ByteReadChannel.Empty
+
+    override val headers: Headers = responseData.headers
 }

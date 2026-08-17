@@ -19,6 +19,9 @@ kotlin {
             implementation(libs.okio)
         }
 
-        commonTest.dependencies { implementation(libs.kotlin.test) }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.ktor.client.mock)
+        }
     }
 }
