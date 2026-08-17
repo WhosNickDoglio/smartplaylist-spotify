@@ -18,7 +18,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import kotlinx.coroutines.withContext
 
-public interface RequestAccessTokenUseCase : UseCase<String, Result<Tokens, AccessTokenFailure>>
+public fun interface RequestAccessTokenUseCase : UseCase<String, Result<Tokens, AccessTokenFailure>>
 
 public sealed interface AccessTokenFailure {
     public data object Error : AccessTokenFailure

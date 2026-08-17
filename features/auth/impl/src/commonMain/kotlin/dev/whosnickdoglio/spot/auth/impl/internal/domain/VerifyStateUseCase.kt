@@ -10,7 +10,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import kotlinx.coroutines.withContext
 
-public interface VerifyStateUseCase : UseCase<String, Boolean>
+public fun interface VerifyStateUseCase : UseCase<String, Boolean>
 
 @ContributesBinding(AppScope::class)
 internal class DefaultVerifyStateUseCase(

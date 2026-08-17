@@ -12,7 +12,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import kotlinx.coroutines.withContext
 
-public interface RequestAuthorizationUrlUseCase : NoArgUseCase<String>
+public fun interface RequestAuthorizationUrlUseCase : NoArgUseCase<String>
 
 @ContributesBinding(AppScope::class)
 internal class DefaultRequestAuthorizationUrlUseCase(

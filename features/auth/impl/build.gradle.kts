@@ -47,8 +47,12 @@ kotlin {
         }
 
         commonTest.dependencies {
+            implementation(project(":libraries:concurrency:testing"))
+            implementation(project(":libraries:result-assertions:testing"))
+            implementation(project(":libraries:spotify-rest:testing"))
             implementation(libs.assertk)
             implementation(libs.circuit.test)
+            implementation(libs.coroutines.test)
             implementation(libs.dejavu)
             implementation(libs.kotlin.test)
         }
