@@ -24,11 +24,16 @@ kotlin {
     jvm()
 
     sourceSets {
-        commonMain.dependencies {
-            implementation(project(":libraries:concurrency:public"))
-            implementation(libs.androidx.datastore)
+        androidMain.dependencies {
             implementation(libs.coroutines.core)
-            implementation(libs.cryptography.core)
+        }
+
+        commonMain.dependencies {
+            api(libs.androidx.datastore)
+            api(libs.cryptography.core)
+
+            implementation(project(":libraries:concurrency:public"))
+            implementation(libs.coroutines.core)
             implementation(libs.cryptography.provider)
         }
 
