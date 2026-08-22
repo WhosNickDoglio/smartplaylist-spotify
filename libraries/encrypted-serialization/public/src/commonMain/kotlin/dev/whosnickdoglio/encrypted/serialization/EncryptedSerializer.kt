@@ -6,11 +6,7 @@ package dev.whosnickdoglio.encrypted.serialization
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
 import dev.whosnickdoglio.spot.concurrency.CoroutineContextProvider
-import dev.whyoleg.cryptography.operations.IvAuthenticatedCipher
-import dev.zacsweers.metro.Assisted
-import dev.zacsweers.metro.AssistedFactory
-import dev.zacsweers.metro.AssistedInject
-import dev.zacsweers.metro.SuspendLazy
+import dev.whyoleg.cryptography.algorithms.AES
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -23,28 +19,28 @@ import kotlinx.coroutines.withContext
  * Heavily inspired from AeadSerializer
  */
 // TODO decouple from JVM?
-@AssistedInject
+//
 public class EncryptedSerializer<T>(
-    private val cipherProvider: SuspendLazy<IvAuthenticatedCipher>,
+    private val aesGcm: AES.GCM,
+    private val keyProvider: KeyProvider,
     private val coroutineContextProvider: CoroutineContextProvider,
-    @Assisted private val wrappedSerializer: Serializer<T>,
-    @Assisted private val associatedData: ByteArray = byteArrayOf(),
+    private val wrappedSerializer: Serializer<T>,
+    private val associatedData: ByteArray = byteArrayOf(),
 ) : Serializer<T> {
-
-    @AssistedFactory
-    public fun interface Factory<T> {
-        public fun create(
-            wrappedSerializer: Serializer<T>,
-            associatedData: ByteArray,
-        ): EncryptedSerializer<T>
-    }
 
     override val defaultValue: T = wrappedSerializer.defaultValue
 
     override suspend fun readFrom(input: InputStream): T =
         withContext(coroutineContextProvider.io) {
-            val cipher = cipherProvider.await()
             val encrypted = input.readBytes()
+            val cipher =
+                aesGcm
+                    .keyDecoder()
+                    .decodeFromByteArray(
+                        AES.Key.Format.RAW,
+                        keyProvider.getKey(),
+                    )
+                    .cipher()
             val decrypted =
                 if (encrypted.isNotEmpty()) {
                     try {
@@ -60,7 +56,14 @@ public class EncryptedSerializer<T>(
 
     override suspend fun writeTo(t: T, output: OutputStream): Unit =
         withContext(coroutineContextProvider.io) {
-            val cipher = cipherProvider.await()
+            val cipher =
+                aesGcm
+                    .keyDecoder()
+                    .decodeFromByteArray(
+                        AES.Key.Format.RAW,
+                        keyProvider.getKey(),
+                    )
+                    .cipher()
             val byteArrayOutputStream = ByteArrayOutputStream()
             wrappedSerializer.writeTo(t, byteArrayOutputStream)
             val encrypted = cipher.encrypt(byteArrayOutputStream.toByteArray(), associatedData)
