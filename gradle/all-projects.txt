@@ -20,6 +20,7 @@
 :libraries:eithernet-ktor:public
 :libraries:encrypted-serialization:public
 :libraries:livewire:impl
+:libraries:spotify-db:impl
 :libraries:spotify-db:public
 :libraries:spotify-rest:impl
 :libraries:spotify-rest:public

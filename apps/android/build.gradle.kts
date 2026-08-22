@@ -76,7 +76,7 @@ dependencies {
     implementation(project(":libraries:design:public"))
     implementation(project(":libraries:encrypted-serialization:public"))
     implementation(project(":libraries:livewire:impl"))
-    implementation(project(":libraries:spotify-db:public"))
+    implementation(project(":libraries:spotify-db:impl"))
     implementation(project(":libraries:spotify-rest:impl"))
     implementation(project(":libraries:targets:public"))
     implementation(project(":libraries:url-launcher:impl"))
