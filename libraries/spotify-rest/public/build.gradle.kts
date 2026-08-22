@@ -22,7 +22,6 @@ kotlin {
         commonMain.dependencies {
             api(libs.eithernet)
             api(libs.kotlin.serialization)
-            api(libs.uri.kmp)
         }
     }
 }

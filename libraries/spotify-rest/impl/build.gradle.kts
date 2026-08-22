@@ -41,7 +41,6 @@ kotlin {
         commonMain.dependencies {
             api(project(":libraries:spotify-rest:public"))
             api(libs.eithernet)
-            api(libs.uri.kmp)
 
             implementation(project(":libraries:build-info:public"))
             implementation(project(":libraries:concurrency:public"))

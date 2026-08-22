@@ -18,6 +18,9 @@ appPlatform {
 }
 
 kotlin {
+    compilerOptions {
+        optIn.add("dev.zacsweers.metro.ExperimentalMetroCoroutinesApi")
+    }
     android {
         namespace = "dev.whosnickdoglio.spot.auth.impl"
         compileSdk { version = release(37) }
@@ -27,10 +30,15 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             api(project(":features:auth:public"))
+            api(libs.result)
 
-            implementation(project(":features:auth:public"))
+            implementation(project(":features:playlists:public"))
+            implementation(project(":libraries:concurrency:public"))
+            implementation(project(":libraries:deeplink:public"))
+            implementation(project(":libraries:encrypted-serialization:public"))
             implementation(project(":libraries:spotify-rest:public"))
             implementation(project(":libraries:url-launcher:public"))
+            implementation(project(":libraries:use-case:public"))
             implementation(libs.circuit.foundation)
             implementation(libs.circuitx.nav)
             implementation(libs.compose.foundation)
@@ -41,7 +49,6 @@ kotlin {
             implementation(libs.coroutines.core)
             implementation(libs.cryptography.core)
             implementation(libs.cryptography.provider)
-            implementation(libs.uri.kmp)
         }
 
         commonTest.dependencies {

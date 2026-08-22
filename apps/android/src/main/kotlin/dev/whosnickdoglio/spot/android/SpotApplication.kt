@@ -9,14 +9,14 @@ import androidx.compose.runtime.Composer
 import androidx.compose.runtime.tooling.ComposeStackTraceMode
 import dev.whosnickdoglio.spot.BuildConfig
 import dev.whosnickdoglio.spot.android.di.AndroidDependencyGraph
-import dev.zacsweers.metro.createGraph
+import dev.zacsweers.metro.createGraphFactory
 import dev.zacsweers.metrox.android.MetroAppComponentProviders
 import dev.zacsweers.metrox.android.MetroApplication
 
 internal class SpotApplication : Application(), MetroApplication {
 
     private val graph: AndroidDependencyGraph by lazy {
-        createGraph<AndroidDependencyGraph>()
+        createGraphFactory<AndroidDependencyGraph.Factory>().create(this)
     }
 
     override val appComponentProviders: MetroAppComponentProviders = graph
