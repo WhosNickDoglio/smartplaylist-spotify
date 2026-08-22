@@ -46,7 +46,7 @@ kotlin {
             implementation(project(":libraries:build-info:public"))
             implementation(project(":libraries:concurrency:public"))
             implementation(project(":libraries:eithernet-ktor:public"))
-            implementation(project(":libraries:encrypted-serialization:public"))
+            implementation(libs.androidx.datastore.tink)
             implementation(libs.kotlin.serialization)
             implementation(libs.ktor.client.auth)
             implementation(libs.ktor.client.cio)
