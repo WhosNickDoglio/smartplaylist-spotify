@@ -1,0 +1,16 @@
+import kotlinx.datetime.LocalDateTime;
+
+CREATE TABLE SmartPlaylist (
+  id TEXT NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
+  lastSync TEXT AS LocalDateTime NOT NULL,
+  imageUrl TEXT
+);
+
+selectAll:
+SELECT *
+FROM SmartPlaylist;
+
+insert:
+INSERT INTO SmartPlaylist(id, name, lastSync, imageUrl)
+VALUES (?, ?, ?, ?);
