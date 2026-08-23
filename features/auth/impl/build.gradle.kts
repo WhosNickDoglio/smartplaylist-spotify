@@ -40,7 +40,6 @@ kotlin {
             implementation(libs.coroutines.core)
             implementation(libs.cryptography.core)
             implementation(libs.cryptography.provider)
-            implementation(libs.uri.kmp)
         }
 
         commonTest.dependencies {

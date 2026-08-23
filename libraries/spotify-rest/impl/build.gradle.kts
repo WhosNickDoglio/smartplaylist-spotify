@@ -19,10 +19,6 @@ appPlatform {
 // TODO set this up better for CI
 buildConfig {
     buildConfigField("CLIENT_ID", providers.environmentVariable("SPOTIFY_CLIENT_ID").orElse(""))
-    buildConfigField(
-        "CLIENT_SECRET",
-        providers.environmentVariable("SPOTIFY_CLIENT_SECRET").orElse(""),
-    )
     packageName("dev.whosnickdoglio.spot.rest.impl")
     useKotlinOutput { topLevelConstants = true }
 }
@@ -40,13 +36,12 @@ kotlin {
 
         commonMain.dependencies {
             api(project(":libraries:spotify-rest:public"))
+            api(libs.androidx.datastore.tink)
             api(libs.eithernet)
-            api(libs.uri.kmp)
 
             implementation(project(":libraries:build-info:public"))
             implementation(project(":libraries:concurrency:public"))
             implementation(project(":libraries:eithernet-ktor:public"))
-            implementation(libs.androidx.datastore.tink)
             implementation(libs.kotlin.serialization)
             implementation(libs.ktor.client.auth)
             implementation(libs.ktor.client.cio)

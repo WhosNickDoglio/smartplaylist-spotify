@@ -5,6 +5,4 @@ package dev.whosnickdoglio.spot.rest.impl.di
 
 import dev.zacsweers.metro.Qualifier
 
-@Qualifier internal annotation class ClientSecret
-
 @Qualifier internal annotation class ClientId

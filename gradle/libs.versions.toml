@@ -145,8 +145,6 @@ sqldelight-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "
 sqldelight-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqldelight" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
 
-uri-kmp = { module = "com.eygraber:uri-kmp", version = "0.0.21" }
-
 desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }

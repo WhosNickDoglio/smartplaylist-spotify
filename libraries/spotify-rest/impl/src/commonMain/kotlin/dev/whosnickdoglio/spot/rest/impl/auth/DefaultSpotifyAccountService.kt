@@ -3,17 +3,21 @@
 
 package dev.whosnickdoglio.spot.rest.impl.auth
 
-import com.eygraber.uri.Uri
 import com.slack.eithernet.ApiResult
 import com.slack.eithernet.integration.ktor.apiResultOf
-import dev.whosnickdoglio.spot.rest.auth.AccessTokenRequestResponse
+import dev.whosnickdoglio.spot.rest.SpotifyErrorResponse
 import dev.whosnickdoglio.spot.rest.auth.SpotifyAccountService
+import dev.whosnickdoglio.spot.rest.auth.TokenRequestResponse
 import dev.whosnickdoglio.spot.rest.impl.di.ClientId
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import io.ktor.client.HttpClient
 import io.ktor.client.request.forms.submitForm
+import io.ktor.http.URLProtocol
+import io.ktor.http.buildUrl
 import io.ktor.http.parameters
+import io.ktor.http.path
+import io.ktor.util.appendAll
 
 @ContributesBinding(AppScope::class)
 internal class DefaultSpotifyAccountService(
@@ -33,40 +37,42 @@ internal class DefaultSpotifyAccountService(
             .joinToString(separator = " ")
 
     // https://accounts.spotify.com/authorize
-    override fun getAuthUrl(state: String, codeChallenge: String): Uri =
-        Uri.Builder()
-            .scheme("https")
-            .path(BASE_URL)
-            .appendPath("authorize")
-            .appendQueryParameter("client_id", clientId)
-            .appendQueryParameter("response_type", "code")
-            .appendQueryParameter("state", state)
-            .appendQueryParameter("scope", scopes)
-            .appendQueryParameter("redirect_uri", REDIRECT_URL)
-            .appendQueryParameter("code_challenge_method", "S256")
-            .appendQueryParameter("code_challenge", codeChallenge)
-            .build()
+    override fun getAuthUrl(state: String, codeChallenge: String): String = buildUrl {
+        protocol = URLProtocol.HTTPS
+        host = BASE_URL
+        path("authorize")
+        encodedParameters.appendAll(
+            "client_id" to clientId,
+            "response_type" to "code",
+            "state" to state,
+            "scope" to scopes,
+            "redirect_uri" to REDIRECT_URL,
+            "code_challenge_method" to "S256",
+            "code_challenge" to codeChallenge,
+        )
+    }
+        .toString()
 
     // https://accounts.spotify.com/api/token
     override suspend fun requestAccessToken(
         code: String,
         codeVerifier: String,
-    ): ApiResult<AccessTokenRequestResponse, Unit> = httpClient.apiResultOf {
+    ): ApiResult<TokenRequestResponse, SpotifyErrorResponse> = httpClient.apiResultOf {
         submitForm(
-            "$BASE_URL/api/token",
+            "https://${BASE_URL}/api/token",
             formParameters =
                 parameters {
                     append("grant_type", "authorization_code")
                     append("code", code)
-                    append("redirectUri", REDIRECT_URL)
+                    append("redirect_uri", REDIRECT_URL)
                     append("client_id", clientId)
                     append("code_verifier", codeVerifier)
                 },
         )
     }
 
-    private companion object {
-        private const val BASE_URL = "accounts.spotify.com/"
-        private const val REDIRECT_URL = "http://127.0.0.1:8080"
+    internal companion object {
+        internal const val BASE_URL = "accounts.spotify.com"
+        private const val REDIRECT_URL = "https://spot/auth/callback"
     }
 }

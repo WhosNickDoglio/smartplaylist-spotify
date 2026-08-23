@@ -20,9 +20,9 @@ kotlin {
     jvm()
     sourceSets {
         commonMain.dependencies {
+            api(libs.androidx.datastore.tink)
             api(libs.eithernet)
             api(libs.kotlin.serialization)
-            api(libs.uri.kmp)
         }
     }
 }

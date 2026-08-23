@@ -75,7 +75,7 @@ internal class AuthPresenter(
                                 codeChallenge = challenge,
                             )
 
-                        navigator.goTo(LaunchUrlScreen(url.toString()))
+                        navigator.goTo(LaunchUrlScreen(url))
                     }
                 }
             }
