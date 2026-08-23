@@ -10,7 +10,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import catchup.deeplink.DeepLinkHandler
 import catchup.deeplink.parse
-import com.slack.circuit.retained.CircuitRetainedSettings
 import com.slack.circuit.retained.ExperimentalCircuitRetainedApi
 import dev.whosnickdoglio.spot.playlists.PlaylistScreen
 import dev.zacsweers.metro.AppScope
@@ -27,7 +26,6 @@ internal class MainActivity(
 
     @OptIn(ExperimentalCircuitRetainedApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
-        CircuitRetainedSettings.useFirstParty = true
         val backStack = deepLinkHandler.parse(intent) ?: listOf(PlaylistScreen)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

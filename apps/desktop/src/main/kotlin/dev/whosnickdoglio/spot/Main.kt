@@ -17,6 +17,7 @@ import com.slack.circuit.foundation.navstack.rememberSaveableNavStack
 import com.slack.circuit.foundation.rememberCircuitNavigator
 import com.slack.circuit.retained.CircuitRetainedSettings
 import com.slack.circuit.retained.ExperimentalCircuitRetainedApi
+import com.slack.circuit.retained.RetainedValuesStoreProvider
 import com.slack.circuit.subcircuit.LocalSubCircuit
 import com.slack.circuit.subcircuit.SubCircuit
 import com.slack.circuitx.navigation.intercepting.NavigationInterceptor
@@ -42,23 +43,26 @@ internal class App(
     private val navigationInterceptors: Set<NavigationInterceptor>,
 ) {
 
+    @OptIn(ExperimentalCircuitRetainedApi::class)
     @Composable
     operator fun invoke() {
         SpotTheme {
-            CircuitCompositionLocals(circuit) {
-                CompositionLocalProvider(LocalSubCircuit provides subCircuit) {
-                    Surface {
-                        val navStack = rememberSaveableNavStack(root = AuthScreen)
-                        val baseNavigator =
-                            rememberDesktopScreenAwareNavigator(
-                                rememberCircuitNavigator(navStack = navStack, onRootPop = {})
-                            )
-                        val navigator =
-                            rememberInterceptingNavigator(
-                                navigator = baseNavigator,
-                                interceptors = navigationInterceptors.toList(),
-                            )
-                        NavigableCircuitContent(navigator = navigator, navStack = navStack)
+            RetainedValuesStoreProvider {
+                CircuitCompositionLocals(circuit) {
+                    CompositionLocalProvider(LocalSubCircuit provides subCircuit) {
+                        Surface {
+                            val navStack = rememberSaveableNavStack(root = AuthScreen)
+                            val baseNavigator =
+                                rememberDesktopScreenAwareNavigator(
+                                    rememberCircuitNavigator(navStack = navStack, onRootPop = {})
+                                )
+                            val navigator =
+                                rememberInterceptingNavigator(
+                                    navigator = baseNavigator,
+                                    interceptors = navigationInterceptors.toList(),
+                                )
+                            NavigableCircuitContent(navigator = navigator, navStack = navStack)
+                        }
                     }
                 }
             }
