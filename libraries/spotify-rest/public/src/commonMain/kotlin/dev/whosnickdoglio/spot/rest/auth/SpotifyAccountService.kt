@@ -16,10 +16,6 @@ public interface SpotifyAccountService {
         code: String,
         codeVerifier: String,
     ): ApiResult<TokenRequestResponse, SpotifyErrorResponse>
-
-    public suspend fun requestRefreshToken(
-        refreshToken: String
-    ): ApiResult<TokenRequestResponse, SpotifyErrorResponse>
 }
 
 @Serializable public data class AuthorizeResponse(val code: String, val state: String)

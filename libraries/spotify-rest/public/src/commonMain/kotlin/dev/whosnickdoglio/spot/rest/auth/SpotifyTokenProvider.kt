@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 // persistence
 public interface SpotifyTokenProvider {
 
-    public suspend fun getTokens(): Tokens
+    public suspend fun getTokens(): Tokens?
 
     public suspend fun putTokens(tokens: Tokens)
 }
@@ -28,6 +28,3 @@ public data class Tokens(
     val expiresIn: Int,
     val refreshToken: String,
 )
-
-public fun Tokens.isAuthenticated(): Boolean =
-    accessToken.isNotEmpty() && scope.isNotEmpty() && refreshToken.isNotEmpty() && expiresIn != 0

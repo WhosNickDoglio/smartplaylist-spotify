@@ -13,7 +13,7 @@ import dev.zacsweers.metro.ContributesBinding
 @ContributesBinding(AppScope::class)
 internal class DefaultTokensFileStorageFactory(private val context: Context) :
     TokensFileStorageFactory {
-    override fun create(serializer: Serializer<Tokens>, fileName: String): FileStorage<Tokens> =
+    override fun create(serializer: Serializer<Tokens?>, fileName: String): FileStorage<Tokens?> =
         FileStorage(
             serializer = serializer,
             produceFile = { context.filesDir.resolve(fileName) },

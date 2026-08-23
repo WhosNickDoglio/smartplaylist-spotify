@@ -17,17 +17,9 @@ import kotlinx.serialization.json.Json
 
 @ContributesBinding(AppScope::class)
 internal class TokensSerializer(private val coroutineContextProvider: CoroutineContextProvider) :
-    Serializer<Tokens> {
+    Serializer<Tokens?> {
 
-    override val defaultValue: Tokens
-        get() =
-            // TODO this feels bad
-            Tokens(
-                accessToken = "",
-                scope = "",
-                expiresIn = 0,
-                refreshToken = "",
-            )
+    override val defaultValue: Tokens? = null
 
     override suspend fun readFrom(input: InputStream): Tokens =
         withContext(coroutineContextProvider.io) {
@@ -41,9 +33,11 @@ internal class TokensSerializer(private val coroutineContextProvider: CoroutineC
             }
         }
 
-    override suspend fun writeTo(t: Tokens, output: OutputStream) {
+    override suspend fun writeTo(t: Tokens?, output: OutputStream) {
         withContext(coroutineContextProvider.io) {
-            output.write(Json.encodeToString(Tokens.serializer(), t).encodeToByteArray())
+            if (t != null) {
+                output.write(Json.encodeToString(Tokens.serializer(), t).encodeToByteArray())
+            }
         }
     }
 }

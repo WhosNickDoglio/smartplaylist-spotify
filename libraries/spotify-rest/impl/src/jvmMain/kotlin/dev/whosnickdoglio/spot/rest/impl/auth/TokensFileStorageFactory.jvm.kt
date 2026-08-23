@@ -12,7 +12,7 @@ import java.io.File
 
 @ContributesBinding(AppScope::class)
 internal class DefaultTokensFileStorageFactory() : TokensFileStorageFactory {
-    override fun create(serializer: Serializer<Tokens>, fileName: String) =
+    override fun create(serializer: Serializer<Tokens?>, fileName: String): FileStorage<Tokens?> =
         FileStorage(
             serializer = serializer,
             produceFile = { File(System.getProperty("java.io.tmpdir"), fileName) },

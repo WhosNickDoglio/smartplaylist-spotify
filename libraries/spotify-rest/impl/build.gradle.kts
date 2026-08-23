@@ -19,10 +19,6 @@ appPlatform {
 // TODO set this up better for CI
 buildConfig {
     buildConfigField("CLIENT_ID", providers.environmentVariable("SPOTIFY_CLIENT_ID").orElse(""))
-    buildConfigField(
-        "CLIENT_SECRET",
-        providers.environmentVariable("SPOTIFY_CLIENT_SECRET").orElse(""),
-    )
     packageName("dev.whosnickdoglio.spot.rest.impl")
     useKotlinOutput { topLevelConstants = true }
 }

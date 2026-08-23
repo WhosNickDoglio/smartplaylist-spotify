@@ -71,11 +71,6 @@ internal class DefaultSpotifyAccountService(
         )
     }
 
-    override suspend fun requestRefreshToken(
-        refreshToken: String
-    ): ApiResult<TokenRequestResponse, SpotifyErrorResponse> =
-        httpClient.requestRefreshToken(refreshToken, clientId)
-
     internal companion object {
         internal const val BASE_URL = "accounts.spotify.com"
         private const val REDIRECT_URL = "https://spot/auth/callback"

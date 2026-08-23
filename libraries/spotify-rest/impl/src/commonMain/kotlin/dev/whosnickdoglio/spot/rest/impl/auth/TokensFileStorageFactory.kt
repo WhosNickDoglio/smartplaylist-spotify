@@ -9,7 +9,7 @@ import dev.whosnickdoglio.spot.rest.auth.Tokens
 
 public fun interface TokensFileStorageFactory {
     public fun create(
-        serializer: Serializer<Tokens>,
+        serializer: Serializer<Tokens?>,
         fileName: String,
-    ): FileStorage<Tokens>
+    ): FileStorage<Tokens?>
 }

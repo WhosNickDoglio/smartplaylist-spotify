@@ -5,7 +5,6 @@ package dev.whosnickdoglio.spot.rest.impl.auth
 import com.google.crypto.tink.KeysetHandle
 import com.google.crypto.tink.aead.AeadConfig
 import com.google.crypto.tink.aead.PredefinedAeadParameters
-import dev.whosnickdoglio.spot.rest.auth.KeysetHandleProvider
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 

@@ -10,8 +10,8 @@ import com.google.crypto.tink.Aead
 import com.google.crypto.tink.RegistryConfiguration
 import dev.whosnickdoglio.spot.concurrency.ApplicationScope
 import dev.whosnickdoglio.spot.concurrency.CoroutineContextProvider
-import dev.whosnickdoglio.spot.rest.auth.KeysetHandleProvider
 import dev.whosnickdoglio.spot.rest.auth.Tokens
+import dev.whosnickdoglio.spot.rest.impl.auth.KeysetHandleProvider
 import dev.whosnickdoglio.spot.rest.impl.auth.TokensFileStorageFactory
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesTo
@@ -31,8 +31,8 @@ public interface DataStoreProvider {
         coroutineContextProvider: CoroutineContextProvider,
         @ApplicationScope scope: CoroutineScope,
         tokensFileStorageFactory: TokensFileStorageFactory,
-        wrappedSerializer: Serializer<Tokens>,
-    ): DataStore<Tokens> =
+        wrappedSerializer: Serializer<Tokens?>,
+    ): DataStore<Tokens?> =
         DataStore.Builder(
                 storage =
                     tokensFileStorageFactory.create(
