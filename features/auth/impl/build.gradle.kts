@@ -28,7 +28,6 @@ kotlin {
         commonMain.dependencies {
             api(project(":features:auth:public"))
 
-            implementation(project(":features:auth:public"))
             implementation(project(":libraries:spotify-rest:public"))
             implementation(project(":libraries:url-launcher:public"))
             implementation(libs.circuit.foundation)
