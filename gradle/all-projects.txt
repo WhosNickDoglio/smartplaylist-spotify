@@ -8,7 +8,6 @@
 :features:playlists:public
 :features:settings:impl
 :features:settings:public
-:kover-aggregate
 :libraries:build-info:public
 :libraries:circuit-providers:impl
 :libraries:concurrency:impl

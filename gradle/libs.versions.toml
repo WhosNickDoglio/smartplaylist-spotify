@@ -8,7 +8,6 @@ coroutines = "1.11.0"
 dependencyAnalysis = "3.19.1"
 kotlin = "2.4.10"
 detekt = "2.0.0-alpha.6"
-kover = "0.9.9"
 jdk = "26"
 jdkTarget = "17"
 sort = "0.21.0"
@@ -50,7 +49,6 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-parcel = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 kmp-parcel = { id = "io.github.solcott.kmp.parcelize", version = "1.0.4" }
 sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 burst = { id = "app.cash.burst" }

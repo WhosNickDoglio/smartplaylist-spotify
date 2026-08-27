@@ -31,7 +31,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlin.parcel) apply false
     alias(libs.plugins.kmp.parcel) apply false
-    alias(libs.plugins.kover) apply false
     alias(libs.plugins.lint) apply false
     alias(libs.plugins.licensee) apply false
     alias(libs.plugins.sortDependencies) apply false
