@@ -1,7 +1,7 @@
 # Spotify "Smart" playlist
 
 [![CI](https://github.com/WhosNickDoglio/smartplaylist-spotify/actions/workflows/ci.yml/badge.svg)](https://github.com/WhosNickDoglio/smartplaylist-spotify/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/WhosNickDoglio/smartplaylist-spotify/graph/badge.svg?token=jq2ATzIRay)](https://codecov.io/gh/WhosNickDoglio/smartplaylist-spotify)
+[![codecov](https://codecov.io/github/whosnickdoglio/smartplaylist-spotify/graph/badge.svg?token=jq2ATzIRay)](https://codecov.io/github/whosnickdoglio/smartplaylist-spotify)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
