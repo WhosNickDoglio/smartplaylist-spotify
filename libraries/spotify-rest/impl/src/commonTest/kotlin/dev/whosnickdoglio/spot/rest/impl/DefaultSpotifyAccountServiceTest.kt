@@ -6,6 +6,7 @@ package dev.whosnickdoglio.spot.rest.impl
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import dev.whosnickdoglio.spot.rest.auth.SpotifyAccountService
+import dev.whosnickdoglio.spot.rest.impl.auth.DefaultSpotifyAccountService
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import kotlin.test.Test
@@ -20,9 +21,9 @@ class DefaultSpotifyAccountServiceTest {
             .isEqualTo(
                 "https://accounts.spotify.com/" +
                     "authorize?client_id=client_id&response_type=code&state=state" +
-                    "&scope=playlist-modify-public playlist-modify-private user-follow-read " +
-                    "user-read-recently-played&redirect_uri=https://spot/auth/callback" +
-                    "&code_challenge_method=S256&code_challenge=code"
+                    "&scope=playlist-modify-public playlist-modify-private playlist-read-private" +
+                    " user-follow-read user-read-recently-played&redirect_uri" +
+                    "=https://spot/auth/callback&code_challenge_method=S256&code_challenge=code"
             )
     }
 
