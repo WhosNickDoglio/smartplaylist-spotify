@@ -15,8 +15,6 @@ import com.slack.circuit.foundation.CircuitCompositionLocals
 import com.slack.circuit.foundation.NavigableCircuitContent
 import com.slack.circuit.foundation.navstack.rememberSaveableNavStack
 import com.slack.circuit.foundation.rememberCircuitNavigator
-import com.slack.circuit.runtime.screen.CircuitSaver
-import com.slack.circuit.runtime.screen.ProvideCircuitSaver
 import com.slack.circuit.runtime.screen.Screen
 import com.slack.circuit.subcircuit.LocalSubCircuit
 import com.slack.circuit.subcircuit.SubCircuit
@@ -34,7 +32,6 @@ internal class App(
     private val circuit: Circuit,
     private val subCircuit: SubCircuit,
     private val navigationInterceptors: Set<NavigationInterceptor>,
-    private val circuitSaver: CircuitSaver,
     @Assisted private val context: Context,
     @Assisted private val backstack: List<Screen>,
 ) {
@@ -52,29 +49,27 @@ internal class App(
             Surface {
                 CircuitCompositionLocals(circuit) {
                     CompositionLocalProvider(LocalSubCircuit provides subCircuit) {
-                        ProvideCircuitSaver(circuitSaver) {
-                            val navStack = rememberSaveableNavStack(initialScreens = backstack)
-                            val baseNavigator =
-                                rememberAndroidScreenAwareNavigator(
-                                    rememberCircuitNavigator(navStack),
-                                    context,
-                                )
-
-                            val navigator =
-                                rememberInterceptingNavigator(
-                                    navigator = baseNavigator,
-                                    interceptors = navigationInterceptors.toList(),
-                                )
-                            NavigableCircuitContent(
-                                navigator = navigator,
-                                navStack = navStack,
-                                modifier = Modifier.safeDrawingPadding(),
-                                decoratorFactory =
-                                    remember(navigator) {
-                                        GestureNavigationDecorationFactory()
-                                    },
+                        val navStack = rememberSaveableNavStack(initialScreens = backstack)
+                        val baseNavigator =
+                            rememberAndroidScreenAwareNavigator(
+                                rememberCircuitNavigator(navStack),
+                                context,
                             )
-                        }
+
+                        val navigator =
+                            rememberInterceptingNavigator(
+                                navigator = baseNavigator,
+                                interceptors = navigationInterceptors.toList(),
+                            )
+                        NavigableCircuitContent(
+                            navigator = navigator,
+                            navStack = navStack,
+                            modifier = Modifier.safeDrawingPadding(),
+                            decoratorFactory =
+                                remember(navigator) {
+                                    GestureNavigationDecorationFactory()
+                                },
+                        )
                     }
                 }
             }

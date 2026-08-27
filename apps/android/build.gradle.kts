@@ -4,7 +4,6 @@
 plugins {
     alias(libs.plugins.convention.app)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.kotlin.parcel)
     alias(libs.plugins.metro)
     alias(libs.plugins.licensee)
     alias(libs.plugins.app.versioning)

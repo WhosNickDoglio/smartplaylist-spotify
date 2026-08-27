@@ -39,10 +39,12 @@ public interface CircuitProviders {
     public fun provideCircuit(
         uiFactories: Set<Ui.Factory>,
         presenterFactories: Set<Presenter.Factory>,
+        saver: CircuitSaver,
     ): Circuit =
         Circuit.Builder()
             .addUiFactories(uiFactories)
             .addPresenterFactories(presenterFactories)
+            .setCircuitSaver(saver)
             .build()
 
     @Provides

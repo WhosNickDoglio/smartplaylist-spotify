@@ -8,7 +8,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.compose)
     alias(libs.plugins.roborazzi)
-    alias(libs.plugins.kmp.parcel)
     alias(libs.plugins.burst)
     alias(libs.plugins.app.platform)
 }
