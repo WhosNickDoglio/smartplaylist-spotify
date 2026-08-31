@@ -26,6 +26,8 @@ kotlin {
 licensee {
     allow("Apache-2.0")
     allow("MIT")
+    // com.michael-bull.kotlin-result:kotlin-result
+    allow("ISC")
     // androidx.datastore:datastore-preferences-external-protobuf
     allow("BSD-3-Clause")
     // Pulled in by SLF4J (transitive dependency of ktor)
@@ -63,7 +65,6 @@ android {
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(project(":features:auth:impl"))
-    implementation(project(":features:auth:public"))
     implementation(project(":features:creation:impl"))
     implementation(project(":features:playlists:impl"))
     implementation(project(":features:settings:impl"))
@@ -84,6 +85,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core)
+    implementation(libs.androidx.datastore)
     implementation(libs.androidx.startup)
     implementation(libs.androidx.workmanager)
     implementation(libs.circuit.codegen.annotations)
@@ -93,6 +95,7 @@ dependencies {
     implementation(libs.circuitx.gesture)
     implementation(libs.circuitx.nav)
     implementation(libs.metrox.android)
+    implementation(libs.slf4j.android)
 
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
