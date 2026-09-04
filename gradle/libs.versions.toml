@@ -24,7 +24,7 @@ dejavu = "0.3.1"
 leak = "3.0-alpha-9"
 livewire = "1.0.5"
 metro = "1.4.2"
-coil = "3.6.1"
+coil = "3.6.2"
 ktor = "3.5.2"
 datstore = "1.3.0-alpha10"
 
