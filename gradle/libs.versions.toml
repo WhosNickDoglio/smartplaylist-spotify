@@ -32,7 +32,7 @@ datstore = "1.3.0-alpha10"
 android-app = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 android-library-kmp = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
-app-platform = { id = "software.ralf.app.platform", version = "0.1.3" }
+app-platform = { id = "software.ralf.app.platform", version = "0.1.4" }
 app-versioning = { id = "io.github.reactivecircus.app-versioning", version = "1.6.0" }
 cacheFix = { id = "org.gradle.android.cache-fix", version = "3.0.3" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose-jb" }
