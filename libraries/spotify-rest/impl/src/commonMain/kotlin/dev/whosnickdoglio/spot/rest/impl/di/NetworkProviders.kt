@@ -6,6 +6,7 @@ package dev.whosnickdoglio.spot.rest.impl.di
 import com.livewire.plugin.network.ktor.LivewireNetworkPlugin
 import com.slack.eithernet.integration.ktor.apiResultOf
 import com.slack.eithernet.successOrNull
+import dev.whosnickdoglio.spot.concurrency.CoroutineContextProvider
 import dev.whosnickdoglio.spot.info.BuildInfo
 import dev.whosnickdoglio.spot.info.BuildVariant
 import dev.whosnickdoglio.spot.rest.SpotifyErrorResponse
@@ -31,6 +32,8 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.forms.submitForm
 import io.ktor.http.parameters
 import io.ktor.serialization.kotlinx.json.json
+import kotlin.coroutines.ContinuationInterceptor
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.serialization.json.Json
 
 @ContributesTo(AppScope::class)
@@ -44,9 +47,15 @@ public interface NetworkProviders {
     public fun provideHttpClient(
         buildInfo: BuildInfo,
         tokenProvider: SpotifyTokenProvider,
+        coroutineContextProvider: CoroutineContextProvider,
         @ClientId clientId: String,
     ): HttpClient =
         HttpClient(CIO) {
+            engine {
+                this.dispatcher =
+                    coroutineContextProvider.io[ContinuationInterceptor] as CoroutineDispatcher
+            }
+
             if (buildInfo.buildVariant == BuildVariant.DEBUG) {
                 install(Logging) {
                     logger = Logger.ANDROID

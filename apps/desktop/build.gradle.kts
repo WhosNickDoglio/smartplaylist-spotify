@@ -27,6 +27,8 @@ kotlin {
 
 licensee {
     allow("Apache-2.0")
+    // com.michael-bull.kotlin-result:kotlin-result
+    allow("ISC")
     // androidx.datastore:datastore-preferences-external-protobuf
     allow("BSD-3-Clause")
     // Pulled in by SLF4J (transitive dependency of ktor)

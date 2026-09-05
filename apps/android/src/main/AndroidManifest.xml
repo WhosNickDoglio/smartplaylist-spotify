@@ -23,6 +23,19 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!--TODO-->
+            <intent-filter android:autoVerify="false">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="spot"
+                    android:scheme="https"
+                    android:path="/auth/callback" />
+            </intent-filter>
         </activity>
     </application>
 

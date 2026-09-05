@@ -1,10 +1,10 @@
 // Copyright (C) 2026 Nicholas Doglio
 // SPDX-License-Identifier: MIT
+
 plugins {
     alias(libs.plugins.convention.kmp)
     alias(libs.plugins.android.library.kmp)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.metro)
     alias(libs.plugins.app.platform)
 }
 
@@ -14,16 +14,16 @@ appPlatform {
 
 kotlin {
     android {
-        namespace = "dev.whosnickdoglio.spot.auth"
+        namespace = "dev.whosnickdoglio.spot.rest.testing"
         compileSdk { version = release(37) }
     }
     jvm()
-
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":libraries:deeplink:public"))
-            implementation(libs.circuit.foundation)
-            implementation(libs.circuit.serialization)
+            api(project(":libraries:spotify-rest:public"))
+            api(libs.androidx.datastore.tink)
+            api(libs.eithernet)
+            api(libs.kotlin.serialization)
         }
     }
 }
