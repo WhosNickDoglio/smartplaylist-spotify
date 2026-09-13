@@ -14,6 +14,7 @@ import dev.whosnickdoglio.spot.rest.auth.Tokens
 import dev.whosnickdoglio.spot.rest.impl.auth.KeysetHandleProvider
 import dev.whosnickdoglio.spot.rest.impl.auth.TokensFileStorageFactory
 import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.ExperimentalMetroCoroutinesApi
 import dev.zacsweers.metro.Provides
@@ -21,7 +22,8 @@ import dev.zacsweers.metro.SingleIn
 import kotlinx.coroutines.CoroutineScope
 
 @ContributesTo(AppScope::class)
-public interface DataStoreProvider {
+@BindingContainer
+public object DataStoreProvider {
 
     @OptIn(ExperimentalMetroCoroutinesApi::class)
     @SingleIn(AppScope::class)

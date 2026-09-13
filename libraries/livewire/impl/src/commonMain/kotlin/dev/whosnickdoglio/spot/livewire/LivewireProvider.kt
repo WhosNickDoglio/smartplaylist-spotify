@@ -7,11 +7,13 @@ import com.livewire.client.LivewireClient
 import com.livewire.plugin.network.NetworkPlugin
 import com.livewire.plugin.recomposition.RecompositionPlugin
 import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
 
 @ContributesTo(AppScope::class)
-public interface LivewireProvider {
+@BindingContainer
+public object LivewireProvider {
 
     @Provides
     public fun provideLiveWireClient(): LivewireClient = LivewireClient {

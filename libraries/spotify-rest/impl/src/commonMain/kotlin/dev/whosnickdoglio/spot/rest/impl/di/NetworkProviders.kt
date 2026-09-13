@@ -15,6 +15,7 @@ import dev.whosnickdoglio.spot.rest.auth.toTokens
 import dev.whosnickdoglio.spot.rest.impl.CLIENT_ID
 import dev.whosnickdoglio.spot.rest.impl.auth.DefaultSpotifyAccountService
 import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
 import dev.zacsweers.metro.SingleIn
@@ -34,7 +35,8 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 @ContributesTo(AppScope::class)
-public interface NetworkProviders {
+@BindingContainer
+public object NetworkProviders {
 
     @Provides @ClientId public fun provideClientId(): String = CLIENT_ID
 

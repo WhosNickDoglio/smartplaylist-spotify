@@ -7,11 +7,13 @@ import dev.whyoleg.cryptography.CryptographyProvider
 import dev.whyoleg.cryptography.algorithms.SHA512
 import dev.whyoleg.cryptography.operations.Hasher
 import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Provides
 
 @ContributesTo(AppScope::class)
-public interface CryptographyProviders {
+@BindingContainer
+public object CryptographyProviders {
 
     @Provides
     public fun provideCryptographyHasher(): Hasher =

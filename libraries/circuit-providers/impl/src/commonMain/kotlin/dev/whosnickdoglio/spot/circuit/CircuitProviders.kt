@@ -13,11 +13,13 @@ import com.slack.circuit.subcircuit.SubCircuit
 import com.slack.circuit.subcircuit.SubPresenterFactory
 import com.slack.circuit.subcircuit.SubUiFactory
 import dev.zacsweers.metro.AppScope
+import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ContributesTo
 import dev.zacsweers.metro.Multibinds
 import dev.zacsweers.metro.Provides
 
 @ContributesTo(AppScope::class)
+@BindingContainer
 public interface CircuitProviders {
 
     @Multibinds public fun presenterFactories(): Set<Presenter.Factory>
@@ -30,30 +32,32 @@ public interface CircuitProviders {
 
     @Multibinds public fun circuitSerializerRegistrations(): Set<CircuitSerializerRegistration>
 
-    @Provides
-    public fun provideCircuitSaver(
-        registrations: Set<CircuitSerializerRegistration>
-    ): CircuitSaver = SerializableCircuitSaver(registrations)
+    public companion object {
+        @Provides
+        public fun provideCircuitSaver(
+            registrations: Set<CircuitSerializerRegistration>
+        ): CircuitSaver = SerializableCircuitSaver(registrations)
 
-    @Provides
-    public fun provideCircuit(
-        uiFactories: Set<Ui.Factory>,
-        presenterFactories: Set<Presenter.Factory>,
-        saver: CircuitSaver,
-    ): Circuit =
-        Circuit.Builder()
-            .addUiFactories(uiFactories)
-            .addPresenterFactories(presenterFactories)
-            .setCircuitSaver(saver)
-            .build()
+        @Provides
+        public fun provideCircuit(
+            uiFactories: Set<Ui.Factory>,
+            presenterFactories: Set<Presenter.Factory>,
+            saver: CircuitSaver,
+        ): Circuit =
+            Circuit.Builder()
+                .addUiFactories(uiFactories)
+                .addPresenterFactories(presenterFactories)
+                .setCircuitSaver(saver)
+                .build()
 
-    @Provides
-    public fun provideSubCircuit(
-        presenterFactories: Set<SubPresenterFactory>,
-        uiFactories: Set<SubUiFactory>,
-    ): SubCircuit =
-        SubCircuit.builder()
-            .addPresenterFactories(presenterFactories)
-            .addUiFactories(uiFactories)
-            .build()
+        @Provides
+        public fun provideSubCircuit(
+            presenterFactories: Set<SubPresenterFactory>,
+            uiFactories: Set<SubUiFactory>,
+        ): SubCircuit =
+            SubCircuit.builder()
+                .addPresenterFactories(presenterFactories)
+                .addUiFactories(uiFactories)
+                .build()
+    }
 }
