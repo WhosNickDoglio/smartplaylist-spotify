@@ -146,7 +146,7 @@ desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 turbine = { module = "app.cash.turbine:turbine", version = "1.2.1" }
 dejavu = { module = "me.mmckenna.dejavu:dejavu", version.ref = "dejavu" }
-robolectric = { module = "org.robolectric:robolectric", version = "4.16.1" }
+robolectric = { module = "org.robolectric:robolectric", version = "4.17" }
 burst = { module = "app.cash.burst:burst-gradle-plugin", version = "2.13.0" }
 assertk = { module = "com.willowtreeapps.assertk:assertk", version = "0.28.1" }
 androidx-workmanager-test = { module = "androidx.work:work-testing", version.ref = "work" }
