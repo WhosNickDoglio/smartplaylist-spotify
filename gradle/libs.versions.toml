@@ -1,5 +1,5 @@
 [versions]
-agp = "9.4.0"
+agp = "9.4.1"
 min-sdk = "30"
 slf4jAndroid = "1.7.36"
 target-sdk = "37"
