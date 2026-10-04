@@ -68,7 +68,7 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-core = { module = "androidx.core:core-ktx", version = "1.19.0" }
+androidx-core = { module = "androidx.core:core-ktx", version = "1.19.1" }
 androidx-datastore = { module = "androidx.datastore:datastore-core", version.ref = "datstore" }
 androidx-datastore-tink = { module = "androidx.datastore:datastore-tink", version.ref = "datstore" }
 androidx-workmanager = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
