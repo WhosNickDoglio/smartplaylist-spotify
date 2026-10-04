@@ -15,7 +15,7 @@ runs:
     - name: Set up jemalloc
       uses: kaeawc/setup-jemalloc@a9b92a00f7bc2768fc855b7a235a33043d17492e # v0.0.6
     - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6
+      uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6
       with:
         cache-encryption-key: ${{ inputs.encryption_key }}
 
