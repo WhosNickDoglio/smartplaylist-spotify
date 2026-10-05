@@ -39,7 +39,7 @@ plugins {
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
     id("com.gradle.common-custom-user-data-gradle-plugin") version "2.8.0"
     id("com.fueledbycaffeine.spotlight") version "1.8.0"
-    id("org.jetbrains.kotlinx.kover.aggregation") version "0.9.9"
+    id("org.jetbrains.kotlinx.kover.aggregation") version "0.9.11"
 }
 
 kover {
