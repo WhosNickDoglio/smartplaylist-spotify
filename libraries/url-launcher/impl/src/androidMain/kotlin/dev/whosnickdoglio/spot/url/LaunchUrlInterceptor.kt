@@ -22,7 +22,7 @@ internal class LaunchUrlInterceptor : NavigationInterceptor {
     ): InterceptedResult =
         if (screen is LaunchUrlScreen) {
             InterceptedGoToResult.Rewrite(
-                IntentScreen(Intent(Intent.ACTION_VIEW, screen.url.toUri()))
+                IntentScreen(Intent(Intent.ACTION_VIEW, screen.url.toUri())),
             )
         } else {
             NavigationInterceptor.Skipped

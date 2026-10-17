@@ -62,7 +62,7 @@ public object NetworkProviders {
                     Json {
                         ignoreUnknownKeys = true
                         isLenient = true
-                    }
+                    },
                 )
             }
 

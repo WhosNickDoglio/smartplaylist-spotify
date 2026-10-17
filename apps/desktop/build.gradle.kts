@@ -20,7 +20,7 @@ kotlin {
     compilerOptions {
         freeCompilerArgs.add(
             // TODO figure out how to handle deeplinking in Desktop app
-            "-Xwarning-level=SUSPICIOUS_UNUSED_MULTIBINDING:disabled"
+            "-Xwarning-level=SUSPICIOUS_UNUSED_MULTIBINDING:disabled",
         )
     }
 }

@@ -23,7 +23,7 @@ class DefaultSpotifyAccountServiceTest {
                     "authorize?client_id=client_id&response_type=code&state=state" +
                     "&scope=playlist-modify-public playlist-modify-private playlist-read-private" +
                     " user-follow-read user-read-recently-played&redirect_uri" +
-                    "=https://spot/auth/callback&code_challenge_method=S256&code_challenge=code"
+                    "=https://spot/auth/callback&code_challenge_method=S256&code_challenge=code",
             )
     }
 

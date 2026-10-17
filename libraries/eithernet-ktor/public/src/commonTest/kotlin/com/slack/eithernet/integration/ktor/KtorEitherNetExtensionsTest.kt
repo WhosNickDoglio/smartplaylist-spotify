@@ -119,7 +119,7 @@ class KtorEitherNetExtensionsTest {
                         version = HttpProtocolVersion.HTTP_2_0,
                         body = mapOf("error" to "oops"),
                         callContext = EmptyCoroutineContext,
-                    )
+                    ),
             )
 
         val result = response.asKtorApiResult<Unit>()
@@ -139,7 +139,7 @@ class KtorEitherNetExtensionsTest {
                         version = HttpProtocolVersion.HTTP_2_0,
                         body = mapOf("error" to "oops"),
                         callContext = EmptyCoroutineContext,
-                    )
+                    ),
             )
 
         val result = response.asKtorApiResult<Unit>()
@@ -158,8 +158,8 @@ private class FakeResponse(
                             status = HttpStatusCode.OK,
                             headers = headersOf(HttpHeaders.ContentType, "application/json"),
                         )
-                    }
-            )
+                    },
+            ),
         ),
     responseData: HttpResponseData,
 ) : HttpResponse() {

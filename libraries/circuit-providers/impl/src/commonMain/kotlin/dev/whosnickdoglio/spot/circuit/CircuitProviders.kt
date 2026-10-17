@@ -35,7 +35,7 @@ public interface CircuitProviders {
     public companion object {
         @Provides
         public fun provideCircuitSaver(
-            registrations: Set<CircuitSerializerRegistration>
+            registrations: Set<CircuitSerializerRegistration>,
         ): CircuitSaver = SerializableCircuitSaver(registrations)
 
         @Provides

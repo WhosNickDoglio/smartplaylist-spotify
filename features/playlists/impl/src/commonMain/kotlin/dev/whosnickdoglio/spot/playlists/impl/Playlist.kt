@@ -29,7 +29,7 @@ internal fun PlaylistScreen(state: PlaylistCircuit.State, modifier: Modifier = M
         modifier = modifier.fillMaxSize(),
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { state.eventSink(PlaylistCircuit.Event.CreateNewPlaylist) }
+                onClick = { state.eventSink(PlaylistCircuit.Event.CreateNewPlaylist) },
             ) {
                 Text("Create")
             }
@@ -63,6 +63,6 @@ private fun PlaylistItemPreview() {
                 id = "",
                 title = "Last 30 days",
                 lastSync = Clock.System.now().toLocalDateTime(TimeZone.UTC),
-            )
+            ),
     )
 }

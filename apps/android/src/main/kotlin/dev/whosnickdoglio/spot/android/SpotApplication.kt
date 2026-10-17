@@ -28,7 +28,7 @@ internal class SpotApplication : Application(), MetroApplication {
             graph.livewireClient.start()
             StrictMode.setVmPolicy(StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build())
             StrictMode.setThreadPolicy(
-                StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build()
+                StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build(),
             )
         }
     }

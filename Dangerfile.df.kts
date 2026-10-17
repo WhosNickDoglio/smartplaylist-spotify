@@ -15,7 +15,7 @@ danger(args) {
         if (!allSourceFiles.contains("CHANGELOG.md") && sourceChanges.isNotEmpty()) {
             warn(
                 "Any major changes should be added to our [`CHANGELOG.md`](CHANGELOG.md) file\n" +
-                    "Changelog format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)."
+                    "Changelog format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).",
             )
         }
 
@@ -23,7 +23,7 @@ danger(args) {
         if ((pullRequest.additions ?: 0) - (pullRequest.deletions ?: 0) > 300) {
             warn(
                 "This is a large pull request, can we break it down into multiple smaller PRs? " +
-                    "Considering [stacking](https://www.stacking.dev/) them if that helps"
+                    "Considering [stacking](https://www.stacking.dev/) them if that helps",
             )
         }
     }

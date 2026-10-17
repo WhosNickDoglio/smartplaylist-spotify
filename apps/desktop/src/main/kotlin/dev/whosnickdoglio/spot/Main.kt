@@ -54,7 +54,7 @@ internal class App(
                             val navStack = rememberSaveableNavStack(root = AuthScreen)
                             val baseNavigator =
                                 rememberDesktopScreenAwareNavigator(
-                                    rememberCircuitNavigator(navStack = navStack, onRootPop = {})
+                                    rememberCircuitNavigator(navStack = navStack, onRootPop = {}),
                                 )
                             val navigator =
                                 rememberInterceptingNavigator(

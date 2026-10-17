@@ -18,7 +18,7 @@ kotlin {
     compilerOptions {
         freeCompilerArgs.add(
             // TODO ignoring for now to work around
-            "-Xwarning-level=SUSPICIOUS_UNUSED_MULTIBINDING:disabled"
+            "-Xwarning-level=SUSPICIOUS_UNUSED_MULTIBINDING:disabled",
         )
     }
 }
@@ -55,7 +55,7 @@ android {
     lint {
         disable.add(
             // Using MetroX Android which provides a custom AppComponentFactory
-            "Instantiatable"
+            "Instantiatable",
         )
     }
 }

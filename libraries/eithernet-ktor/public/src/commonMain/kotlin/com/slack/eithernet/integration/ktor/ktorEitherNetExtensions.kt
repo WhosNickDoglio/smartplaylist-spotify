@@ -34,7 +34,7 @@ import okio.IOException
  * success value.
  */
 public suspend inline fun <reified T : Any, E : Any> HttpClient.apiResultOf(
-    block: HttpClient.() -> HttpResponse
+    block: HttpClient.() -> HttpResponse,
 ): ApiResult<T, E> {
     return try {
         val response = block()
