@@ -11,7 +11,6 @@ plugins {
     alias(libs.plugins.dependencyAnalysis)
     // github.com/runningcode/gradle-doctor/issues/302
     // alias(libs.plugins.doctor)
-    alias(libs.plugins.ktfmt)
     alias(libs.plugins.android.app) apply false
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.android.library.kmp) apply false
@@ -31,7 +30,6 @@ plugins {
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.lint) apply false
     alias(libs.plugins.licensee) apply false
-    alias(libs.plugins.sortDependencies) apply false
     alias(libs.plugins.metro) apply false
     alias(libs.plugins.buildConfig) apply false
     alias(libs.plugins.mockingbird) apply false

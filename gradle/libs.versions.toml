@@ -10,12 +10,11 @@ kotlin = "2.4.21"
 detekt = "2.0.0-alpha.6"
 jdk = "26"
 jdkTarget = "17"
-sort = "0.21.0"
 compose-jb = "1.12.2"
 circuit = "0.39.0"
 work = "2.12.0"
 sqldelight = "2.4.1"
-plugin = "0.4.0"
+plugin = "0.5.0"
 composeBom = "2026.09.00"
 eithernet = "2.0.0"
 cryptography = "0.6.0"
@@ -48,11 +47,9 @@ dependencyAnalysis = { id = "com.autonomousapps.dependency-analysis", version.re
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-sortDependencies = { id = "com.squareup.sort-dependencies", version.ref = "sort" }
 burst = { id = "app.cash.burst" }
 metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.1.2" }
-ktfmt = { id = "com.ncorti.ktfmt.gradle", version = "0.27.0" }
 mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.4.0" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 licensee = { id = "app.cash.licensee", version = "1.14.1" }
