@@ -21,6 +21,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
+            implementation(project(":libraries:deeplink:public"))
             implementation(libs.circuit.foundation)
             implementation(libs.circuit.serialization)
         }

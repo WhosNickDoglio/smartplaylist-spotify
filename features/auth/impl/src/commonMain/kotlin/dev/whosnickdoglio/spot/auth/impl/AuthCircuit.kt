@@ -5,14 +5,13 @@ package dev.whosnickdoglio.spot.auth.impl
 
 import com.slack.circuit.runtime.CircuitUiState
 
-public interface AuthCircuit {
-    public data class State(
-        val isAuthenticated: Boolean,
-        val errorMessage: String?,
+internal interface AuthCircuit {
+    data class State(
+        val authState: AuthorizationState,
         val eventSink: (Event) -> Unit,
     ) : CircuitUiState
 
-    public sealed interface Event {
-        public data object LaunchAuth : Event
+    sealed interface Event {
+        data object LaunchAuth : Event
     }
 }
