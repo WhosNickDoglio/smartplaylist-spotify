@@ -4,17 +4,12 @@
 plugins {
     alias(libs.plugins.convention.kmp)
     alias(libs.plugins.android.library.kmp)
-    alias(libs.plugins.metro)
-    alias(libs.plugins.burst)
-    alias(libs.plugins.sqldelight)
     alias(libs.plugins.app.platform)
 }
 
 appPlatform {
     enableModuleStructure(true)
 }
-
-sqldelight { databases { register("SpotDb") { packageName.set("dev.whosnickdoglio.spot") } } }
 
 kotlin {
     android {
@@ -24,20 +19,8 @@ kotlin {
     jvm()
 
     sourceSets {
-        androidMain.dependencies { implementation(libs.sqldelight.android) }
-
-        jvmMain.dependencies { implementation(libs.sqldelight.jvm) }
-
         commonMain.dependencies {
-            implementation(libs.sqldelight.coroutines)
-            // implementation(libs.sqldelight.native)
-        }
-
-        commonTest.dependencies {
-            implementation(libs.assertk)
-            implementation(libs.circuit.test)
-            implementation(libs.dejavu)
-            implementation(libs.kotlin.test)
+            implementation(libs.datetime)
         }
     }
 }
