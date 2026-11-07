@@ -50,7 +50,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 burst = { id = "app.cash.burst" }
 metro = { id = "dev.zacsweers.metro", version.ref = "metro" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version = "6.1.2" }
-mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.4.0" }
+mockingbird = { id = "com.anthonycr.plugins.mockingbird", version = "3.5.0" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 licensee = { id = "app.cash.licensee", version = "1.14.1" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
